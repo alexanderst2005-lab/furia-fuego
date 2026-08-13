@@ -1,4 +1,5 @@
 /* Base resets & typography */
+:root {
   --bg-black: #070707;
   --bg-dark-2: #121212;
   --color-red: #ff0033;
@@ -11,10 +12,9 @@
   --font-body: 'Outfit', sans-serif;
 }
 
-/* Base resets & typography */
 body {
   background-color: var(--bg-black);
-  color: #f3f3f3;
+  color: #ffffff;
   font-family: var(--font-body);
   overflow-x: hidden;
 }
@@ -165,23 +165,4 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-orange);
-}
-
-/* Animations */
-@keyframes pulse-glow {
-  0%, 100% { filter: drop-shadow(0 0 15px rgba(255,0,51,0.6)); }
-  50% { filter: drop-shadow(0 0 35px rgba(255,204,0,0.9)); }
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 3s infinite ease-in-out;
-}
-
-@keyframes bounce-slow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-
-.animate-bounce-slow {
-  animation: bounce-slow 2.5s infinite ease-in-out;
 }
