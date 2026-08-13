@@ -1,8 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
+/* Base resets & typography */
   --bg-black: #070707;
   --bg-dark-2: #121212;
   --color-red: #ff0033;
