@@ -83,7 +83,7 @@ const products = [
     desc: "Doble carne, triple queso cheddar, salsa de queso fundido y tocineta.",
     price: 27900,
     tag: "💥 FAVORITO",
-    img: "/assets/hero-burger.png",
+    img: "/assets/cheese-monster.png",
     category: "burgers",
     ingredients: ["2x Carne de Res", "3x Queso Cheddar", "Baño de Salsa de Queso", "Tocineta"]
   },
@@ -93,7 +93,7 @@ const products = [
     desc: "Carne de res, pollo crispy, queso cheddar, tocineta y salsa especial.",
     price: 29900,
     tag: "🆕 NUEVO",
-    img: "/assets/hero-burger.png",
+    img: "/assets/furiosa-crispy.png",
     category: "burgers",
     ingredients: ["1x Carne de Res", "1x Filete Pollo Crispy", "Queso Cheddar", "Tocineta", "Salsa Especial"]
   },
@@ -115,7 +115,7 @@ const products = [
     desc: "Pollo crispy, queso cheddar, doble tocineta y salsa BBQ.",
     price: 23900,
     tag: "💥 FAVORITO",
-    img: "/assets/crispy-chicken.png",
+    img: "/assets/crispy-bacon.png",
     category: "crispy",
     ingredients: ["Pollo Crispy Gold", "Queso Cheddar", "Doble Tocineta Ahumada", "Salsa BBQ"]
   },
@@ -125,7 +125,7 @@ const products = [
     desc: "Pollo crispy, doble queso, salsa de queso y cebolla crispy.",
     price: 23900,
     tag: "💥 FAVORITO",
-    img: "/assets/crispy-chicken.png",
+    img: "/assets/crispy-cheese.png",
     category: "crispy",
     ingredients: ["Pollo Crispy", "Doble Queso", "Salsa de Queso Derretido", "Cebolla Crispy"]
   },
@@ -135,7 +135,7 @@ const products = [
     desc: "Pollo crispy, queso, jalapeños, tocineta y salsa picante.",
     price: 24900,
     tag: "🌶️ PICANTE",
-    img: "/assets/crispy-chicken.png",
+    img: "/assets/crispy-inferno.png",
     category: "crispy",
     ingredients: ["Pollo Crispy Picante", "Queso Cheddar", "Jalapeños Sliced", "Tocineta", "Salsa Habanero"]
   },
@@ -157,7 +157,7 @@ const products = [
     desc: "Tres tacos de carne, queso cheddar, tocineta, jalapeños y salsa picante.",
     price: 22900,
     tag: "🌶️ PICANTE",
-    img: "/assets/tacos-flames.png",
+    img: "/assets/tacos-furiosos.png",
     category: "tacos",
     ingredients: ["3x Tacos", "Carne de Res", "Queso Cheddar", "Tocineta", "Jalapeños", "Salsa Picante"]
   },
@@ -167,7 +167,7 @@ const products = [
     desc: "Tres tacos de carne, queso, cebolla caramelizada y BBQ ahumada.",
     price: 21900,
     tag: "💥 FAVORITO",
-    img: "/assets/tacos-flames.png",
+    img: "/assets/tacos-bbq.png",
     category: "tacos",
     ingredients: ["3x Tacos", "Carne Desmechada", "Queso Melted", "Cebolla Caramelizada", "Salsa BBQ Ahumada"]
   },
@@ -177,7 +177,7 @@ const products = [
     desc: "Tres tacos con pollo crispy, queso, lechuga y salsa especial.",
     price: 21900,
     tag: "🆕 NUEVO",
-    img: "/assets/tacos-flames.png",
+    img: "/assets/tacos-crispy.png",
     category: "tacos",
     ingredients: ["3x Tacos", "Pollo Crispy Crujiente", "Queso", "Lechuga Fresca", "Salsa Especial"]
   },
@@ -199,7 +199,7 @@ const products = [
     desc: "Papas, carne desmechada, queso cheddar, tocineta y salsa especial.",
     price: 23900,
     tag: "💥 FAVORITO",
-    img: "/assets/caos-fries.png",
+    img: "/assets/fries-demenciales.png",
     category: "fries",
     ingredients: ["Papas Crujientes", "Carne Desmechada Juicy", "Queso Cheddar", "Tocineta", "Salsa Especial"]
   },
@@ -209,7 +209,7 @@ const products = [
     desc: "Papas, queso, jalapeños, carne y salsa picante.",
     price: 21900,
     tag: "🌶️ PICANTE",
-    img: "/assets/caos-fries.png",
+    img: "/assets/fries-inferno.png",
     category: "fries",
     ingredients: ["Papas Fritas", "Carne Picada", "Queso", "Jalapeños Rodajas", "Salsa Picante Habanero"]
   },
@@ -219,7 +219,7 @@ const products = [
     desc: "Papas, abundante queso cheddar y doble tocineta.",
     price: 19900,
     tag: "💥 FAVORITO",
-    img: "/assets/caos-fries.png",
+    img: "/assets/bacon-cheese-fries.png",
     category: "fries",
     ingredients: ["Papas Doradas", "Abundante Queso Cheddar", "Doble Tocineta Crujiente"]
   },
@@ -229,7 +229,7 @@ const products = [
     desc: "Papas, carne desmechada, queso y salsa BBQ ahumada.",
     price: 22900,
     tag: "🆕 NUEVO",
-    img: "/assets/caos-fries.png",
+    img: "/assets/fries-bbq.png",
     category: "fries",
     ingredients: ["Papas Fritas", "Carne Desmechada", "Queso Fundido", "Salsa BBQ Ahumada"]
   },
@@ -241,7 +241,7 @@ const products = [
     desc: "Salchicha premium, queso, tocineta, papas fosforito, cebolla y salsas.",
     price: 18900,
     tag: "🔥 MÁS VENDIDO",
-    img: "/assets/hero-burger.png",
+    img: "/assets/hot-dog-furioso.png",
     category: "dogs",
     ingredients: ["Salchicha Premium Jumbo", "Queso Fundido", "Tocineta Bits", "Papas Fosforito", "Cebolla", "Salsas de la Casa"]
   },
@@ -251,7 +251,7 @@ const products = [
     desc: "Salchicha premium, queso cheddar, carne desmechada, tocineta, papas y salsa Furia.",
     price: 23900,
     tag: "👑 PREMIUM",
-    img: "/assets/hero-burger.png",
+    img: "/assets/hot-dog-furioso.png",
     category: "dogs",
     ingredients: ["Salchicha Jumbo", "Queso Cheddar", "Carne Desmechada", "Tocineta", "Papas Crunch", "Salsa Furia"]
   },
@@ -261,7 +261,7 @@ const products = [
     desc: "Salchicha, queso, jalapeños, tocineta y salsa picante.",
     price: 20900,
     tag: "🌶️ PICANTE",
-    img: "/assets/hero-burger.png",
+    img: "/assets/hot-dog-furioso.png",
     category: "dogs",
     ingredients: ["Salchicha Premium", "Queso Melted", "Jalapeños Sliced", "Tocineta", "Salsa Picante Inferno"]
   },
@@ -273,7 +273,7 @@ const products = [
     desc: "Tiras de pollo crispy, papas, salsa y bebida.",
     price: 24900,
     tag: "🔥 MÁS VENDIDO",
-    img: "/assets/crispy-chicken.png",
+    img: "/assets/crispy-bacon.png",
     category: "wings",
     ingredients: ["5x Tiras de Pollo Crispy", "Papas Fritas", "Salsa Furia Dip", "Bebida 500ml"]
   },
@@ -283,7 +283,7 @@ const products = [
     desc: "Tiras de pollo crispy picantes, papas, salsa picante y bebida.",
     price: 26900,
     tag: "🌶️ PICANTE",
-    img: "/assets/crispy-chicken.png",
+    img: "/assets/crispy-inferno.png",
     category: "wings",
     ingredients: ["5x Tiras Pollo Crispy Picante", "Papas Inferno", "Dip Salsa Habanero", "Bebida Helada"]
   },
@@ -303,7 +303,7 @@ const products = [
     desc: "Alitas de pollo con salsa picante de la casa.",
     price: 26900,
     tag: "🌶️ PICANTE",
-    img: "/assets/crispy-chicken.png",
+    img: "/assets/crispy-inferno.png",
     category: "wings",
     ingredients: ["8x Alitas Picantes", "Salsa Furia Habanero", "Dip Ranch / Queso Azul"]
   },
