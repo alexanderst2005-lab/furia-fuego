@@ -519,9 +519,12 @@ function initIntroSplash() {
         e.preventDefault();
         unlock();
 
-        const targetY = targetEl.getBoundingClientRect().top + window.pageYOffset - 80;
+        const headerOffset = 75;
+        const elementPosition = targetEl.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
         window.scrollTo({
-          top: targetY,
+          top: offsetPosition,
           behavior: "smooth"
         });
       }
