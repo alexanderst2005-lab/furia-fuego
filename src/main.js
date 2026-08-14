@@ -1,4 +1,4 @@
-// FURIA & FUEGO — High-Performance JavaScript Engine (Optimized for Mobile & Low GPU)
+// FURIA & FUEGO — Zero-Lag High Speed Engine (No Heavy Canvas Loops)
 
 const WHATSAPP_NUMBER = "573000000000";
 
@@ -460,7 +460,6 @@ function formatMoney(num) {
 // DOM Initialization
 document.addEventListener("DOMContentLoaded", () => {
   initIntroSplash();
-  initFireCanvas();
   renderProducts();
   renderExtrasGrid();
   renderCombosSection();
@@ -470,27 +469,20 @@ document.addEventListener("DOMContentLoaded", () => {
   setupMobileNav();
 });
 
-// INTRO SPLASH & ROCK-SOLID NAV SCROLLING ENGINE
+// INTRO SPLASH HANDLER (PURE NATIVE ZERO-LAG)
 function initIntroSplash() {
   const splash = document.getElementById("intro-splash");
   const btnEnter = document.getElementById("btn-enter");
 
   if (!splash) return;
 
-  function unlockSplash() {
-    splash.style.transition = "opacity 0.2s ease";
-    splash.style.opacity = "0";
-    splash.style.pointerEvents = "none";
-    setTimeout(() => {
-      splash.style.display = "none";
-    }, 200);
-  }
-
   if (btnEnter) {
-    btnEnter.addEventListener("click", unlockSplash);
+    btnEnter.addEventListener("click", () => {
+      splash.style.display = "none";
+    });
   }
 
-  // Exact Pixel Offset Scrolling for Navigation Links (.nav-scroll-btn)
+  // Exact Pixel Offset Scroll for Nav Buttons
   document.querySelectorAll(".nav-scroll-btn").forEach(btn => {
     btn.addEventListener("click", function (e) {
       const href = this.getAttribute("href");
@@ -499,9 +491,8 @@ function initIntroSplash() {
       const targetEl = document.querySelector(href);
       if (targetEl) {
         e.preventDefault();
-        unlockSplash();
+        splash.style.display = "none";
 
-        // Calculate exact pixel position relative to current viewport
         const targetY = targetEl.getBoundingClientRect().top + window.pageYOffset - 80;
         window.scrollTo({
           top: targetY,
@@ -512,69 +503,7 @@ function initIntroSplash() {
   });
 }
 
-// LIGHTWEIGHT FIRE CANVAS PARTICLES (THROTTLED & AUTO-PAUSED ON LOW POWER / HIDDEN)
-function initFireCanvas() {
-  const canvas = document.getElementById("fire-canvas");
-  if (!canvas) return;
-  const ctx = canvas.getContext("2d");
-
-  const isMobile = window.innerWidth < 768;
-  const particleCount = isMobile ? 12 : 25;
-
-  let width = (canvas.width = window.innerWidth);
-  let height = (canvas.height = window.innerHeight);
-
-  let isTabActive = true;
-  document.addEventListener("visibilitychange", () => {
-    isTabActive = !document.hidden;
-  });
-
-  window.addEventListener("resize", () => {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-  }, { passive: true });
-
-  const particles = [];
-
-  class Particle {
-    constructor() { this.reset(); }
-    reset() {
-      this.x = Math.random() * width;
-      this.y = height + Math.random() * 30;
-      this.radius = Math.random() * 2 + 1;
-      this.speedY = Math.random() * 1.2 + 0.5;
-      this.speedX = (Math.random() - 0.5) * 0.5;
-      this.alpha = Math.random() * 0.5 + 0.2;
-      this.color = Math.random() > 0.4 ? "#ff0033" : "#ffcc00";
-    }
-    update() {
-      this.y -= this.speedY;
-      this.x += this.speedX;
-      this.alpha -= 0.003;
-      if (this.y < 0 || this.alpha <= 0) this.reset();
-    }
-    draw() {
-      ctx.globalAlpha = this.alpha;
-      ctx.fillStyle = this.color;
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fill();
-    }
-  }
-
-  for (let i = 0; i < particleCount; i++) particles.push(new Particle());
-
-  function animate() {
-    if (isTabActive) {
-      ctx.clearRect(0, 0, width, height);
-      particles.forEach(p => { p.update(); p.draw(); });
-    }
-    requestAnimationFrame(animate);
-  }
-  animate();
-}
-
-// RENDER PRODUCTS GRID WITH LAZY LOADING & HARDWARE ACCELERATION
+// RENDER PRODUCTS GRID WITH NATIVE BROWSER LAZY LOADING
 function renderProducts(category = "all") {
   const grid = document.getElementById("products-grid");
   if (!grid) return;
@@ -599,14 +528,14 @@ function renderProducts(category = "all") {
 
   filtered.forEach(product => {
     const card = document.createElement("div");
-    card.className = "product-card rounded-xl overflow-hidden flex flex-col justify-between group cursor-pointer transform-gpu";
+    card.className = "product-card rounded-xl overflow-hidden flex flex-col justify-between group cursor-pointer";
 
     card.innerHTML = `
-      <div class="relative overflow-hidden bg-black/80">
+      <div class="relative overflow-hidden bg-black">
         <span class="absolute top-3 left-3 bg-red text-white text-xs font-condensed font-bold px-3 py-1 rounded shadow z-10">
           ${product.tag}
         </span>
-        <img src="${product.img}" alt="${product.name}" loading="lazy" decoding="async" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-300">
+        <img src="${product.img}" alt="${product.name}" loading="lazy" decoding="async" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-200">
       </div>
       <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
         <div>
@@ -615,7 +544,7 @@ function renderProducts(category = "all") {
         </div>
         <div class="flex items-center justify-between pt-3 border-t border-white/10">
           <span class="text-2xl font-heading text-red">${formatMoney(product.price)}</span>
-          <button class="btn-furia text-base px-4 py-1.5 font-heading tracking-wider flex items-center gap-1 add-quick-btn"
+          <button type="button" class="btn-furia text-base px-4 py-1.5 font-heading tracking-wider flex items-center gap-1 add-quick-btn"
                   data-id="${product.id}">
             AGREGAR 🔥
           </button>
@@ -623,7 +552,7 @@ function renderProducts(category = "all") {
       </div>
     `;
 
-    card.addEventListener("click", (e) => {
+    card.addEventListener("click", () => {
       openProductModal(product);
     });
 
@@ -642,13 +571,13 @@ function renderExtrasGrid() {
 
   extrasList.forEach(extra => {
     const card = document.createElement("div");
-    card.className = "bg-black/60 border border-white/10 p-4 rounded-lg flex items-center justify-between hover:border-yellow transition-all cursor-pointer";
+    card.className = "bg-black/60 border border-white/10 p-4 rounded-lg flex items-center justify-between hover:border-yellow transition-colors cursor-pointer";
     card.innerHTML = `
       <div>
         <div class="font-condensed text-white text-base font-bold uppercase">${extra.name}</div>
         <div class="text-red font-heading text-lg">${formatMoney(extra.price)}</div>
       </div>
-      <button class="btn-furia text-xs px-3 py-1 font-heading uppercase font-bold add-extra-direct-btn">
+      <button type="button" class="btn-furia text-xs px-3 py-1 font-heading uppercase font-bold add-extra-direct-btn">
         + AGREGAR
       </button>
     `;
@@ -674,7 +603,7 @@ function renderCombosSection() {
 
   combos.forEach(combo => {
     const card = document.createElement("div");
-    card.className = "combo-card border border-red/40 bg-black/90 p-5 flex flex-col justify-between relative group hover:border-red transition-all rounded-xl cursor-pointer transform-gpu";
+    card.className = "combo-card border border-red/40 bg-black p-5 flex flex-col justify-between relative group hover:border-red transition-colors rounded-xl cursor-pointer";
 
     card.innerHTML = `
       <div class="absolute -top-3 right-4 bg-red text-white font-heading px-3 py-0.5 text-xs tracking-widest rounded shadow">
@@ -682,14 +611,14 @@ function renderCombosSection() {
       </div>
       <div>
         <div class="overflow-hidden mb-4 rounded-lg">
-          <img src="${combo.img}" alt="${combo.name}" loading="lazy" decoding="async" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+          <img src="${combo.img}" alt="${combo.name}" loading="lazy" decoding="async" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-200">
         </div>
         <h3 class="text-3xl font-heading text-white uppercase mb-1">${combo.name}</h3>
         <p class="text-gray-400 text-xs mb-3">${combo.desc}</p>
       </div>
       <div class="flex items-center justify-between pt-3 border-t border-white/10">
         <span class="text-3xl font-heading text-red">${formatMoney(combo.price)}</span>
-        <button class="btn-furia px-5 py-1.5 text-base font-heading add-combo-btn" data-id="${combo.id}">
+        <button type="button" class="btn-furia px-5 py-1.5 text-base font-heading add-combo-btn" data-id="${combo.id}">
           QUIERO EL COMBO 🔥
         </button>
       </div>
@@ -726,11 +655,8 @@ function setupProductModal() {
   const addBtn = document.getElementById("modal-add-btn");
 
   function closeModal() {
-    modal.querySelector(".transform").classList.add("scale-95");
-    setTimeout(() => {
-      modal.classList.add("pointer-events-none", "opacity-0");
-      modal.classList.remove("opacity-100");
-    }, 200);
+    modal.classList.add("pointer-events-none", "opacity-0");
+    modal.classList.remove("opacity-100");
   }
 
   closeBtn.addEventListener("click", closeModal);
@@ -809,7 +735,6 @@ function openProductModal(product) {
 
   modal.classList.remove("pointer-events-none", "opacity-0");
   modal.classList.add("opacity-100");
-  modal.querySelector(".transform").classList.remove("scale-95");
 }
 
 function updateModalTotals() {
@@ -838,15 +763,11 @@ function setupCartDrawer() {
   function openCart() {
     cartDrawer.classList.remove("pointer-events-none", "opacity-0");
     cartDrawer.classList.add("opacity-100");
-    cartDrawer.querySelector(".transform").classList.remove("translate-x-full");
   }
 
   function closeCart() {
-    cartDrawer.querySelector(".transform").classList.add("translate-x-full");
-    setTimeout(() => {
-      cartDrawer.classList.add("pointer-events-none", "opacity-0");
-      cartDrawer.classList.remove("opacity-100");
-    }, 200);
+    cartDrawer.classList.add("pointer-events-none", "opacity-0");
+    cartDrawer.classList.remove("opacity-100");
   }
 
   cartBtn.addEventListener("click", openCart);
@@ -923,9 +844,9 @@ function updateCartUI() {
         </div>
 
         <div class="flex items-center gap-2">
-          <button class="bg-gray-800 text-white w-7 h-7 rounded flex items-center justify-center font-bold btn-minus cursor-pointer" data-index="${index}">-</button>
+          <button type="button" class="bg-gray-800 text-white w-7 h-7 rounded flex items-center justify-center font-bold btn-minus cursor-pointer" data-index="${index}">-</button>
           <span class="font-bold text-white text-lg w-5 text-center">${item.quantity}</span>
-          <button class="bg-gray-800 text-white w-7 h-7 rounded flex items-center justify-center font-bold btn-plus cursor-pointer" data-index="${index}">+</button>
+          <button type="button" class="bg-gray-800 text-white w-7 h-7 rounded flex items-center justify-center font-bold btn-plus cursor-pointer" data-index="${index}">+</button>
         </div>
       </div>
     `;
