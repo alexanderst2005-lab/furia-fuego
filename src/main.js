@@ -4,25 +4,25 @@ const WHATSAPP_NUMBER = "573000000000";
 
 // Extras Master Database & Icon Registry
 const allExtrasMap = {
-  "ext-cheddar": { id: "ext-cheddar", name: "Extra Queso Cheddar", price: 3000, icon: "🧀", img: "/assets/crispy-cheese.png" },
-  "ext-bacon": { id: "ext-bacon", name: "Extra Tocineta Crujiente", price: 4000, icon: "🥓", img: "/assets/crispy-bacon.png" },
-  "ext-patty": { id: "ext-patty", name: "Extra Carne 150g", price: 7000, icon: "🥩", img: "/assets/la-furiosa.png" },
-  "ext-crispy": { id: "ext-crispy", name: "Extra Filete Pollo Crispy", price: 6000, icon: "🍗", img: "/assets/furiosa-crispy.png" },
-  "ext-jalapeno": { id: "ext-jalapeno", name: "Jalapeños Picantes", price: 2000, icon: "🌶️", img: "/assets/fries-inferno.png" },
-  "ext-onion": { id: "ext-onion", name: "Aros de Cebolla Crujientes", price: 5000, icon: "🧅", img: "/assets/fries-bbq.png" },
-  "ext-sauce-furia": { id: "ext-sauce-furia", name: "Salsa Furia Especial", price: 2000, icon: "🔥", img: "/assets/drink-fuego.png" },
-  "ext-sauce-bbq": { id: "ext-sauce-bbq", name: "Salsa BBQ Ahumada", price: 2000, icon: "🥫", img: "/assets/tacos-bbq.png" },
-  "ext-sauce-habanero": { id: "ext-sauce-habanero", name: "Salsa Habanero Picante", price: 2000, icon: "🌶️", img: "/assets/fries-inferno.png" },
+  "ext-cheddar": { id: "ext-cheddar", name: "Extra Queso Cheddar", price: 3000, icon: "🧀", bg: "bg-yellow/20 border-yellow/40 text-yellow" },
+  "ext-bacon": { id: "ext-bacon", name: "Extra Tocineta Crujiente", price: 4000, icon: "🥓", bg: "bg-orange/20 border-orange/40 text-orange" },
+  "ext-patty": { id: "ext-patty", name: "Extra Carne 150g", price: 7000, icon: "🥩", bg: "bg-red/20 border-red/40 text-red" },
+  "ext-crispy": { id: "ext-crispy", name: "Extra Filete Pollo Crispy", price: 6000, icon: "🍗", bg: "bg-yellow/20 border-yellow/40 text-yellow" },
+  "ext-jalapeno": { id: "ext-jalapeno", name: "Jalapeños Picantes", price: 2000, icon: "🌶️", bg: "bg-red/20 border-red/40 text-red" },
+  "ext-onion": { id: "ext-onion", name: "Aros de Cebolla Crujientes", price: 5000, icon: "🧅", bg: "bg-yellow/20 border-yellow/40 text-yellow" },
+  "ext-sauce-furia": { id: "ext-sauce-furia", name: "Salsa Furia Especial", price: 2000, icon: "🔥", bg: "bg-red/20 border-red/40 text-red" },
+  "ext-sauce-bbq": { id: "ext-sauce-bbq", name: "Salsa BBQ Ahumada", price: 2000, icon: "🥫", bg: "bg-orange/20 border-orange/40 text-orange" },
+  "ext-sauce-habanero": { id: "ext-sauce-habanero", name: "Salsa Habanero Picante", price: 2000, icon: "🌶️", bg: "bg-red/20 border-red/40 text-red" },
 
-  "ext-cheese-sauce": { id: "ext-cheese-sauce", name: "Salsa de Queso Cheddar", price: 3500, icon: "🧀", img: "/assets/crispy-cheese.png" },
-  "ext-bacon-bits": { id: "ext-bacon-bits", name: "Bits de Tocineta", price: 3500, icon: "🥓", img: "/assets/bacon-cheese-fries.png" },
-  "ext-pulled-beef": { id: "ext-pulled-beef", name: "Extra Carne Desmechada", price: 6000, icon: "🥩", img: "/assets/hot-dog-demencial.png" },
+  "ext-cheese-sauce": { id: "ext-cheese-sauce", name: "Salsa de Queso Cheddar", price: 3500, icon: "🧀", bg: "bg-yellow/20 border-yellow/40 text-yellow" },
+  "ext-bacon-bits": { id: "ext-bacon-bits", name: "Bits de Tocineta", price: 3500, icon: "🥓", bg: "bg-orange/20 border-orange/40 text-orange" },
+  "ext-pulled-beef": { id: "ext-pulled-beef", name: "Extra Carne Desmechada", price: 6000, icon: "🥩", bg: "bg-red/20 border-red/40 text-red" },
 
-  "ext-dip-ranch": { id: "ext-dip-ranch", name: "Dip Salsa Ranch / Queso Azul", price: 2500, icon: "🥛", img: "/assets/drink-fuego.png" },
-  "ext-fries-side": { id: "ext-fries-side", name: "Porción de Papas Fritas", price: 6000, icon: "🍟", img: "/assets/caos-fries.png" },
+  "ext-dip-ranch": { id: "ext-dip-ranch", name: "Dip Salsa Ranch / Queso Azul", price: 2500, icon: "🥛", bg: "bg-blue-500/20 border-blue-500/40 text-blue-400" },
+  "ext-fries-side": { id: "ext-fries-side", name: "Porción de Papas Fritas", price: 6000, icon: "🍟", bg: "bg-yellow/20 border-yellow/40 text-yellow" },
 
-  "ext-fries-upgrade": { id: "ext-fries-upgrade", name: "Agrandar Papas a Caos Fries", price: 4000, icon: "🍟", img: "/assets/caos-fries.png" },
-  "ext-drink-upgrade": { id: "ext-drink-upgrade", name: "Agrandar Bebida a 1 Litro", price: 3000, icon: "🥤", img: "/assets/drink-fuego.png" }
+  "ext-fries-upgrade": { id: "ext-fries-upgrade", name: "Agrandar Papas a Caos Fries", price: 4000, icon: "🍟", bg: "bg-yellow/20 border-yellow/40 text-yellow" },
+  "ext-drink-upgrade": { id: "ext-drink-upgrade", name: "Agrandar Bebida a 1 Litro", price: 3000, icon: "🥤", bg: "bg-red/20 border-red/40 text-red" }
 };
 
 // Global Extras Grid list for main page #extras-section
@@ -785,7 +785,7 @@ function renderExtrasGrid() {
 
     card.querySelector(".add-extra-direct-btn").addEventListener("click", (e) => {
       e.stopPropagation();
-      addToCart(extra.name, extra.price, extra.img || "/assets/crispy-cheese.png", []);
+      addToCart(extra.name, extra.price, "/assets/logo.svg", [], 1, extra.icon, extra.bg);
     });
 
     fragment.appendChild(card);
@@ -1098,7 +1098,7 @@ function setupCartDrawer() {
   whatsappSubmitBtn.addEventListener("click", sendWhatsAppOrder);
 }
 
-function addToCart(name, unitPrice, img, extras = [], qty = 1) {
+function addToCart(name, unitPrice, img, extras = [], qty = 1, icon = null, bg = null) {
   const extrasCost = extras.reduce((sum, e) => sum + e.price, 0);
   const itemTotalUnitPrice = unitPrice + extrasCost;
   const extrasKey = extras.map(e => e.name).sort().join(", ");
@@ -1114,6 +1114,8 @@ function addToCart(name, unitPrice, img, extras = [], qty = 1) {
       unitPrice: itemTotalUnitPrice,
       basePrice: unitPrice,
       img,
+      icon,
+      bg,
       extras,
       quantity: qty
     });
@@ -1164,10 +1166,14 @@ function updateCartUI() {
       extrasHTML += `</div>`;
     }
 
+    const imgOrIcon = item.icon
+      ? `<div class="w-14 h-14 rounded-xl ${item.bg || 'bg-yellow/20 border-yellow/40'} border flex items-center justify-center text-2xl shrink-0 shadow-lg">${item.icon}</div>`
+      : `<img src="${item.img}" alt="${item.name}" loading="lazy" class="w-14 h-14 object-cover rounded border border-red/30 shrink-0">`;
+
     row.innerHTML = `
       <div class="flex items-center justify-between gap-2">
         <div class="flex items-center gap-3">
-          <img src="${item.img}" alt="${item.name}" loading="lazy" class="w-14 h-14 object-cover rounded border border-red/30">
+          ${imgOrIcon}
           <div>
             <h4 class="font-heading text-white text-xl uppercase leading-none">${item.name}</h4>
             ${extrasHTML}
