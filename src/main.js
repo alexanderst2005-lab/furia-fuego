@@ -497,7 +497,7 @@ function initIntroSplash() {
 
   // Exact Pixel Offset Scrolling for Navigation Links (.nav-scroll-btn)
   document.querySelectorAll(".nav-scroll-btn").forEach(btn => {
-    const handleScrollClick = (e) => {
+    function handleScrollClick(e) {
       const href = btn.getAttribute("href");
       if (!href || !href.startsWith("#") || href === "#") return;
 
@@ -514,7 +514,9 @@ function initIntroSplash() {
           });
         });
       }
-    });
+    }
+
+    btn.addEventListener("click", handleScrollClick);
   });
 }
 
