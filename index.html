@@ -16,6 +16,12 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=4">
 
+  <!-- Preload Payment Logos for 0ms Instant Display -->
+  <link rel="preload" href="/assets/bre-b.png" as="image">
+  <link rel="preload" href="/assets/bancolombia.png" as="image">
+  <link rel="preload" href="/assets/daviplata.png" as="image">
+  <link rel="preload" href="/assets/nequi.png" as="image">
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -321,17 +327,17 @@
       <div>
         <h4 class="font-condensed text-white text-lg font-bold uppercase mb-4 text-yellow">MÉTODOS DE PAGO</h4>
         <div class="grid grid-cols-2 gap-3 max-w-xs">
-          <div class="bg-white p-2 rounded-lg flex items-center justify-center h-12 hover:scale-105 transition-transform shadow-md">
-            <img src="/assets/bre-b.png" alt="Bre-B" class="max-h-full max-w-full object-contain">
+          <div class="bg-white rounded-xl p-2 flex items-center justify-center h-14 w-full max-w-[140px] overflow-hidden shadow-lg border border-white/20 hover:scale-105 transition-transform">
+            <img src="/assets/bre-b.png" alt="Bre-B" width="120" height="40" class="max-h-full max-w-full object-contain block" fetchpriority="high">
           </div>
-          <div class="bg-white p-2 rounded-lg flex items-center justify-center h-12 hover:scale-105 transition-transform shadow-md">
-            <img src="/assets/bancolombia.png" alt="Bancolombia" class="max-h-full max-w-full object-contain">
+          <div class="bg-white rounded-xl p-2 flex items-center justify-center h-14 w-full max-w-[140px] overflow-hidden shadow-lg border border-white/20 hover:scale-105 transition-transform">
+            <img src="/assets/bancolombia.png" alt="Bancolombia" width="120" height="40" class="max-h-full max-w-full object-contain block" fetchpriority="high">
           </div>
-          <div class="bg-white p-2 rounded-lg flex items-center justify-center h-12 hover:scale-105 transition-transform shadow-md">
-            <img src="/assets/daviplata.png" alt="DaviPlata" class="max-h-full max-w-full object-contain">
+          <div class="bg-white rounded-xl p-2 flex items-center justify-center h-14 w-full max-w-[140px] overflow-hidden shadow-lg border border-white/20 hover:scale-105 transition-transform">
+            <img src="/assets/daviplata.png" alt="DaviPlata" width="120" height="40" class="max-h-full max-w-full object-contain block" fetchpriority="high">
           </div>
-          <div class="bg-white p-2 rounded-lg flex items-center justify-center h-12 hover:scale-105 transition-transform shadow-md">
-            <img src="/assets/nequi.png" alt="Nequi" class="max-h-full max-w-full object-contain">
+          <div class="bg-white rounded-xl p-2 flex items-center justify-center h-14 w-full max-w-[140px] overflow-hidden shadow-lg border border-white/20 hover:scale-105 transition-transform">
+            <img src="/assets/nequi.png" alt="Nequi" width="120" height="40" class="max-h-full max-w-full object-contain block" fetchpriority="high">
           </div>
         </div>
       </div>
