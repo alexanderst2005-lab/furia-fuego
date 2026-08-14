@@ -656,8 +656,11 @@ function setupProductModal() {
   const addBtn = document.getElementById("modal-add-btn");
 
   function closeModal() {
-    modal.classList.add("pointer-events-none", "opacity-0");
+    modal.classList.add("opacity-0");
     modal.classList.remove("opacity-100");
+    setTimeout(() => {
+      modal.classList.add("hidden");
+    }, 200);
   }
 
   closeBtn.addEventListener("click", closeModal);
@@ -734,8 +737,11 @@ function openProductModal(product) {
 
   updateModalTotals();
 
-  modal.classList.remove("pointer-events-none", "opacity-0");
-  modal.classList.add("opacity-100");
+  modal.classList.remove("hidden");
+  setTimeout(() => {
+    modal.classList.remove("opacity-0");
+    modal.classList.add("opacity-100");
+  }, 10);
 }
 
 function updateModalTotals() {
@@ -762,13 +768,19 @@ function setupCartDrawer() {
   const whatsappSubmitBtn = document.getElementById("whatsapp-submit-btn");
 
   function openCart() {
-    cartDrawer.classList.remove("pointer-events-none", "opacity-0");
-    cartDrawer.classList.add("opacity-100");
+    cartDrawer.classList.remove("hidden");
+    setTimeout(() => {
+      cartDrawer.classList.remove("opacity-0");
+      cartDrawer.classList.add("opacity-100");
+    }, 10);
   }
 
   function closeCart() {
-    cartDrawer.classList.add("pointer-events-none", "opacity-0");
+    cartDrawer.classList.add("opacity-0");
     cartDrawer.classList.remove("opacity-100");
+    setTimeout(() => {
+      cartDrawer.classList.add("hidden");
+    }, 200);
   }
 
   cartBtn.addEventListener("click", openCart);

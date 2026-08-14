@@ -14,7 +14,7 @@
   <meta property="og:image" content="/assets/logo.svg">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -47,7 +47,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,900;1,900&family=Bebas+Neue&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   
   <!-- Custom CSS Design System -->
-  <link rel="stylesheet" href="/src/style.css?v=2">
+  <link rel="stylesheet" href="/src/style.css?v=3">
 </head>
 <body class="bg-dark text-white">
 
@@ -331,10 +331,10 @@
   </footer>
 
 
-  <!-- MODAL DE PRODUCTO DETALLADO -->
-  <div id="product-modal" class="fixed inset-0 z-50 pointer-events-none opacity-0 transition-opacity duration-200 flex items-center justify-center p-4">
+  <!-- MODAL DE PRODUCTO DETALLADO (HIDDEN BY DEFAULT WITH DISPLAY: NONE) -->
+  <div id="product-modal" class="hidden fixed inset-0 z-50 opacity-0 transition-opacity duration-200 flex items-center justify-center p-4">
     <div id="modal-backdrop" class="absolute inset-0 bg-black/90"></div>
-    <div class="relative bg-dark-secondary border border-red/40 rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 shadow-2xl z-10 pointer-events-auto transform scale-95 transition-transform duration-200">
+    <div class="relative bg-dark-secondary border border-red/40 rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 shadow-2xl z-10 transform scale-95 transition-transform duration-200">
       
       <button id="modal-close-btn" type="button" class="absolute top-4 right-4 text-gray-400 hover:text-white text-3xl font-bold z-20 cursor-pointer">&times;</button>
 
@@ -384,10 +384,10 @@
   </div>
 
 
-  <!-- SLIDE-OVER CARRO DE COMPRAS POR WHATSAPP -->
-  <div id="cart-drawer" class="fixed inset-0 z-50 pointer-events-none opacity-0 transition-opacity duration-200">
+  <!-- SLIDE-OVER CARRO DE COMPRAS POR WHATSAPP (HIDDEN BY DEFAULT WITH DISPLAY: NONE) -->
+  <div id="cart-drawer" class="hidden fixed inset-0 z-50 opacity-0 transition-opacity duration-200">
     <div id="cart-backdrop" class="absolute inset-0 bg-black/90"></div>
-    <div class="absolute top-0 right-0 bottom-0 w-full max-w-md bg-black border-l border-red/40 p-6 flex flex-col justify-between shadow-2xl transform translate-x-full transition-transform duration-200 pointer-events-auto">
+    <div class="absolute top-0 right-0 bottom-0 w-full max-w-md bg-black border-l border-red/40 p-6 flex flex-col justify-between shadow-2xl transform translate-x-full transition-transform duration-200">
       <div>
         <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
           <h3 class="text-3xl font-heading text-white uppercase flex items-center gap-2">
@@ -417,6 +417,6 @@
     🔥 ¡AGREGADO A TU CARRO!
   </div>
 
-  <script type="module" src="/src/main.js?v=2"></script>
+  <script type="module" src="/src/main.js?v=3"></script>
 </body>
 </html>
