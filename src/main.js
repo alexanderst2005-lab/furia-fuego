@@ -4,25 +4,25 @@ const WHATSAPP_NUMBER = "573000000000";
 
 // Extras Master Database & Icon Registry
 const allExtrasMap = {
-  "ext-cheddar": { id: "ext-cheddar", name: "Extra Queso Cheddar", price: 3000, icon: "🧀" },
-  "ext-bacon": { id: "ext-bacon", name: "Extra Tocineta Crujiente", price: 4000, icon: "🥓" },
-  "ext-patty": { id: "ext-patty", name: "Extra Carne 150g", price: 7000, icon: "🥩" },
-  "ext-crispy": { id: "ext-crispy", name: "Extra Filete Pollo Crispy", price: 6000, icon: "🍗" },
-  "ext-jalapeno": { id: "ext-jalapeno", name: "Jalapeños Picantes", price: 2000, icon: "🌶️" },
-  "ext-onion": { id: "ext-onion", name: "Aros de Cebolla Crujientes", price: 5000, icon: "🧅" },
-  "ext-sauce-furia": { id: "ext-sauce-furia", name: "Salsa Furia Especial", price: 2000, icon: "🔥" },
-  "ext-sauce-bbq": { id: "ext-sauce-bbq", name: "Salsa BBQ Ahumada", price: 2000, icon: "🥫" },
-  "ext-sauce-habanero": { id: "ext-sauce-habanero", name: "Salsa Habanero Picante", price: 2000, icon: "🌶️" },
+  "ext-cheddar": { id: "ext-cheddar", name: "Extra Queso Cheddar", price: 3000, icon: "🧀", img: "/assets/crispy-cheese.png" },
+  "ext-bacon": { id: "ext-bacon", name: "Extra Tocineta Crujiente", price: 4000, icon: "🥓", img: "/assets/crispy-bacon.png" },
+  "ext-patty": { id: "ext-patty", name: "Extra Carne 150g", price: 7000, icon: "🥩", img: "/assets/la-furiosa.png" },
+  "ext-crispy": { id: "ext-crispy", name: "Extra Filete Pollo Crispy", price: 6000, icon: "🍗", img: "/assets/furiosa-crispy.png" },
+  "ext-jalapeno": { id: "ext-jalapeno", name: "Jalapeños Picantes", price: 2000, icon: "🌶️", img: "/assets/fries-inferno.png" },
+  "ext-onion": { id: "ext-onion", name: "Aros de Cebolla Crujientes", price: 5000, icon: "🧅", img: "/assets/fries-bbq.png" },
+  "ext-sauce-furia": { id: "ext-sauce-furia", name: "Salsa Furia Especial", price: 2000, icon: "🔥", img: "/assets/drink-fuego.png" },
+  "ext-sauce-bbq": { id: "ext-sauce-bbq", name: "Salsa BBQ Ahumada", price: 2000, icon: "🥫", img: "/assets/tacos-bbq.png" },
+  "ext-sauce-habanero": { id: "ext-sauce-habanero", name: "Salsa Habanero Picante", price: 2000, icon: "🌶️", img: "/assets/fries-inferno.png" },
 
-  "ext-cheese-sauce": { id: "ext-cheese-sauce", name: "Salsa de Queso Cheddar", price: 3500, icon: "🧀" },
-  "ext-bacon-bits": { id: "ext-bacon-bits", name: "Bits de Tocineta", price: 3500, icon: "🥓" },
-  "ext-pulled-beef": { id: "ext-pulled-beef", name: "Extra Carne Desmechada", price: 6000, icon: "🥩" },
+  "ext-cheese-sauce": { id: "ext-cheese-sauce", name: "Salsa de Queso Cheddar", price: 3500, icon: "🧀", img: "/assets/crispy-cheese.png" },
+  "ext-bacon-bits": { id: "ext-bacon-bits", name: "Bits de Tocineta", price: 3500, icon: "🥓", img: "/assets/bacon-cheese-fries.png" },
+  "ext-pulled-beef": { id: "ext-pulled-beef", name: "Extra Carne Desmechada", price: 6000, icon: "🥩", img: "/assets/hot-dog-demencial.png" },
 
-  "ext-dip-ranch": { id: "ext-dip-ranch", name: "Dip Salsa Ranch / Queso Azul", price: 2500, icon: "🥛" },
-  "ext-fries-side": { id: "ext-fries-side", name: "Porción de Papas Fritas", price: 6000, icon: "🍟" },
+  "ext-dip-ranch": { id: "ext-dip-ranch", name: "Dip Salsa Ranch / Queso Azul", price: 2500, icon: "🥛", img: "/assets/drink-fuego.png" },
+  "ext-fries-side": { id: "ext-fries-side", name: "Porción de Papas Fritas", price: 6000, icon: "🍟", img: "/assets/caos-fries.png" },
 
-  "ext-fries-upgrade": { id: "ext-fries-upgrade", name: "Agrandar Papas a Caos Fries", price: 4000, icon: "🍟" },
-  "ext-drink-upgrade": { id: "ext-drink-upgrade", name: "Agrandar Bebida a 1 Litro", price: 3000, icon: "🥤" }
+  "ext-fries-upgrade": { id: "ext-fries-upgrade", name: "Agrandar Papas a Caos Fries", price: 4000, icon: "🍟", img: "/assets/caos-fries.png" },
+  "ext-drink-upgrade": { id: "ext-drink-upgrade", name: "Agrandar Bebida a 1 Litro", price: 3000, icon: "🥤", img: "/assets/drink-fuego.png" }
 };
 
 // Global Extras Grid list for main page #extras-section
@@ -771,20 +771,23 @@ function renderExtrasGrid() {
 
   extrasList.forEach(extra => {
     const card = document.createElement("div");
-    card.className = "bg-black/60 border border-white/10 p-4 rounded-lg flex items-center justify-between hover:border-yellow transition-colors cursor-pointer";
+    card.className = "bg-black/60 border border-white/10 p-3.5 rounded-xl flex items-center justify-between hover:border-yellow transition-colors cursor-pointer gap-2";
     card.innerHTML = `
-      <div>
-        <div class="font-condensed text-white text-base font-bold uppercase">${extra.name}</div>
-        <div class="text-red font-heading text-lg">${formatMoney(extra.price)}</div>
+      <div class="flex items-center gap-3 overflow-hidden">
+        <img src="${extra.img}" alt="${extra.name}" class="w-12 h-12 object-cover rounded-lg border border-white/10 shrink-0">
+        <div>
+          <div class="font-condensed text-white text-base font-bold uppercase leading-tight truncate">${extra.name}</div>
+          <div class="text-red font-heading text-lg">${formatMoney(extra.price)}</div>
+        </div>
       </div>
-      <button type="button" class="btn-furia text-xs px-3 py-1 font-heading uppercase font-bold add-extra-direct-btn">
+      <button type="button" class="btn-furia text-xs px-3 py-1.5 font-heading uppercase font-bold add-extra-direct-btn shrink-0">
         + AGREGAR
       </button>
     `;
 
     card.querySelector(".add-extra-direct-btn").addEventListener("click", (e) => {
       e.stopPropagation();
-      addToCart(extra.name, extra.price, "/assets/furia-suprema.png", []);
+      addToCart(extra.name, extra.price, extra.img || "/assets/crispy-cheese.png", []);
     });
 
     fragment.appendChild(card);
