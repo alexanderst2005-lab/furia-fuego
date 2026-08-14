@@ -470,23 +470,46 @@ document.addEventListener("DOMContentLoaded", () => {
   setupMobileNav();
 });
 
-// INTRO SPLASH HANDLER (PURE NATIVE ZERO-LAG)
+// INTRO SPLASH & ROCK-SOLID NAV SCROLLING ENGINE
 function initIntroSplash() {
   const splash = document.getElementById("intro-splash");
   const btnEnter = document.getElementById("btn-enter");
 
   if (!splash) return;
 
-  if (btnEnter) {
-    btnEnter.addEventListener("click", () => {
-      splash.style.transition = "opacity 0.2s ease";
-      splash.style.opacity = "0";
-      splash.style.pointerEvents = "none";
-      setTimeout(() => {
-        splash.style.display = "none";
-      }, 200);
-    });
+  function unlockSplash() {
+    splash.style.transition = "opacity 0.2s ease";
+    splash.style.opacity = "0";
+    splash.style.pointerEvents = "none";
+    setTimeout(() => {
+      splash.style.display = "none";
+    }, 200);
   }
+
+  if (btnEnter) {
+    btnEnter.addEventListener("click", unlockSplash);
+  }
+
+  // Exact Pixel Offset Scrolling for Navigation Links (.nav-scroll-btn)
+  document.querySelectorAll(".nav-scroll-btn").forEach(btn => {
+    btn.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+      if (!href || !href.startsWith("#") || href === "#") return;
+
+      const targetEl = document.querySelector(href);
+      if (targetEl) {
+        e.preventDefault();
+        unlockSplash();
+
+        // Calculate exact pixel position relative to current viewport
+        const targetY = targetEl.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({
+          top: targetY,
+          behavior: "smooth"
+        });
+      }
+    });
+  });
 }
 
 // LIGHTWEIGHT FIRE CANVAS PARTICLES (THROTTLED & AUTO-PAUSED ON LOW POWER / HIDDEN)

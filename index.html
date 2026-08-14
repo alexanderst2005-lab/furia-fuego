@@ -2,10 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FURIA & FUEGO — El Hambre No Se Combate. Se Desata. 🔥</title>
   <meta name="description" content="Menú oficial de FURIA & FUEGO. Hamburguesas brutales, tacos en llamas, papas caos y hot dogs demenciales. Pedidos a domicilio por WhatsApp.">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#070707">
   
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website">
@@ -14,7 +14,7 @@
   <meta property="og:image" content="/assets/logo.svg">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -47,9 +47,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,900;1,900&family=Bebas+Neue&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   
   <!-- Custom CSS Design System -->
-  <link rel="stylesheet" href="/src/style.css">
+  <link rel="stylesheet" href="/src/style.css?v=2">
 </head>
-<body class="bg-dark text-white overflow-x-hidden">
+<body class="bg-dark text-white">
 
   <!-- Particle Canvas Overlay -->
   <canvas id="fire-canvas" class="pointer-events-none fixed inset-0 z-0 opacity-40"></canvas>
@@ -57,7 +57,7 @@
   <!-- Smoke Noise Texture Overlay -->
   <div class="smoke-overlay pointer-events-none fixed inset-0 z-0"></div>
 
-  <!-- PANTALLA DE ENTRADA COMPLETAMENTE CERRADA -->
+  <!-- PANTALLA DE ENTRADA PORTADA -->
   <div id="intro-splash" class="fixed inset-0 z-50 bg-black flex flex-col items-center justify-center p-6 text-center">
     <div class="relative z-10 flex flex-col items-center justify-center max-w-xl w-full">
       
@@ -89,22 +89,22 @@
 
       <!-- Navigation Links -->
       <nav class="hidden md:flex items-center gap-8 font-condensed text-lg uppercase tracking-wider">
-        <a href="#menu" class="hover:text-red transition-colors flex items-center gap-1">🍔 Menú Completo</a>
-        <a href="#combos" class="hover:text-yellow transition-colors flex items-center gap-1">💥 Combos</a>
-        <a href="#estrella" class="hover:text-red transition-colors flex items-center gap-1">⭐ Furia Suprema</a>
-        <a href="#extras-section" class="hover:text-yellow transition-colors flex items-center gap-1">🧀 Adicionales</a>
+        <a href="#menu" class="hover:text-red transition-colors flex items-center gap-1 nav-scroll-btn">🍔 Menú Completo</a>
+        <a href="#combos" class="hover:text-yellow transition-colors flex items-center gap-1 nav-scroll-btn">💥 Combos</a>
+        <a href="#estrella" class="hover:text-red transition-colors flex items-center gap-1 nav-scroll-btn">⭐ Furia Suprema</a>
+        <a href="#extras-section" class="hover:text-yellow transition-colors flex items-center gap-1 nav-scroll-btn">🧀 Adicionales</a>
       </nav>
 
       <!-- Cart Trigger Button -->
       <div class="flex items-center gap-4">
-        <button id="cart-btn" class="relative bg-red/10 hover:bg-red/30 border border-red/50 text-white px-4 py-2 rounded-md transition-all flex items-center gap-2 group cursor-pointer" aria-label="Ver Carrito">
+        <button id="cart-btn" type="button" class="relative bg-red/10 hover:bg-red/30 border border-red/50 text-white px-4 py-2 rounded-md transition-all flex items-center gap-2 group cursor-pointer" aria-label="Ver Carrito">
           <span class="text-2xl group-hover:scale-125 transition-transform">🛒</span>
           <span class="font-condensed font-bold text-lg hidden sm:inline">PEDIDO</span>
           <span id="cart-badge" class="bg-red text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center font-body border border-yellow">0</span>
         </button>
 
         <!-- Mobile Menu Toggle -->
-        <button id="mobile-menu-btn" class="md:hidden text-3xl text-white focus:outline-none p-1 cursor-pointer">
+        <button id="mobile-menu-btn" type="button" class="md:hidden text-3xl text-white focus:outline-none p-1 cursor-pointer">
           ☰
         </button>
       </div>
@@ -112,10 +112,10 @@
 
     <!-- Mobile Nav Drawer -->
     <div id="mobile-nav" class="hidden md:hidden bg-black/95 border-b border-red/30 px-6 py-6 font-condensed text-xl tracking-wider flex flex-col gap-4">
-      <a href="#menu" class="mobile-link py-2 border-b border-gray-800 text-white flex items-center gap-2">🍔 Menú Completo</a>
-      <a href="#combos" class="mobile-link py-2 border-b border-gray-800 text-yellow flex items-center gap-2">💥 Combos de Destrucción</a>
-      <a href="#estrella" class="mobile-link py-2 border-b border-gray-800 text-red flex items-center gap-2">⭐ Furia Suprema</a>
-      <a href="#extras-section" class="mobile-link py-2 text-white flex items-center gap-2">🧀 Adicionales & Salsas</a>
+      <a href="#menu" class="mobile-link nav-scroll-btn py-2 border-b border-gray-800 text-white flex items-center gap-2">🍔 Menú Completo</a>
+      <a href="#combos" class="mobile-link nav-scroll-btn py-2 border-b border-gray-800 text-yellow flex items-center gap-2">💥 Combos de Destrucción</a>
+      <a href="#estrella" class="mobile-link nav-scroll-btn py-2 border-b border-gray-800 text-red flex items-center gap-2">⭐ Furia Suprema</a>
+      <a href="#extras-section" class="mobile-link nav-scroll-btn py-2 text-white flex items-center gap-2">🧀 Adicionales & Salsas</a>
     </div>
   </header>
 
@@ -147,10 +147,10 @@
           </p>
 
           <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-            <a href="#menu" class="btn-furia w-full sm:w-auto text-xl py-4 px-8 rounded-none font-heading tracking-wider flex items-center justify-center gap-3 group">
+            <a href="#menu" class="btn-furia w-full sm:w-auto text-xl py-4 px-8 rounded-none font-heading tracking-wider flex items-center justify-center gap-3 group nav-scroll-btn">
               <span>🔥 EXPLORAR MENÚ</span>
             </a>
-            <a href="#combos" class="btn-outline-furia w-full sm:w-auto text-xl py-4 px-8 rounded-none font-heading tracking-wider flex items-center justify-center gap-3">
+            <a href="#combos" class="btn-outline-furia w-full sm:w-auto text-xl py-4 px-8 rounded-none font-heading tracking-wider flex items-center justify-center gap-3 nav-scroll-btn">
               <span>COMBOS DESTRUCCIÓN</span> 💥
             </a>
           </div>
@@ -199,16 +199,16 @@
 
       <!-- Category Filter Tabs -->
       <div class="flex flex-wrap items-center justify-center gap-2 mb-12 font-condensed text-base sm:text-lg uppercase tracking-wider">
-        <button class="menu-filter-btn active rounded-md" data-category="all">🔥 TODOS</button>
-        <button class="menu-filter-btn rounded-md" data-category="burgers">🍔 BURGERS</button>
-        <button class="menu-filter-btn rounded-md" data-category="crispy">🍗 CRISPY</button>
-        <button class="menu-filter-btn rounded-md" data-category="tacos">🌮 TACOS</button>
-        <button class="menu-filter-btn rounded-md" data-category="fries">🍟 PAPAS</button>
-        <button class="menu-filter-btn rounded-md" data-category="dogs">🌭 HOT DOGS</button>
-        <button class="menu-filter-btn rounded-md" data-category="wings">🍗 ALITAS & BOX</button>
-        <button class="menu-filter-btn rounded-md" data-category="bebidas">🥤 BEBIDAS</button>
-        <button class="menu-filter-btn rounded-md" data-category="postres">🍨 POSTRES</button>
-        <button class="menu-filter-btn rounded-md" data-category="combos">💥 COMBOS</button>
+        <button type="button" class="menu-filter-btn active rounded-md" data-category="all">🔥 TODOS</button>
+        <button type="button" class="menu-filter-btn rounded-md" data-category="burgers">🍔 BURGERS</button>
+        <button type="button" class="menu-filter-btn rounded-md" data-category="crispy">🍗 CRISPY</button>
+        <button type="button" class="menu-filter-btn rounded-md" data-category="tacos">🌮 TACOS</button>
+        <button type="button" class="menu-filter-btn rounded-md" data-category="fries">🍟 PAPAS</button>
+        <button type="button" class="menu-filter-btn rounded-md" data-category="dogs">🌭 HOT DOGS</button>
+        <button type="button" class="menu-filter-btn rounded-md" data-category="wings">🍗 ALITAS & BOX</button>
+        <button type="button" class="menu-filter-btn rounded-md" data-category="bebidas">🥤 BEBIDAS</button>
+        <button type="button" class="menu-filter-btn rounded-md" data-category="postres">🍨 POSTRES</button>
+        <button type="button" class="menu-filter-btn rounded-md" data-category="combos">💥 COMBOS</button>
       </div>
 
       <!-- Products Grid -->
@@ -284,7 +284,7 @@
           <div class="text-5xl font-heading text-red tracking-wider">$34.900</div>
 
           <div>
-            <button class="add-to-cart-btn btn-furia text-2xl py-4 px-10 rounded-none font-heading tracking-wider flex items-center justify-center gap-3 w-full sm:w-auto cursor-pointer" data-id="star-suprema" data-name="LA FURIA SUPREMA" data-price="34900" data-img="/assets/furia-suprema.png">
+            <button type="button" class="add-to-cart-btn btn-furia text-2xl py-4 px-10 rounded-none font-heading tracking-wider flex items-center justify-center gap-3 w-full sm:w-auto cursor-pointer" data-id="star-suprema" data-name="LA FURIA SUPREMA" data-price="34900" data-img="/assets/furia-suprema.png">
               <span>DESATAR LA FURIA</span> 🔥
             </button>
           </div>
@@ -336,7 +336,7 @@
     <div id="modal-backdrop" class="absolute inset-0 bg-black/85 backdrop-blur-md"></div>
     <div class="relative bg-dark-secondary border border-red/40 rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 shadow-2xl z-10 pointer-events-auto transform scale-95 transition-transform duration-200">
       
-      <button id="modal-close-btn" class="absolute top-4 right-4 text-gray-400 hover:text-white text-3xl font-bold z-20 cursor-pointer">&times;</button>
+      <button id="modal-close-btn" type="button" class="absolute top-4 right-4 text-gray-400 hover:text-white text-3xl font-bold z-20 cursor-pointer">&times;</button>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div class="relative overflow-hidden rounded-lg bg-black border border-white/10 flex items-center justify-center">
@@ -369,13 +369,13 @@
         <div class="flex items-center gap-3">
           <span class="font-condensed text-gray-400 uppercase font-bold text-sm">CANTIDAD:</span>
           <div class="flex items-center border border-white/20 rounded bg-black">
-            <button id="modal-qty-minus" class="px-3 py-1 text-white font-bold hover:bg-gray-800 cursor-pointer">-</button>
+            <button id="modal-qty-minus" type="button" class="px-3 py-1 text-white font-bold hover:bg-gray-800 cursor-pointer">-</button>
             <span id="modal-qty-val" class="px-3 py-1 font-bold text-white">1</span>
-            <button id="modal-qty-plus" class="px-3 py-1 text-white font-bold hover:bg-gray-800 cursor-pointer">+</button>
+            <button id="modal-qty-plus" type="button" class="px-3 py-1 text-white font-bold hover:bg-gray-800 cursor-pointer">+</button>
           </div>
         </div>
 
-        <button id="modal-add-btn" class="btn-furia text-xl py-3 px-8 rounded-none font-heading tracking-wider flex items-center justify-center gap-2 w-full sm:w-auto cursor-pointer">
+        <button id="modal-add-btn" type="button" class="btn-furia text-xl py-3 px-8 rounded-none font-heading tracking-wider flex items-center justify-center gap-2 w-full sm:w-auto cursor-pointer">
           <span>AGREGAR AL PEDIDO</span> 🔥
         </button>
       </div>
@@ -393,7 +393,7 @@
           <h3 class="text-3xl font-heading text-white uppercase flex items-center gap-2">
             <span>🛒 TU CARRO DE FURIA</span>
           </h3>
-          <button id="cart-close-btn" class="text-gray-400 hover:text-white text-3xl font-bold cursor-pointer">&times;</button>
+          <button id="cart-close-btn" type="button" class="text-gray-400 hover:text-white text-3xl font-bold cursor-pointer">&times;</button>
         </div>
 
         <div id="cart-items-container" class="space-y-4 max-h-[60vh] overflow-y-auto pr-2"></div>
@@ -405,7 +405,7 @@
           <span id="cart-total-price" class="text-3xl font-heading text-red">$0</span>
         </div>
 
-        <button id="whatsapp-submit-btn" class="btn-furia w-full text-xl py-4 font-heading tracking-wider flex items-center justify-center gap-3 cursor-pointer">
+        <button id="whatsapp-submit-btn" type="button" class="btn-furia w-full text-xl py-4 font-heading tracking-wider flex items-center justify-center gap-3 cursor-pointer">
           <span>PEDIR POR WHATSAPP</span> 💬
         </button>
       </div>
@@ -417,6 +417,6 @@
     🔥 ¡AGREGADO A TU CARRO!
   </div>
 
-  <script type="module" src="/src/main.js"></script>
+  <script type="module" src="/src/main.js?v=2"></script>
 </body>
 </html>
