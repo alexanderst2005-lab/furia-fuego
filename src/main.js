@@ -470,33 +470,29 @@ document.addEventListener("DOMContentLoaded", () => {
   setupMobileNav();
 });
 
-// INTRO SPLASH & NAVIGATION HANDLER
+// INTRO SPLASH & NAVIGATION HANDLER (ZERO-LATENCY UNLOCK)
 function initIntroSplash() {
   const splash = document.getElementById("intro-splash");
   const btnEnter = document.getElementById("btn-enter");
 
-  if (!btnEnter || !splash) return;
+  if (!splash) return;
 
-  function blockTouch(e) {
-    e.preventDefault();
-  }
-
-  // Lock touch scrolling on splash screen
-  splash.addEventListener("touchmove", blockTouch, { passive: false });
-
-  btnEnter.addEventListener("click", () => {
-    splash.style.transition = "opacity 0.35s ease, transform 0.35s ease";
+  function unlockSite() {
+    splash.style.transition = "opacity 0.25s linear";
     splash.style.opacity = "0";
-    splash.style.transform = "scale(1.05)";
+    splash.style.pointerEvents = "none";
+    document.body.classList.remove("splash-active");
 
     setTimeout(() => {
       splash.style.display = "none";
-      document.body.classList.remove("splash-active");
-      splash.removeEventListener("touchmove", blockTouch);
-    }, 350);
-  });
+    }, 250);
+  }
 
-  // Setup fail-safe smooth scrolling for all internal hash links
+  if (btnEnter) {
+    btnEnter.addEventListener("click", unlockSite);
+  }
+
+  // Fail-safe hash link navigation
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", function (e) {
       const targetId = this.getAttribute("href");
@@ -504,12 +500,8 @@ function initIntroSplash() {
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
         e.preventDefault();
-        // If splash is active, unlock it immediately
-        if (document.body.classList.contains("splash-active")) {
-          splash.style.display = "none";
-          document.body.classList.remove("splash-active");
-        }
-        targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        unlockSite();
+        targetElement.scrollIntoView({ behavior: "smooth" });
       }
     });
   });
