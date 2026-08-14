@@ -2,17 +2,138 @@
 
 const WHATSAPP_NUMBER = "573000000000";
 
-// Extras Master Database
+// Extras Master Database & Icon Registry
+const allExtrasMap = {
+  "ext-cheddar": { id: "ext-cheddar", name: "Extra Queso Cheddar", price: 3000, icon: "🧀" },
+  "ext-bacon": { id: "ext-bacon", name: "Extra Tocineta Crujiente", price: 4000, icon: "🥓" },
+  "ext-patty": { id: "ext-patty", name: "Extra Carne 150g", price: 7000, icon: "🥩" },
+  "ext-crispy": { id: "ext-crispy", name: "Extra Filete Pollo Crispy", price: 6000, icon: "🍗" },
+  "ext-jalapeno": { id: "ext-jalapeno", name: "Jalapeños Picantes", price: 2000, icon: "🌶️" },
+  "ext-onion": { id: "ext-onion", name: "Aros de Cebolla Crujientes", price: 5000, icon: "🧅" },
+  "ext-sauce-furia": { id: "ext-sauce-furia", name: "Salsa Furia Especial", price: 2000, icon: "🔥" },
+  "ext-sauce-bbq": { id: "ext-sauce-bbq", name: "Salsa BBQ Ahumada", price: 2000, icon: "🥫" },
+  "ext-sauce-habanero": { id: "ext-sauce-habanero", name: "Salsa Habanero Picante", price: 2000, icon: "🌶️" },
+
+  "ext-cheese-sauce": { id: "ext-cheese-sauce", name: "Salsa de Queso Cheddar", price: 3500, icon: "🧀" },
+  "ext-bacon-bits": { id: "ext-bacon-bits", name: "Bits de Tocineta", price: 3500, icon: "🥓" },
+  "ext-pulled-beef": { id: "ext-pulled-beef", name: "Extra Carne Desmechada", price: 6000, icon: "🥩" },
+
+  "ext-dip-ranch": { id: "ext-dip-ranch", name: "Dip Salsa Ranch / Queso Azul", price: 2500, icon: "🥛" },
+  "ext-fries-side": { id: "ext-fries-side", name: "Porción de Papas Fritas", price: 6000, icon: "🍟" },
+
+  "ext-fries-upgrade": { id: "ext-fries-upgrade", name: "Agrandar Papas a Caos Fries", price: 4000, icon: "🍟" },
+  "ext-drink-upgrade": { id: "ext-drink-upgrade", name: "Agrandar Bebida a 1 Litro", price: 3000, icon: "🥤" }
+};
+
+// Global Extras Grid list for main page #extras-section
 const extrasList = [
-  { id: "ext-1", name: "Extra Queso Cheddar", price: 3000 },
-  { id: "ext-2", name: "Extra Tocineta Crujiente", price: 4000 },
-  { id: "ext-3", name: "Extra Carne 150g", price: 7000 },
-  { id: "ext-4", name: "Jalapeños Picantes", price: 2000 },
-  { id: "ext-5", name: "Salsa Furia Especial", price: 2000 },
-  { id: "ext-6", name: "Salsa BBQ Ahumada", price: 2000 },
-  { id: "ext-7", name: "Salsa Habanero Picante", price: 2000 },
-  { id: "ext-8", name: "Aros de Cebolla Crujientes", price: 5000 }
+  allExtrasMap["ext-cheddar"],
+  allExtrasMap["ext-bacon"],
+  allExtrasMap["ext-patty"],
+  allExtrasMap["ext-jalapeno"],
+  allExtrasMap["ext-sauce-furia"],
+  allExtrasMap["ext-sauce-bbq"],
+  allExtrasMap["ext-onion"],
+  allExtrasMap["ext-fries-side"]
 ];
+
+// Helper to get allowed extras for a specific product based on category
+function getProductAllowedExtras(product) {
+  if (!product) return [];
+
+  const cat = product.category;
+
+  // Bebidas -> NO EXTRAS
+  if (cat === "bebidas") {
+    return [];
+  }
+
+  // Postres -> NO EXTRAS
+  if (cat === "postres") {
+    return [];
+  }
+
+  // Burgers
+  if (cat === "burgers") {
+    return [
+      allExtrasMap["ext-cheddar"],
+      allExtrasMap["ext-bacon"],
+      allExtrasMap["ext-patty"],
+      allExtrasMap["ext-jalapeno"],
+      allExtrasMap["ext-onion"],
+      allExtrasMap["ext-sauce-furia"],
+      allExtrasMap["ext-sauce-bbq"]
+    ];
+  }
+
+  // Crispy Pollo
+  if (cat === "crispy") {
+    return [
+      allExtrasMap["ext-crispy"],
+      allExtrasMap["ext-cheddar"],
+      allExtrasMap["ext-bacon"],
+      allExtrasMap["ext-jalapeno"],
+      allExtrasMap["ext-sauce-habanero"],
+      allExtrasMap["ext-sauce-bbq"]
+    ];
+  }
+
+  // Tacos
+  if (cat === "tacos") {
+    return [
+      allExtrasMap["ext-cheddar"],
+      allExtrasMap["ext-pulled-beef"],
+      allExtrasMap["ext-bacon-bits"],
+      allExtrasMap["ext-jalapeno"],
+      allExtrasMap["ext-sauce-furia"],
+      allExtrasMap["ext-sauce-habanero"]
+    ];
+  }
+
+  // Caos Fries (Papas)
+  if (cat === "fries") {
+    return [
+      allExtrasMap["ext-cheese-sauce"],
+      allExtrasMap["ext-bacon-bits"],
+      allExtrasMap["ext-pulled-beef"],
+      allExtrasMap["ext-jalapeno"],
+      allExtrasMap["ext-sauce-habanero"]
+    ];
+  }
+
+  // Hot Dogs
+  if (cat === "dogs") {
+    return [
+      allExtrasMap["ext-cheddar"],
+      allExtrasMap["ext-bacon"],
+      allExtrasMap["ext-pulled-beef"],
+      allExtrasMap["ext-jalapeno"],
+      allExtrasMap["ext-sauce-furia"]
+    ];
+  }
+
+  // Wings & Box
+  if (cat === "wings") {
+    return [
+      allExtrasMap["ext-sauce-bbq"],
+      allExtrasMap["ext-dip-ranch"],
+      allExtrasMap["ext-sauce-habanero"],
+      allExtrasMap["ext-fries-side"]
+    ];
+  }
+
+  // Combos
+  if (cat === "combos") {
+    return [
+      allExtrasMap["ext-cheddar"],
+      allExtrasMap["ext-bacon"],
+      allExtrasMap["ext-fries-upgrade"],
+      allExtrasMap["ext-drink-upgrade"]
+    ];
+  }
+
+  return [];
+}
 
 // Complete Products Database
 const products = [
@@ -766,7 +887,8 @@ function setupProductModal() {
 
   addBtn.addEventListener("click", () => {
     if (!activeModalProduct) return;
-    const chosenExtras = Array.from(selectedModalExtras).map(id => extrasList.find(e => e.id === id));
+    const allowed = getProductAllowedExtras(activeModalProduct);
+    const chosenExtras = Array.from(selectedModalExtras).map(id => allowed.find(e => e.id === id)).filter(Boolean);
     addToCart(activeModalProduct.name, activeModalProduct.price, activeModalProduct.img, chosenExtras, modalQuantity);
     closeModal();
   });
@@ -790,6 +912,7 @@ function openProductModal(product) {
   const img = document.getElementById("modal-img");
   const tag = document.getElementById("modal-tag");
   const ingredientsList = document.getElementById("modal-ingredients");
+  const extrasWrapper = document.getElementById("modal-extras-wrapper");
   const extrasContainer = document.getElementById("modal-extras-list");
   const modalPanel = modal ? modal.querySelector(".transform") : null;
 
@@ -808,33 +931,43 @@ function openProductModal(product) {
     });
   }
 
-  extrasContainer.innerHTML = "";
-  extrasList.forEach(extra => {
-    const isChecked = selectedModalExtras.has(extra.id);
-    const label = document.createElement("label");
-    label.className = `flex items-center gap-2 p-2 border rounded cursor-pointer select-none transition-colors ${isChecked ? 'border-yellow bg-yellow/10' : 'border-white/10 bg-black/40 hover:border-yellow'}`;
-    label.innerHTML = `
-      <input type="checkbox" value="${extra.id}" ${isChecked ? 'checked' : ''} class="accent-red w-4 h-4 rounded cursor-pointer">
-      <span class="text-gray-200 font-body text-xs sm:text-sm">${extra.name}</span>
-      <span class="text-yellow font-bold text-xs sm:text-sm ml-auto">${formatMoney(extra.price)}</span>
-    `;
+  const allowedExtras = getProductAllowedExtras(product);
 
-    const checkbox = label.querySelector("input");
-    checkbox.addEventListener("change", () => {
-      if (checkbox.checked) {
-        selectedModalExtras.add(extra.id);
-        label.classList.add("border-yellow", "bg-yellow/10");
-        label.classList.remove("border-white/10", "bg-black/40");
-      } else {
-        selectedModalExtras.delete(extra.id);
-        label.classList.remove("border-yellow", "bg-yellow/10");
-        label.classList.add("border-white/10", "bg-black/40");
-      }
-      updateModalTotals();
+  if (!allowedExtras || allowedExtras.length === 0) {
+    if (extrasWrapper) extrasWrapper.classList.add("hidden");
+    extrasContainer.innerHTML = "";
+  } else {
+    if (extrasWrapper) extrasWrapper.classList.remove("hidden");
+    extrasContainer.innerHTML = "";
+
+    allowedExtras.forEach(extra => {
+      const isChecked = selectedModalExtras.has(extra.id);
+      const label = document.createElement("label");
+      label.className = `flex items-center gap-2 p-2 border rounded cursor-pointer select-none transition-colors ${isChecked ? 'border-yellow bg-yellow/10' : 'border-white/10 bg-black/40 hover:border-yellow'}`;
+      label.innerHTML = `
+        <input type="checkbox" value="${extra.id}" ${isChecked ? 'checked' : ''} class="accent-red w-4 h-4 rounded cursor-pointer">
+        <span class="text-base leading-none mr-0.5">${extra.icon}</span>
+        <span class="text-gray-200 font-body text-xs sm:text-sm font-medium">${extra.name}</span>
+        <span class="text-yellow font-bold text-xs sm:text-sm ml-auto">${formatMoney(extra.price)}</span>
+      `;
+
+      const checkbox = label.querySelector("input");
+      checkbox.addEventListener("change", () => {
+        if (checkbox.checked) {
+          selectedModalExtras.add(extra.id);
+          label.classList.add("border-yellow", "bg-yellow/10");
+          label.classList.remove("border-white/10", "bg-black/40");
+        } else {
+          selectedModalExtras.delete(extra.id);
+          label.classList.remove("border-yellow", "bg-yellow/10");
+          label.classList.add("border-white/10", "bg-black/40");
+        }
+        updateModalTotals();
+      });
+
+      extrasContainer.appendChild(label);
     });
-
-    extrasContainer.appendChild(label);
-  });
+  }
 
   updateModalTotals();
 
@@ -854,9 +987,11 @@ function updateModalTotals() {
   document.getElementById("modal-qty-val").innerText = modalQuantity;
   if (!activeModalProduct) return;
 
+  const allowedExtras = getProductAllowedExtras(activeModalProduct);
+
   let extrasSum = 0;
   selectedModalExtras.forEach(id => {
-    const found = extrasList.find(e => e.id === id);
+    const found = allowedExtras.find(e => e.id === id);
     if (found) extrasSum += found.price;
   });
 
