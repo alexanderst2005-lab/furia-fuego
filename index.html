@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FURIA & FUEGO — El Hambre No Se Combate. Se Desata. 🔥</title>
-  <meta name="description" content="Comida rápida con actitud, fuego y sabor fuera de control. Hamburguesas brutales, tacos en llamas y papas de destrucción. Pedidos a domicilio por WhatsApp.">
+  <meta name="description" content="Menú completo de FURIA & FUEGO. Hamburguesas brutales, tacos en llamas, papas caos, hot dogs demenciales y combos de destrucción. Pedidos a domicilio por WhatsApp.">
   <meta name="theme-color" content="#070707">
   
   <!-- Open Graph / Social -->
@@ -68,8 +68,8 @@
       <p class="text-xl md:text-2xl font-condensed tracking-widest text-gray-300 uppercase mb-8">
         EL HAMBRE NO SE COMBATE. <span class="text-red font-bold">SE DESATA.</span>
       </p>
-      <button id="btn-enter" class="btn-furia text-xl py-4 px-10 rounded-none tracking-widest uppercase font-heading flex items-center justify-center gap-3">
-        <span>ENTRAR AL CAOS</span> 🔥
+      <button id="btn-enter" class="btn-furia text-xl py-4 px-10 rounded-none tracking-widest uppercase font-heading flex items-center justify-center gap-3 cursor-pointer">
+        <span>ENTRAR AL MENÚ</span> 🔥
       </button>
     </div>
   </div>
@@ -90,18 +90,17 @@
 
       <!-- Navigation Links -->
       <nav class="hidden md:flex items-center gap-8 font-condensed text-lg uppercase tracking-wider">
-        <a href="#menu" class="hover:text-red transition-colors flex items-center gap-1">🍔 Menú</a>
+        <a href="#menu" class="hover:text-red transition-colors flex items-center gap-1">🍔 Menú Completo</a>
         <a href="#combos" class="hover:text-yellow transition-colors flex items-center gap-1">💥 Combos</a>
         <a href="#estrella" class="hover:text-red transition-colors flex items-center gap-1">⭐ Furia Suprema</a>
-        <a href="#galeria" class="hover:text-yellow transition-colors flex items-center gap-1">📸 Caos</a>
-        <a href="#porque" class="hover:text-red transition-colors flex items-center gap-1">⚡ Actitud</a>
+        <a href="#extras-section" class="hover:text-yellow transition-colors flex items-center gap-1">🧀 Adicionales</a>
       </nav>
 
       <!-- Cart Trigger Button -->
       <div class="flex items-center gap-4">
         <button id="cart-btn" class="relative bg-red/10 hover:bg-red/30 border border-red/50 text-white px-4 py-2 rounded-md transition-all flex items-center gap-2 group cursor-pointer" aria-label="Ver Carrito">
           <span class="text-2xl group-hover:scale-125 transition-transform">🛒</span>
-          <span class="font-condensed font-bold text-lg hidden sm:inline">CARRO</span>
+          <span class="font-condensed font-bold text-lg hidden sm:inline">PEDIDO</span>
           <span id="cart-badge" class="bg-red text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center font-body border border-yellow">0</span>
         </button>
 
@@ -116,16 +115,15 @@
     <div id="mobile-nav" class="hidden md:hidden bg-black/95 border-b border-red/30 px-6 py-6 font-condensed text-xl tracking-wider flex flex-col gap-4">
       <a href="#menu" class="mobile-link py-2 border-b border-gray-800 text-white flex items-center gap-2">🍔 Menú Completo</a>
       <a href="#combos" class="mobile-link py-2 border-b border-gray-800 text-yellow flex items-center gap-2">💥 Combos de Destrucción</a>
-      <a href="#estrella" class="mobile-link py-2 border-b border-gray-800 text-red flex items-center gap-2">⭐ Producto Estrella</a>
-      <a href="#galeria" class="mobile-link py-2 border-b border-gray-800 text-white flex items-center gap-2">📸 Galería de Caos</a>
-      <a href="#porque" class="mobile-link py-2 text-white flex items-center gap-2">⚡ Por qué Furia & Fuego</a>
+      <a href="#estrella" class="mobile-link py-2 border-b border-gray-800 text-red flex items-center gap-2">⭐ Furia Suprema</a>
+      <a href="#extras-section" class="mobile-link py-2 text-white flex items-center gap-2">🧀 Adicionales & Salsas</a>
     </div>
   </header>
 
   <main class="relative z-10 pt-20">
 
     <!-- HERO SECTION -->
-    <section class="relative min-h-[90vh] flex items-center justify-center py-16 px-4 overflow-hidden border-b border-red/20">
+    <section class="relative min-h-[85vh] flex items-center justify-center py-16 px-4 overflow-hidden border-b border-red/20">
       
       <!-- Background Ambient Glow -->
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-glow rounded-full blur-[140px] pointer-events-none opacity-40"></div>
@@ -136,7 +134,7 @@
         <div class="space-y-6 text-center lg:text-left">
           
           <div class="inline-flex items-center gap-2 bg-red/10 border border-red/40 px-4 py-1.5 rounded-full text-red text-sm font-condensed font-bold tracking-widest uppercase mb-2 animate-bounce-slow">
-            <span>🔥 STREET FOOD SIN REGLAS</span>
+            <span>🔥 MENÚ OFICIAL FURIA & FUEGO</span>
           </div>
 
           <h1 class="text-6xl sm:text-7xl lg:text-8xl font-heading leading-none uppercase tracking-wider text-white">
@@ -145,15 +143,15 @@
           </h1>
 
           <p class="text-xl md:text-2xl font-body text-gray-300 max-w-xl font-light">
-            Comida rápida con actitud, fuego y sabor fuera de control. Preparada al instante con doble ración de carne y llamas de verdad.
+            Comida rápida con actitud, fuego y sabor fuera de control. Elige tu plato favorito y recíbelo caliente en tu puerta por WhatsApp.
           </p>
 
           <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
             <a href="#menu" class="btn-furia w-full sm:w-auto text-xl py-4 px-8 rounded-none font-heading tracking-wider flex items-center justify-center gap-3 group">
-              <span>🔥 DESATA LA FURIA</span>
+              <span>🔥 EXPLORAR MENÚ</span>
             </a>
             <a href="#combos" class="btn-outline-furia w-full sm:w-auto text-xl py-4 px-8 rounded-none font-heading tracking-wider flex items-center justify-center gap-3">
-              <span>VER MENÚ</span> 🍔
+              <span>COMBOS DESTRUCCIÓN</span> 💥
             </a>
           </div>
 
@@ -176,85 +174,23 @@
 
         <!-- Right Hero Image Column -->
         <div class="relative flex justify-center items-center">
-          
-          <!-- Flame Ring backdrop -->
-          <div class="absolute inset-0 bg-gradient-radial from-red/30 via-orange/10 to-transparent rounded-full blur-3xl scale-110 pointer-events-none"></div>
-
-          <!-- Main Hero Burger Image -->
           <div class="relative z-10 group cursor-pointer max-w-lg w-full">
             <div class="absolute -top-4 -left-4 bg-yellow text-black font-heading px-4 py-1 text-lg tracking-widest shadow-lg rotate-[-6deg] z-20">
               🔥 TOP BEST SELLER
             </div>
-            
-            <img src="/assets/hero-burger.png" alt="Hamburguesa Furia & Fuego Cinematográfica" class="w-full h-auto object-contain rounded-2xl border border-red/30 shadow-2xl transition-transform duration-500 group-hover:scale-105 group-hover:rotate-1">
+            <img src="/assets/la-furiosa.png" alt="La Furiosa Burger" class="w-full h-auto object-contain rounded-2xl border border-red/30 shadow-2xl transition-transform duration-500 group-hover:scale-105 group-hover:rotate-1">
           </div>
         </div>
       </div>
     </section>
 
 
-    <!-- SECCIÓN: ELIGE TU FURIA (NIVEL DE HAMBRE) -->
-    <section class="py-20 px-4 bg-dark-secondary relative border-b border-red/20">
-      <div class="max-w-7xl mx-auto text-center">
-        
-        <div class="inline-block bg-yellow/10 border border-yellow/40 px-4 py-1 rounded-full text-yellow font-condensed font-bold uppercase tracking-widest text-sm mb-4">
-          🌶️ SELECTOR DE INTENSIDAD
-        </div>
-
-        <h2 class="text-5xl sm:text-6xl md:text-7xl font-heading uppercase text-white tracking-wider mb-4">
-          ¿QUÉ TAN LOCO ESTÁ TU HAMBRE?
-        </h2>
-
-        <p class="text-gray-400 max-w-2xl mx-auto text-lg mb-12">
-          Selecciona tu nivel de adrenalina para filtrar las recomendaciones ideales.
-        </p>
-
-        <!-- Spice Cards Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          
-          <!-- NIVEL 01 -->
-          <div class="spice-card group border border-white/10 hover:border-yellow bg-black/60 p-8 text-center transition-all duration-300 hover:-translate-y-2 cursor-pointer relative overflow-hidden rounded-lg" data-spice="1">
-            <div class="text-xs font-condensed text-yellow tracking-widest uppercase mb-2">NIVEL 01</div>
-            <h3 class="text-4xl font-heading text-white uppercase mb-2">CALIENTE</h3>
-            <div class="text-3xl my-4 group-hover:scale-125 transition-transform">🔥</div>
-            <p class="text-sm text-gray-400 font-body">Para iniciar la noche sin quemarte la lengua. Sabor equilibrado y picante suave.</p>
-          </div>
-
-          <!-- NIVEL 02 -->
-          <div class="spice-card group border border-white/10 hover:border-orange bg-black/60 p-8 text-center transition-all duration-300 hover:-translate-y-2 cursor-pointer relative overflow-hidden rounded-lg" data-spice="2">
-            <div class="text-xs font-condensed text-orange tracking-widest uppercase mb-2">NIVEL 02</div>
-            <h3 class="text-4xl font-heading text-white uppercase mb-2">FUEGO</h3>
-            <div class="text-3xl my-4 group-hover:scale-125 transition-transform">🔥🔥</div>
-            <p class="text-sm text-gray-400 font-body">Doble porción de sabor ahumado, tocineta crujiente y toque picante directo.</p>
-          </div>
-
-          <!-- NIVEL 03 -->
-          <div class="spice-card group border border-white/10 hover:border-red bg-black/60 p-8 text-center transition-all duration-300 hover:-translate-y-2 cursor-pointer relative overflow-hidden rounded-lg" data-spice="3">
-            <div class="text-xs font-condensed text-red tracking-widest uppercase mb-2">NIVEL 03</div>
-            <h3 class="text-4xl font-heading text-white uppercase mb-2">FURIA</h3>
-            <div class="text-3xl my-4 group-hover:scale-125 transition-transform">🔥🔥🔥</div>
-            <p class="text-sm text-gray-400 font-body">Cargas extra de carne, jalapeños y salsa Furia extrema. Antojos serios.</p>
-          </div>
-
-          <!-- NIVEL 04 -->
-          <div class="spice-card group border border-red/40 hover:border-red bg-red/10 p-8 text-center transition-all duration-300 hover:-translate-y-2 cursor-pointer relative overflow-hidden rounded-lg shadow-flame" data-spice="4">
-            <div class="text-xs font-condensed text-red font-bold tracking-widest uppercase mb-2">NIVEL 04</div>
-            <h3 class="text-4xl font-heading text-red uppercase mb-2">DEMENCIAL</h3>
-            <div class="text-3xl my-4 group-hover:scale-125 transition-transform">🔥🔥🔥🔥</div>
-            <p class="text-sm text-gray-300 font-body">Triple carne, triple queso y salsa habanero especial. Solo apto para valientes.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- SECCIÓN: MENÚ COMPLETO -->
+    <!-- SECCIÓN: MENÚ COMPLETO INTERACTIVO -->
     <section id="menu" class="py-20 px-4 max-w-7xl mx-auto">
       
       <div class="text-center mb-12">
         <h2 class="text-6xl sm:text-7xl font-heading uppercase tracking-wider text-white mb-2">
-          DESATA EL MENÚ
+          DESATA EL MENÚ COMPLETO 🔥
         </h2>
         <p class="text-red font-condensed text-xl tracking-wider uppercase font-bold">
           “Advertencia: mirar esto puede provocar hambre inmediata.”
@@ -262,13 +198,17 @@
       </div>
 
       <!-- Category Filter Tabs -->
-      <div class="flex flex-wrap items-center justify-center gap-3 mb-12 font-condensed text-lg uppercase tracking-wider">
-        <button class="menu-filter-btn active rounded-md" data-category="all">🔥 TODO</button>
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-12 font-condensed text-base sm:text-lg uppercase tracking-wider">
+        <button class="menu-filter-btn active rounded-md" data-category="all">🔥 TODOS</button>
         <button class="menu-filter-btn rounded-md" data-category="burgers">🍔 BURGERS</button>
-        <button class="menu-filter-btn rounded-md" data-category="tacos">🌮 TACOS</button>
-        <button class="menu-filter-btn rounded-md" data-category="fries">🍟 CAOS FRIES</button>
         <button class="menu-filter-btn rounded-md" data-category="crispy">🍗 CRISPY</button>
+        <button class="menu-filter-btn rounded-md" data-category="tacos">🌮 TACOS</button>
+        <button class="menu-filter-btn rounded-md" data-category="fries">🍟 PAPAS</button>
+        <button class="menu-filter-btn rounded-md" data-category="dogs">🌭 HOT DOGS</button>
+        <button class="menu-filter-btn rounded-md" data-category="wings">🍗 ALITAS & BOX</button>
         <button class="menu-filter-btn rounded-md" data-category="bebidas">🥤 BEBIDAS</button>
+        <button class="menu-filter-btn rounded-md" data-category="postres">🍨 POSTRES</button>
+        <button class="menu-filter-btn rounded-md" data-category="combos">💥 COMBOS</button>
       </div>
 
       <!-- Products Grid -->
@@ -278,85 +218,38 @@
     </section>
 
 
+    <!-- SECCIÓN: EXTRAS & ADICIONALES -->
+    <section id="extras-section" class="py-16 px-4 bg-dark-secondary border-y border-red/20">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-10">
+          <span class="bg-yellow text-black font-condensed px-4 py-1 font-bold text-sm tracking-widest uppercase inline-block mb-2">PERSONALIZA TU PEDIDO</span>
+          <h2 class="text-5xl sm:text-6xl font-heading text-white uppercase tracking-wider">🧀 EXTRAS & ADICIONALES</h2>
+          <p class="text-gray-400 text-base">Agrega más fuego y sabor a cualquiera de tus platos favoritos.</p>
+        </div>
+
+        <div id="extras-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <!-- Dynamically populated extras cards -->
+        </div>
+      </div>
+    </section>
+
+
     <!-- SECCIÓN: COMBOS DE DESTRUCCIÓN -->
     <section id="combos" class="py-20 px-4 bg-gradient-to-b from-black via-red-dark/30 to-black border-y border-red/30 relative">
       <div class="max-w-7xl mx-auto">
         
         <div class="text-center mb-16">
-          <span class="bg-red text-white font-condensed px-4 py-1 uppercase text-sm tracking-widest font-bold inline-block">EDICIÓN ESPECIAL</span>
+          <span class="bg-red text-white font-condensed px-4 py-1 uppercase text-sm tracking-widest font-bold inline-block">MÁS POPULARES</span>
           <h2 class="text-6xl sm:text-7xl lg:text-8xl font-heading uppercase text-white tracking-wider mt-4">
             COMBOS DE DESTRUCCIÓN 💥
           </h2>
           <p class="text-gray-300 text-lg max-w-xl mx-auto">
-            Combos masivos diseñados para calmar el antojo más salvaje a un precio demoledor.
+            Combos gigantes a precio especial diseñados para calmar el hambre más intensa.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          
-          <!-- COMBO 1 -->
-          <div class="combo-card border-2 border-red/50 bg-black/80 p-6 flex flex-col justify-between relative group hover:border-red transition-all rounded-xl">
-            <div class="absolute -top-4 right-4 bg-red text-white font-heading px-3 py-1 text-sm tracking-widest rounded shadow">
-              🔥 MÁS PEDIDO
-            </div>
-            <div>
-              <div class="overflow-hidden mb-6 rounded-lg">
-                <img src="/assets/combo-destruccion.png" alt="Combo Furioso" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
-              </div>
-              <h3 class="text-4xl font-heading text-white uppercase mb-2">COMBO FURIOSO</h3>
-              <p class="text-gray-400 text-sm mb-4">La Furiosa + Caos Fries mediana + Bebida Frutos Rojos Fuego de 500ml.</p>
-              <div class="text-yellow font-condensed text-xl font-bold mb-6">AHORRA 20%</div>
-            </div>
-            <div class="flex items-center justify-between pt-4 border-t border-white/10">
-              <span class="text-4xl font-heading text-red">$34.900</span>
-              <button class="add-to-cart-btn btn-furia px-6 py-2 text-lg font-heading" data-name="COMBO FURIOSO" data-price="34900" data-img="/assets/combo-destruccion.png">
-                QUIERO EL COMBO 🔥
-              </button>
-            </div>
-          </div>
-
-          <!-- COMBO 2 -->
-          <div class="combo-card border-2 border-yellow/50 bg-black/80 p-6 flex flex-col justify-between relative group hover:border-yellow transition-all rounded-xl">
-            <div class="absolute -top-4 right-4 bg-yellow text-black font-heading px-3 py-1 text-sm tracking-widest rounded shadow">
-              💥 EXTRA QUESO
-            </div>
-            <div>
-              <div class="overflow-hidden mb-6 rounded-lg">
-                <img src="/assets/hero-burger.png" alt="Combo Demencial" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
-              </div>
-              <h3 class="text-4xl font-heading text-white uppercase mb-2">COMBO DEMENCIAL</h3>
-              <p class="text-gray-400 text-sm mb-4">La Bestia Triple Carne + Fries Demenciales + Bebida Cítrica Explosión.</p>
-              <div class="text-yellow font-condensed text-xl font-bold mb-6">AHORRA 25%</div>
-            </div>
-            <div class="flex items-center justify-between pt-4 border-t border-white/10">
-              <span class="text-4xl font-heading text-yellow">$39.900</span>
-              <button class="add-to-cart-btn btn-outline-furia px-6 py-2 text-lg font-heading" data-name="COMBO DEMENCIAL" data-price="39900" data-img="/assets/hero-burger.png">
-                QUIERO EL COMBO 🔥
-              </button>
-            </div>
-          </div>
-
-          <!-- COMBO 3 -->
-          <div class="combo-card border-2 border-orange/50 bg-black/80 p-6 flex flex-col justify-between relative group hover:border-orange transition-all rounded-xl">
-            <div class="absolute -top-4 right-4 bg-orange text-white font-heading px-3 py-1 text-sm tracking-widest rounded shadow">
-              🌮 PARA COMPARTIR
-            </div>
-            <div>
-              <div class="overflow-hidden mb-6 rounded-lg">
-                <img src="/assets/tacos-flames.png" alt="Combo Infernal Tacos" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
-              </div>
-              <h3 class="text-4xl font-heading text-white uppercase mb-2">COMBO TACO INFERNO</h3>
-              <p class="text-gray-400 text-sm mb-4">4 Tacos Furiosos + Crispy Fuego + 2 Bebidas heladas Black Fury.</p>
-              <div class="text-yellow font-condensed text-xl font-bold mb-6">EDICIÓN LIMITADA</div>
-            </div>
-            <div class="flex items-center justify-between pt-4 border-t border-white/10">
-              <span class="text-4xl font-heading text-orange">$42.900</span>
-              <button class="add-to-cart-btn btn-furia px-6 py-2 text-lg font-heading" data-name="COMBO TACO INFERNO" data-price="42900" data-img="/assets/tacos-flames.png">
-                QUIERO EL COMBO 🔥
-              </button>
-            </div>
-          </div>
-
+        <div id="combos-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Dynamically injected combos -->
         </div>
       </div>
     </section>
@@ -370,7 +263,7 @@
       <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
         
         <div class="order-2 lg:order-1 relative">
-          <div class="relative z-10 group">
+          <div class="relative z-10 group cursor-pointer" id="star-product-card">
             <img src="/assets/furia-suprema.png" alt="La Furia Suprema" class="w-full h-auto object-contain rounded-2xl border-2 border-red shadow-flame group-hover:scale-105 transition-transform duration-500">
           </div>
         </div>
@@ -394,130 +287,12 @@
           <div class="text-5xl font-heading text-red tracking-wider">$34.900</div>
 
           <div>
-            <button class="add-to-cart-btn btn-furia text-2xl py-4 px-10 rounded-none font-heading tracking-wider flex items-center justify-center gap-3 w-full sm:w-auto" data-name="LA FURIA SUPREMA" data-price="34900" data-img="/assets/furia-suprema.png">
+            <button class="add-to-cart-btn btn-furia text-2xl py-4 px-10 rounded-none font-heading tracking-wider flex items-center justify-center gap-3 w-full sm:w-auto cursor-pointer" data-id="star-suprema" data-name="LA FURIA SUPREMA" data-price="34900" data-img="/assets/furia-suprema.png">
               <span>DESATAR LA FURIA</span> 🔥
             </button>
           </div>
         </div>
 
-      </div>
-    </section>
-
-
-    <!-- SECCIÓN: GALERÍA DE CAOS -->
-    <section id="galeria" class="py-20 px-4 max-w-7xl mx-auto">
-      
-      <div class="text-center mb-12">
-        <h2 class="text-6xl sm:text-7xl font-heading uppercase tracking-wider text-white mb-2">
-          MIRA EL CAOS 📸
-        </h2>
-        <p class="text-gray-400 text-lg">Fotografía publicitaria directa de nuestras cocinas.</p>
-      </div>
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="gallery-item overflow-hidden rounded-lg border border-white/10 group">
-          <img src="/assets/hero-burger.png" alt="Hamburguesa Furia" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-500">
-        </div>
-        <div class="gallery-item overflow-hidden rounded-lg border border-white/10 group">
-          <img src="/assets/furia-suprema.png" alt="Carne a la parrilla" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-500">
-        </div>
-        <div class="gallery-item overflow-hidden rounded-lg border border-white/10 group">
-          <img src="/assets/tacos-flames.png" alt="Tacos en llamas" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-500">
-        </div>
-        <div class="gallery-item overflow-hidden rounded-lg border border-white/10 group">
-          <img src="/assets/caos-fries.png" alt="Caos fries queso" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-500">
-        </div>
-        <div class="gallery-item overflow-hidden rounded-lg border border-white/10 group">
-          <img src="/assets/crispy-chicken.png" alt="Crispy chicken" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-500">
-        </div>
-        <div class="gallery-item overflow-hidden rounded-lg border border-white/10 group">
-          <img src="/assets/combo-destruccion.png" alt="Combo completo" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-500">
-        </div>
-        <div class="gallery-item overflow-hidden rounded-lg border border-white/10 group">
-          <img src="/assets/drink-fuego.png" alt="Bebida con hielo" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-500">
-        </div>
-        <div class="gallery-item overflow-hidden rounded-lg border border-white/10 group">
-          <img src="/assets/hero-burger.png" alt="Fotografía urbana comida" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-500">
-        </div>
-      </div>
-    </section>
-
-
-    <!-- SECCIÓN: POR QUÉ FURIA & FUEGO -->
-    <section id="porque" class="py-20 px-4 bg-dark-secondary border-t border-red/20">
-      <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
-          <div class="bg-black/60 border border-red/30 p-8 text-center rounded-lg space-y-4">
-            <div class="text-6xl mb-2">🔥</div>
-            <h3 class="text-3xl font-heading text-white uppercase">SABOR SIN MIEDO</h3>
-            <p class="text-gray-400 font-body">Recetas cargadas de sabor sin ingredientes tímidos. Si buscas algo suave, este no es tu lugar.</p>
-          </div>
-
-          <div class="bg-black/60 border border-yellow/30 p-8 text-center rounded-lg space-y-4">
-            <div class="text-6xl mb-2">💥</div>
-            <h3 class="text-3xl font-heading text-white uppercase">PORCIONES SERIAS</h3>
-            <p class="text-gray-400 font-body">Aquí no venimos a contar papas. Cargas pesadas de carne, queso y toppings generosos en cada plato.</p>
-          </div>
-
-          <div class="bg-black/60 border border-orange/30 p-8 text-center rounded-lg space-y-4">
-            <div class="text-6xl mb-2">⚡</div>
-            <h3 class="text-3xl font-heading text-white uppercase">ACTITUD EN CADA BOCADO</h3>
-            <p class="text-gray-400 font-body">Comida rápida hecha para antojos grandes y noches de adrenalina pura.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- SECCIÓN: TESTIMONIOS -->
-    <section class="py-20 px-4 max-w-7xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-6xl font-heading uppercase text-white tracking-wider mb-2">
-          LOS QUE YA DESATARON LA FURIA 💬
-        </h2>
-        <p class="text-gray-400 text-lg">Reseñas reales de sobrevivientes.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <div class="bg-black/80 border border-red/30 p-6 rounded-lg space-y-3">
-          <div class="text-yellow text-xl">⭐⭐⭐⭐⭐</div>
-          <p class="text-gray-200 text-lg font-light italic">“Esa hamburguesa está completamente desquiciada. El queso y la tocineta son otro nivel.”</p>
-          <div class="text-red font-condensed font-bold uppercase">— Daniel M.</div>
-        </div>
-
-        <div class="bg-black/80 border border-yellow/30 p-6 rounded-lg space-y-3">
-          <div class="text-yellow text-xl">⭐⭐⭐⭐⭐</div>
-          <p class="text-gray-200 text-lg font-light italic">“Las Caos Fries son adictivas. Llegó rápido y súper caliente. 10/10.”</p>
-          <div class="text-yellow font-condensed font-bold uppercase">— Valentina R.</div>
-        </div>
-
-        <div class="bg-black/80 border border-orange/30 p-6 rounded-lg space-y-3">
-          <div class="text-yellow text-xl">⭐⭐⭐⭐⭐</div>
-          <p class="text-gray-200 text-lg font-light italic">“Llegó, la probé y entendí el nombre. Furia pura en la boca.”</p>
-          <div class="text-orange font-condensed font-bold uppercase">— Santiago G.</div>
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- CTA FINAL -->
-    <section class="py-24 px-4 bg-gradient-to-t from-red-dark via-black to-black text-center relative overflow-hidden border-t border-red">
-      <div class="max-w-4xl mx-auto space-y-8 relative z-10">
-        <h2 class="text-7xl sm:text-8xl md:text-9xl font-heading text-white uppercase leading-none">
-          ¿SIGUES TENIENDO <br> <span class="text-red">HAMBRE?</span>
-        </h2>
-        <p class="text-2xl sm:text-3xl font-condensed uppercase tracking-widest text-yellow font-bold">
-          ENTONCES NO HAS DESATADO LA FURIA.
-        </p>
-        <div>
-          <a href="#menu" class="btn-furia text-3xl py-6 px-14 inline-block font-heading tracking-widest">
-            🔥 PEDIR AHORA
-          </a>
-        </div>
       </div>
     </section>
 
@@ -571,6 +346,74 @@
   </footer>
 
 
+  <!-- MODAL DE PRODUCTO DETALLADO CON INGREDIENTES Y EXTRAS -->
+  <div id="product-modal" class="fixed inset-0 z-50 pointer-events-none opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+    <!-- Backdrop -->
+    <div id="modal-backdrop" class="absolute inset-0 bg-black/85 backdrop-blur-md"></div>
+
+    <!-- Modal Box -->
+    <div class="relative bg-dark-secondary border border-red/40 rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 shadow-2xl z-10 pointer-events-auto transform scale-95 transition-transform duration-300">
+      
+      <button id="modal-close-btn" class="absolute top-4 right-4 text-gray-400 hover:text-white text-3xl font-bold z-20 cursor-pointer">&times;</button>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        
+        <!-- Image -->
+        <div class="relative overflow-hidden rounded-lg bg-black border border-white/10 flex items-center justify-center">
+          <span id="modal-tag" class="absolute top-3 left-3 bg-red text-white text-xs font-condensed font-bold px-3 py-1 rounded shadow z-10">
+            🔥 MÁS VENDIDO
+          </span>
+          <img id="modal-img" src="/assets/la-furiosa.png" alt="Producto Furia" class="w-full h-64 object-cover">
+        </div>
+
+        <!-- Info & Options -->
+        <div class="flex flex-col justify-between space-y-4">
+          <div>
+            <h3 id="modal-title" class="text-4xl font-heading text-white uppercase tracking-wider leading-none">LA FURIOSA</h3>
+            <div id="modal-price" class="text-3xl font-heading text-red mt-2">$24.900</div>
+            <p id="modal-desc" class="text-gray-300 text-sm font-body mt-3">
+              Doble carne de res a la parrilla, doble queso cheddar, tocineta crujiente, cebolla caramelizada, lechuga, tomate y salsa Furia.
+            </p>
+          </div>
+
+          <!-- Ingredients List -->
+          <div class="border-t border-white/10 pt-3">
+            <h4 class="font-condensed text-yellow text-sm font-bold uppercase mb-2">INGREDIENTES PRINCIPALES:</h4>
+            <ul id="modal-ingredients" class="text-xs text-gray-300 space-y-1 font-body">
+              <!-- Injected by JS -->
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Extras Selection Section -->
+      <div class="border-t border-white/10 mt-6 pt-4">
+        <h4 class="font-condensed text-yellow text-base font-bold uppercase mb-3">🧀 AGREGAR ADICIONALES (OPCIONAL):</h4>
+        <div id="modal-extras-list" class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+          <!-- Extras checkboxes injected by JS -->
+        </div>
+      </div>
+
+      <!-- Quantity & Add to Cart CTA -->
+      <div class="border-t border-white/10 mt-6 pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <span class="font-condensed text-gray-400 uppercase font-bold text-sm">CANTIDAD:</span>
+          <div class="flex items-center border border-white/20 rounded bg-black">
+            <button id="modal-qty-minus" class="px-3 py-1 text-white font-bold hover:bg-gray-800 cursor-pointer">-</button>
+            <span id="modal-qty-val" class="px-3 py-1 font-bold text-white">1</span>
+            <button id="modal-qty-plus" class="px-3 py-1 text-white font-bold hover:bg-gray-800 cursor-pointer">+</button>
+          </div>
+        </div>
+
+        <button id="modal-add-btn" class="btn-furia text-xl py-3 px-8 rounded-none font-heading tracking-wider flex items-center justify-center gap-2 w-full sm:w-auto cursor-pointer">
+          <span>AGREGAR AL PEDIDO</span> 🔥
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
   <!-- SLIDE-OVER CARRO DE COMPRAS POR WHATSAPP -->
   <div id="cart-drawer" class="fixed inset-0 z-50 pointer-events-none opacity-0 transition-opacity duration-300">
     <!-- Backdrop -->
@@ -584,7 +427,7 @@
           <h3 class="text-3xl font-heading text-white uppercase flex items-center gap-2">
             <span>🛒 TU CARRO DE FURIA</span>
           </h3>
-          <button id="cart-close-btn" class="text-gray-400 hover:text-white text-3xl font-bold">&times;</button>
+          <button id="cart-close-btn" class="text-gray-400 hover:text-white text-3xl font-bold cursor-pointer">&times;</button>
         </div>
 
         <!-- Cart Items List -->
@@ -600,7 +443,7 @@
           <span id="cart-total-price" class="text-3xl font-heading text-red">$0</span>
         </div>
 
-        <button id="whatsapp-submit-btn" class="btn-furia w-full text-xl py-4 font-heading tracking-wider flex items-center justify-center gap-3">
+        <button id="whatsapp-submit-btn" class="btn-furia w-full text-xl py-4 font-heading tracking-wider flex items-center justify-center gap-3 cursor-pointer">
           <span>PEDIR POR WHATSAPP</span> 💬
         </button>
 
