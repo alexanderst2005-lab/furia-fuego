@@ -508,28 +508,78 @@ function initIntroSplash() {
     btnEnter.addEventListener("click", unlock);
   }
 
-  // Smooth Navigation for .nav-scroll-btn
+  // Smooth Navigation for .nav-scroll-btn & Dedicated View Triggers
   document.querySelectorAll(".nav-scroll-btn").forEach(btn => {
     btn.addEventListener("click", function (e) {
       const href = this.getAttribute("href");
       if (!href || !href.startsWith("#") || href === "#") return;
 
-      const targetEl = document.querySelector(href);
-      if (targetEl) {
-        e.preventDefault();
-        unlock();
+      e.preventDefault();
+      unlock();
 
-        const headerOffset = 75;
-        const elementPosition = targetEl.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      if (href === "#menu") {
+        showDedicatedMenuView("all");
+      } else if (href === "#combos") {
+        showDedicatedMenuView("combos");
+      } else {
+        const targetEl = document.querySelector(href);
+        if (targetEl) {
+          const headerOffset = 75;
+          const elementPosition = targetEl.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth"
-        });
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+        }
       }
     });
   });
+
+  const btnBackHome = document.getElementById("btn-back-home");
+  const brandLogoBtn = document.getElementById("brand-logo-btn");
+
+  if (btnBackHome) {
+    btnBackHome.addEventListener("click", showHomeView);
+  }
+  if (brandLogoBtn) {
+    brandLogoBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      showHomeView();
+    });
+  }
+}
+
+// DEDICATED VIEW NAVIGATION MANAGER
+function showDedicatedMenuView(category = "all") {
+  const hero = document.getElementById("hero");
+  const backBar = document.getElementById("view-back-bar");
+
+  if (hero) hero.classList.add("hidden");
+  if (backBar) backBar.classList.remove("hidden");
+
+  if (category && category !== "all") {
+    currentCategory = category;
+    const filterBtns = document.querySelectorAll(".menu-filter-btn");
+    filterBtns.forEach(b => {
+      if (b.dataset.category === category) b.classList.add("active");
+      else b.classList.remove("active");
+    });
+    renderProducts(category);
+  }
+
+  window.scrollTo(0, 0);
+}
+
+function showHomeView() {
+  const hero = document.getElementById("hero");
+  const backBar = document.getElementById("view-back-bar");
+
+  if (hero) hero.classList.remove("hidden");
+  if (backBar) backBar.classList.add("hidden");
+
+  window.scrollTo(0, 0);
 }
 
 // RENDER PRODUCTS GRID WITH NATIVE BROWSER LAZY LOADING

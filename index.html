@@ -89,7 +89,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- Brand Logo in Header -->
-      <a href="#" class="flex items-center gap-2 group">
+      <a href="#" id="brand-logo-btn" class="flex items-center gap-2 group">
         <img src="/assets/logo.svg" alt="FURIA & FUEGO" class="h-12 w-auto">
       </a>
 
@@ -192,8 +192,16 @@
 
 
     <!-- SECCIÓN: MENÚ COMPLETO INTERACTIVO -->
-    <section id="menu" class="py-20 px-4 max-w-7xl mx-auto">
+    <section id="menu" class="py-16 px-4 max-w-7xl mx-auto">
       
+      <!-- Back to Home Bar (Visible when in Dedicated Menu View) -->
+      <div id="view-back-bar" class="hidden mb-8 flex items-center justify-between border-b border-white/10 pb-4">
+        <button id="btn-back-home" type="button" class="inline-flex items-center gap-2 bg-red/10 hover:bg-red/30 border border-red/40 text-red font-condensed font-bold text-lg px-5 py-2 rounded-lg transition-colors cursor-pointer">
+          <span>← VOLVER AL INICIO</span>
+        </button>
+        <span class="text-xs text-gray-400 font-condensed uppercase tracking-widest hidden sm:inline">VISTA DEDICADA DE MENÚ</span>
+      </div>
+
       <div class="text-center mb-12">
         <h2 class="text-6xl sm:text-7xl font-heading uppercase tracking-wider text-white mb-2">
           DESATA EL MENÚ COMPLETO 🔥
