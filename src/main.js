@@ -943,23 +943,23 @@ function openProductModal(product) {
     allowedExtras.forEach(extra => {
       const isChecked = selectedModalExtras.has(extra.id);
       const label = document.createElement("label");
-      label.className = `flex items-center gap-2 p-2 border rounded cursor-pointer select-none transition-colors ${isChecked ? 'border-yellow bg-yellow/10' : 'border-white/10 bg-black/40 hover:border-yellow'}`;
+      label.className = `flex items-center gap-3 p-3 border rounded-xl cursor-pointer select-none transition-all ${isChecked ? 'border-yellow bg-yellow/10 shadow-md' : 'border-white/10 bg-black/40 hover:border-yellow'}`;
       label.innerHTML = `
-        <input type="checkbox" value="${extra.id}" ${isChecked ? 'checked' : ''} class="accent-red w-4 h-4 rounded cursor-pointer">
-        <span class="text-base leading-none mr-0.5">${extra.icon}</span>
-        <span class="text-gray-200 font-body text-xs sm:text-sm font-medium">${extra.name}</span>
-        <span class="text-yellow font-bold text-xs sm:text-sm ml-auto">${formatMoney(extra.price)}</span>
+        <input type="checkbox" value="${extra.id}" ${isChecked ? 'checked' : ''} class="accent-red w-4 h-4 rounded cursor-pointer shrink-0">
+        <span class="text-lg leading-none shrink-0">${extra.icon}</span>
+        <span class="text-gray-200 font-body text-sm font-medium leading-tight flex-1">${extra.name}</span>
+        <span class="text-yellow font-bold text-sm ml-auto shrink-0">+${formatMoney(extra.price)}</span>
       `;
 
       const checkbox = label.querySelector("input");
       checkbox.addEventListener("change", () => {
         if (checkbox.checked) {
           selectedModalExtras.add(extra.id);
-          label.classList.add("border-yellow", "bg-yellow/10");
+          label.classList.add("border-yellow", "bg-yellow/10", "shadow-md");
           label.classList.remove("border-white/10", "bg-black/40");
         } else {
           selectedModalExtras.delete(extra.id);
-          label.classList.remove("border-yellow", "bg-yellow/10");
+          label.classList.remove("border-yellow", "bg-yellow/10", "shadow-md");
           label.classList.add("border-white/10", "bg-black/40");
         }
         updateModalTotals();
