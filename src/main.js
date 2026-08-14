@@ -469,14 +469,31 @@ document.addEventListener("DOMContentLoaded", () => {
   setupMobileNav();
 });
 
-// INTRO SPLASH & NAVIGATION ENGINE (CLEAN NATIVE TOUCH FOR IPHONE)
+// INTRO SPLASH & NAVIGATION ENGINE (LOCKED PORTAL WITH TOP SCROLL RESET)
 function initIntroSplash() {
   const splash = document.getElementById("intro-splash");
   const btnEnter = document.getElementById("btn-enter");
 
+  // Force browser to start at top of page on reload/open
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+
+  if (splash && !splash.classList.contains("hidden")) {
+    document.body.style.overflow = "hidden";
+
+    // Block touch scrolling on the splash backdrop only
+    splash.addEventListener("touchmove", (e) => {
+      e.preventDefault();
+    }, { passive: false });
+  }
+
   function unlock() {
     if (!splash) return;
-    splash.style.display = "none";
+    window.scrollTo(0, 0);
+    document.body.style.overflow = "";
+    splash.classList.add("hidden");
   }
 
   if (btnEnter) {
