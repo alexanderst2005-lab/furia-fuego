@@ -469,7 +469,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupMobileNav();
 });
 
-// INTRO SPLASH & NAVIGATION ENGINE (FAIL-SAFE UNLOCK)
+// INTRO SPLASH & NAVIGATION ENGINE (GUARANTEED DOM REMOVAL)
 function initIntroSplash() {
   const splash = document.getElementById("intro-splash");
   const btnEnter = document.getElementById("btn-enter");
@@ -480,15 +480,20 @@ function initIntroSplash() {
   }
   window.scrollTo(0, 0);
 
-  if (splash && !splash.classList.contains("hidden")) {
+  if (splash) {
     document.body.style.overflow = "hidden";
   }
 
   function unlock() {
-    if (!splash) return;
-    window.scrollTo(0, 0);
     document.body.style.overflow = "";
-    splash.classList.add("hidden");
+    window.scrollTo(0, 0);
+
+    if (splash) {
+      splash.style.display = "none";
+      if (splash.parentNode) {
+        splash.parentNode.removeChild(splash);
+      }
+    }
   }
 
   if (btnEnter) {
