@@ -723,6 +723,12 @@ function openProductModal(product) {
   modalQuantity = 1;
   selectedModalExtras.clear();
 
+  // Remember & pre-select previously checked extras if product is already in cart
+  const existingInCart = cart.find(item => item.name === product.name);
+  if (existingInCart && existingInCart.extras) {
+    existingInCart.extras.forEach(ex => selectedModalExtras.add(ex.id));
+  }
+
   const modal = document.getElementById("product-modal");
   const title = document.getElementById("modal-title");
   const price = document.getElementById("modal-price");
@@ -750,18 +756,26 @@ function openProductModal(product) {
 
   extrasContainer.innerHTML = "";
   extrasList.forEach(extra => {
+    const isChecked = selectedModalExtras.has(extra.id);
     const label = document.createElement("label");
-    label.className = "flex items-center gap-2 p-2 border border-white/10 rounded bg-black/40 hover:border-yellow cursor-pointer select-none";
+    label.className = `flex items-center gap-2 p-2 border rounded cursor-pointer select-none transition-colors ${isChecked ? 'border-yellow bg-yellow/10' : 'border-white/10 bg-black/40 hover:border-yellow'}`;
     label.innerHTML = `
-      <input type="checkbox" value="${extra.id}" class="accent-red w-4 h-4 rounded cursor-pointer">
-      <span class="text-gray-200">${extra.name}</span>
-      <span class="text-yellow font-bold ml-auto">${formatMoney(extra.price)}</span>
+      <input type="checkbox" value="${extra.id}" ${isChecked ? 'checked' : ''} class="accent-red w-4 h-4 rounded cursor-pointer">
+      <span class="text-gray-200 font-body text-xs sm:text-sm">${extra.name}</span>
+      <span class="text-yellow font-bold text-xs sm:text-sm ml-auto">${formatMoney(extra.price)}</span>
     `;
 
     const checkbox = label.querySelector("input");
     checkbox.addEventListener("change", () => {
-      if (checkbox.checked) selectedModalExtras.add(extra.id);
-      else selectedModalExtras.delete(extra.id);
+      if (checkbox.checked) {
+        selectedModalExtras.add(extra.id);
+        label.classList.add("border-yellow", "bg-yellow/10");
+        label.classList.remove("border-white/10", "bg-black/40");
+      } else {
+        selectedModalExtras.delete(extra.id);
+        label.classList.remove("border-yellow", "bg-yellow/10");
+        label.classList.add("border-white/10", "bg-black/40");
+      }
       updateModalTotals();
     });
 
