@@ -801,6 +801,7 @@ function updateModalTotals() {
 function setupCartDrawer() {
   const cartBtn = document.getElementById("cart-btn");
   const cartCloseBtn = document.getElementById("cart-close-btn");
+  const clearCartBtn = document.getElementById("clear-cart-btn");
   const cartDrawer = document.getElementById("cart-drawer");
   const cartBackdrop = document.getElementById("cart-backdrop");
   const whatsappSubmitBtn = document.getElementById("whatsapp-submit-btn");
@@ -839,6 +840,14 @@ function setupCartDrawer() {
   cartBtn.addEventListener("click", openCart);
   cartCloseBtn.addEventListener("click", closeCart);
   cartBackdrop.addEventListener("click", closeCart);
+  if (clearCartBtn) {
+    clearCartBtn.addEventListener("click", () => {
+      if (cart.length === 0) return;
+      cart = [];
+      updateCartUI();
+      showToast("🗑️ ¡CARRO VACIADO!");
+    });
+  }
   whatsappSubmitBtn.addEventListener("click", sendWhatsAppOrder);
 }
 
@@ -892,16 +901,16 @@ function updateCartUI() {
 
   cart.forEach((item, index) => {
     const row = document.createElement("div");
-    row.className = "flex flex-col bg-black/80 border border-white/10 p-3 rounded-lg space-y-2";
+    row.className = "flex flex-col bg-black/90 border border-white/15 p-3 rounded-lg space-y-2 relative group hover:border-red/40 transition-colors";
 
     const extrasText = item.extras.length > 0
-      ? `<div class="text-xs text-yellow font-body">+ ${item.extras.map(e => e.name).join(", ")}</div>`
+      ? `<div class="text-xs text-yellow font-body font-semibold">+ ${item.extras.map(e => e.name).join(", ")}</div>`
       : "";
 
     row.innerHTML = `
-      <div class="flex items-center justify-between">
+      <div class="flex items-center justify-between gap-2">
         <div class="flex items-center gap-3">
-          <img src="${item.img}" alt="${item.name}" loading="lazy" class="w-14 h-14 object-cover rounded">
+          <img src="${item.img}" alt="${item.name}" loading="lazy" class="w-14 h-14 object-cover rounded border border-red/30">
           <div>
             <h4 class="font-heading text-white text-xl uppercase leading-none">${item.name}</h4>
             ${extrasText}
@@ -910,9 +919,15 @@ function updateCartUI() {
         </div>
 
         <div class="flex items-center gap-2">
-          <button type="button" class="bg-gray-800 text-white w-7 h-7 rounded flex items-center justify-center font-bold btn-minus cursor-pointer" data-index="${index}">-</button>
-          <span class="font-bold text-white text-lg w-5 text-center">${item.quantity}</span>
-          <button type="button" class="bg-gray-800 text-white w-7 h-7 rounded flex items-center justify-center font-bold btn-plus cursor-pointer" data-index="${index}">+</button>
+          <div class="flex items-center border border-white/20 rounded bg-black">
+            <button type="button" class="px-2 py-1 text-white font-bold hover:bg-gray-800 btn-minus cursor-pointer" data-index="${index}" title="Restar">-</button>
+            <span class="px-2 py-1 font-bold text-white text-sm min-w-[20px] text-center">${item.quantity}</span>
+            <button type="button" class="px-2 py-1 text-white font-bold hover:bg-gray-800 btn-plus cursor-pointer" data-index="${index}" title="Sumar">+</button>
+          </div>
+
+          <button type="button" class="bg-red/10 hover:bg-red/30 text-red border border-red/30 w-8 h-8 rounded-lg flex items-center justify-center transition-colors btn-delete cursor-pointer" data-index="${index}" title="Eliminar este producto">
+            🗑️
+          </button>
         </div>
       </div>
     `;
@@ -923,8 +938,13 @@ function updateCartUI() {
   container.querySelectorAll(".btn-minus").forEach(btn => {
     btn.addEventListener("click", () => {
       const idx = parseInt(btn.dataset.index);
-      if (cart[idx].quantity > 1) cart[idx].quantity--;
-      else cart.splice(idx, 1);
+      if (cart[idx].quantity > 1) {
+        cart[idx].quantity--;
+      } else {
+        const removedName = cart[idx].name;
+        cart.splice(idx, 1);
+        showToast(`🗑️ ¡${removedName} ELIMINADO!`);
+      }
       updateCartUI();
     });
   });
@@ -934,6 +954,16 @@ function updateCartUI() {
       const idx = parseInt(btn.dataset.index);
       cart[idx].quantity++;
       updateCartUI();
+    });
+  });
+
+  container.querySelectorAll(".btn-delete").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const idx = parseInt(btn.dataset.index);
+      const removedName = cart[idx].name;
+      cart.splice(idx, 1);
+      updateCartUI();
+      showToast(`🗑️ ¡${removedName} ELIMINADO!`);
     });
   });
 }
