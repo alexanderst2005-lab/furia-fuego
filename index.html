@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>FURIA & FUEGO — El Hambre No Se Combate. Se Desata. 🔥</title>
   <meta name="description" content="Menú oficial de FURIA & FUEGO. Hamburguesas brutales, tacos en llamas, papas caos y hot dogs demenciales. Pedidos a domicilio por WhatsApp.">
   <meta name="theme-color" content="#070707">
@@ -14,7 +14,7 @@
   <meta property="og:image" content="/assets/logo.svg">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=4">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -47,7 +47,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,900;1,900&family=Bebas+Neue&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   
   <!-- Custom CSS Design System -->
-  <link rel="stylesheet" href="/src/style.css?v=3">
+  <link rel="stylesheet" href="/src/style.css?v=4">
 </head>
 <body class="bg-dark text-white">
 
@@ -57,7 +57,7 @@
   <!-- Smoke Noise Texture Overlay -->
   <div class="smoke-overlay pointer-events-none fixed inset-0 z-0"></div>
 
-  <!-- PANTALLA DE ENTRADA PORTADA -->
+  <!-- PANTALLA DE ENTRADA PORTADA (LOCKED INITIAL VIEWPORT) -->
   <div id="intro-splash" class="fixed inset-0 z-50 bg-black flex flex-col items-center justify-center p-6 text-center">
     <div class="relative z-10 flex flex-col items-center justify-center max-w-xl w-full">
       
@@ -78,8 +78,8 @@
     </div>
   </div>
 
-  <!-- HEADER / NAVBAR -->
-  <header id="main-header" class="fixed top-0 left-0 right-0 z-40 bg-black/95 border-b border-red/30 transition-all duration-300">
+  <!-- HEADER / NAVBAR (HIDDEN UNTIL UNLOCKED) -->
+  <header id="main-header" class="hidden fixed top-0 left-0 right-0 z-40 bg-black/95 border-b border-red/30 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- Brand Logo in Header -->
@@ -119,8 +119,8 @@
     </div>
   </header>
 
-  <!-- MAIN APP CONTENT -->
-  <main id="main-content" class="relative z-10 pt-20">
+  <!-- MAIN APP CONTENT (HIDDEN UNTIL UNLOCKED) -->
+  <main id="main-content" class="hidden relative z-10 pt-20">
 
     <!-- HERO SECTION -->
     <section id="hero" class="relative min-h-[85vh] flex items-center justify-center py-16 px-4 overflow-hidden border-b border-red/20">
@@ -296,8 +296,8 @@
   </main>
 
 
-  <!-- FOOTER -->
-  <footer id="main-footer" class="bg-black border-t border-white/10 py-12 px-4 text-gray-400 text-sm">
+  <!-- FOOTER (HIDDEN UNTIL UNLOCKED) -->
+  <footer id="main-footer" class="hidden bg-black border-t border-white/10 py-12 px-4 text-gray-400 text-sm">
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
       <div class="space-y-4">
         <div class="text-3xl font-heading text-white flex items-center gap-2">
@@ -331,7 +331,7 @@
   </footer>
 
 
-  <!-- MODAL DE PRODUCTO DETALLADO (HIDDEN BY DEFAULT WITH DISPLAY: NONE) -->
+  <!-- MODAL DE PRODUCTO DETALLADO (HIDDEN BY DEFAULT) -->
   <div id="product-modal" class="hidden fixed inset-0 z-50 opacity-0 transition-opacity duration-200 flex items-center justify-center p-4">
     <div id="modal-backdrop" class="absolute inset-0 bg-black/90"></div>
     <div class="relative bg-dark-secondary border border-red/40 rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 shadow-2xl z-10 transform scale-95 transition-transform duration-200">
@@ -384,7 +384,7 @@
   </div>
 
 
-  <!-- SLIDE-OVER CARRO DE COMPRAS POR WHATSAPP (HIDDEN BY DEFAULT WITH DISPLAY: NONE) -->
+  <!-- SLIDE-OVER CARRO DE COMPRAS POR WHATSAPP (HIDDEN BY DEFAULT) -->
   <div id="cart-drawer" class="hidden fixed inset-0 z-50 opacity-0 transition-opacity duration-200">
     <div id="cart-backdrop" class="absolute inset-0 bg-black/90"></div>
     <div class="absolute top-0 right-0 bottom-0 w-full max-w-md bg-black border-l border-red/40 p-6 flex flex-col justify-between shadow-2xl transform translate-x-full transition-transform duration-200">
@@ -417,6 +417,6 @@
     🔥 ¡AGREGADO A TU CARRO!
   </div>
 
-  <script type="module" src="/src/main.js?v=3"></script>
+  <script type="module" src="/src/main.js?v=4"></script>
 </body>
 </html>

@@ -469,10 +469,13 @@ document.addEventListener("DOMContentLoaded", () => {
   setupMobileNav();
 });
 
-// INTRO SPLASH & NAVIGATION ENGINE (GUARANTEED DOM REMOVAL)
+// INTRO SPLASH & NAVIGATION ENGINE (GUARANTEED LOCKED INITIAL VIEWPORT)
 function initIntroSplash() {
   const splash = document.getElementById("intro-splash");
   const btnEnter = document.getElementById("btn-enter");
+  const header = document.getElementById("main-header");
+  const content = document.getElementById("main-content");
+  const footer = document.getElementById("main-footer");
 
   // Force browser to start at top of page on reload/open
   if ('scrollRestoration' in history) {
@@ -485,6 +488,10 @@ function initIntroSplash() {
   }
 
   function unlock() {
+    if (header) header.classList.remove("hidden");
+    if (content) content.classList.remove("hidden");
+    if (footer) footer.classList.remove("hidden");
+
     document.body.style.overflow = "";
     window.scrollTo(0, 0);
 
