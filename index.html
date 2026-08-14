@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="splash-active">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>FURIA & FUEGO — El Hambre No Se Combate. Se Desata. 🔥</title>
-  <meta name="description" content="Menú completo de FURIA & FUEGO. Hamburguesas brutales, tacos en llamas, papas caos, hot dogs demenciales y combos de destrucción. Pedidos a domicilio por WhatsApp.">
-  <meta name="theme-color" content="#070707">
+  <meta name="description" content="Menú oficial de FURIA & FUEGO. Hamburguesas brutales, tacos en llamas, papas caos y hot dogs demenciales. Pedidos a domicilio por WhatsApp.">
+  <meta name="theme-color" content="#000000">
   
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="FURIA & FUEGO — El Hambre No Se Combate. Se Desata. 🔥">
   <meta property="og:description" content="Comida rápida con actitud, fuego y sabor fuera de control.">
-  <meta property="og:image" content="/assets/hero-burger.png">
+  <meta property="og:image" content="/assets/logo.svg">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -49,7 +49,7 @@
   <!-- Custom CSS Design System -->
   <link rel="stylesheet" href="/src/style.css">
 </head>
-<body class="bg-dark text-white overflow-x-hidden">
+<body class="bg-dark text-white overflow-x-hidden splash-active">
 
   <!-- Particle Canvas Overlay -->
   <canvas id="fire-canvas" class="pointer-events-none fixed inset-0 z-0 opacity-40"></canvas>
@@ -57,35 +57,34 @@
   <!-- Smoke Noise Texture Overlay -->
   <div class="smoke-overlay pointer-events-none fixed inset-0 z-0"></div>
 
-  <!-- INTRO SPLASH SCREEN -->
-  <div id="intro-splash" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black text-center p-4">
-    <div class="relative z-10 flex flex-col items-center max-w-2xl">
-      <div class="splash-logo-wrap mb-6">
-        <span class="text-6xl md:text-8xl font-heading text-red tracking-wider animate-pulse-glow flex items-center justify-center gap-3">
-          🔥 FURIA <span class="text-yellow">&</span> FUEGO 🔥
-        </span>
+  <!-- PANTALLA DE ENTRADA COMPLETAMENTE CERRADA (100% VIEWPORT LOCKED) -->
+  <div id="intro-splash">
+    <div class="relative z-10 flex flex-col items-center justify-center text-center p-6 max-w-xl w-full">
+      
+      <!-- Brand AI Logo SVG -->
+      <div class="splash-logo-wrap mb-6 flex justify-center w-full">
+        <img src="/assets/logo.svg" alt="FURIA & FUEGO Logo" class="splash-logo-img">
       </div>
-      <p class="text-xl md:text-2xl font-condensed tracking-widest text-gray-300 uppercase mb-8">
-        EL HAMBRE NO SE COMBATE. <span class="text-red font-bold">SE DESATA.</span>
+
+      <!-- Slogan -->
+      <p class="text-2xl sm:text-3xl font-condensed tracking-widest text-gray-200 uppercase mb-8 font-bold">
+        EL HAMBRE NO SE COMBATE. <span class="text-red">SE DESATA.</span>
       </p>
-      <button id="btn-enter" class="btn-furia text-xl py-4 px-10 rounded-none tracking-widest uppercase font-heading flex items-center justify-center gap-3 cursor-pointer">
-        <span>ENTRAR AL MENÚ</span> 🔥
+
+      <!-- Main Action Button -->
+      <button id="btn-enter" class="btn-furia text-2xl sm:text-3xl py-5 px-12 rounded-none tracking-widest uppercase font-heading flex items-center justify-center gap-3 w-full sm:w-auto shadow-2xl cursor-pointer">
+        <span>ENTRAR AL CAOS</span> 🔥
       </button>
     </div>
   </div>
 
   <!-- HEADER / NAVBAR -->
-  <header class="fixed top-0 left-0 right-0 z-40 bg-black/90 backdrop-blur-md border-b border-red/30 transition-all duration-300">
+  <header id="main-header" class="hidden fixed top-0 left-0 right-0 z-40 bg-black/90 backdrop-blur-md border-b border-red/30 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
-      <!-- Brand Logo -->
+      <!-- Brand Logo in Header -->
       <a href="#" class="flex items-center gap-2 group">
-        <span class="text-3xl md:text-4xl font-heading text-white tracking-wider flex items-center">
-          <span class="text-red group-hover:scale-110 transition-transform">🔥</span>
-          <span class="ml-1 text-gradient">FURIA</span>
-          <span class="text-yellow mx-1">&</span>
-          <span class="text-white">FUEGO</span>
-        </span>
+        <img src="/assets/logo.svg" alt="FURIA & FUEGO" class="h-12 w-auto">
       </a>
 
       <!-- Navigation Links -->
@@ -120,7 +119,8 @@
     </div>
   </header>
 
-  <main class="relative z-10 pt-20">
+  <!-- MAIN APP CONTENT -->
+  <main id="main-content" class="hidden relative z-10 pt-20">
 
     <!-- HERO SECTION -->
     <section class="relative min-h-[85vh] flex items-center justify-center py-16 px-4 overflow-hidden border-b border-red/20">
@@ -300,13 +300,13 @@
 
 
   <!-- FOOTER -->
-  <footer class="bg-black border-t border-white/10 py-12 px-4 text-gray-400 text-sm">
+  <footer id="main-footer" class="hidden bg-black border-t border-white/10 py-12 px-4 text-gray-400 text-sm">
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
       
       <!-- Brand column -->
       <div class="space-y-4">
-        <div class="text-3xl font-heading text-white">
-          🔥 FURIA <span class="text-yellow">&</span> FUEGO
+        <div class="text-3xl font-heading text-white flex items-center gap-2">
+          <img src="/assets/logo.svg" alt="FURIA & FUEGO" class="h-10 w-auto">
         </div>
         <p class="text-xs text-gray-400">
           “EL HAMBRE NO SE COMBATE. SE DESATA.”
@@ -346,19 +346,14 @@
   </footer>
 
 
-  <!-- MODAL DE PRODUCTO DETALLADO CON INGREDIENTES Y EXTRAS -->
+  <!-- MODAL DE PRODUCTO DETALLADO -->
   <div id="product-modal" class="fixed inset-0 z-50 pointer-events-none opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
-    <!-- Backdrop -->
     <div id="modal-backdrop" class="absolute inset-0 bg-black/85 backdrop-blur-md"></div>
-
-    <!-- Modal Box -->
     <div class="relative bg-dark-secondary border border-red/40 rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 shadow-2xl z-10 pointer-events-auto transform scale-95 transition-transform duration-300">
       
       <button id="modal-close-btn" class="absolute top-4 right-4 text-gray-400 hover:text-white text-3xl font-bold z-20 cursor-pointer">&times;</button>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        
-        <!-- Image -->
         <div class="relative overflow-hidden rounded-lg bg-black border border-white/10 flex items-center justify-center">
           <span id="modal-tag" class="absolute top-3 left-3 bg-red text-white text-xs font-condensed font-bold px-3 py-1 rounded shadow z-10">
             🔥 MÁS VENDIDO
@@ -366,35 +361,25 @@
           <img id="modal-img" src="/assets/la-furiosa.png" alt="Producto Furia" class="w-full h-64 object-cover">
         </div>
 
-        <!-- Info & Options -->
         <div class="flex flex-col justify-between space-y-4">
           <div>
             <h3 id="modal-title" class="text-4xl font-heading text-white uppercase tracking-wider leading-none">LA FURIOSA</h3>
             <div id="modal-price" class="text-3xl font-heading text-red mt-2">$24.900</div>
-            <p id="modal-desc" class="text-gray-300 text-sm font-body mt-3">
-              Doble carne de res a la parrilla, doble queso cheddar, tocineta crujiente, cebolla caramelizada, lechuga, tomate y salsa Furia.
-            </p>
+            <p id="modal-desc" class="text-gray-300 text-sm font-body mt-3"></p>
           </div>
 
-          <!-- Ingredients List -->
           <div class="border-t border-white/10 pt-3">
             <h4 class="font-condensed text-yellow text-sm font-bold uppercase mb-2">INGREDIENTES PRINCIPALES:</h4>
-            <ul id="modal-ingredients" class="text-xs text-gray-300 space-y-1 font-body">
-              <!-- Injected by JS -->
-            </ul>
+            <ul id="modal-ingredients" class="text-xs text-gray-300 space-y-1 font-body"></ul>
           </div>
         </div>
       </div>
 
-      <!-- Add Extras Selection Section -->
       <div class="border-t border-white/10 mt-6 pt-4">
         <h4 class="font-condensed text-yellow text-base font-bold uppercase mb-3">🧀 AGREGAR ADICIONALES (OPCIONAL):</h4>
-        <div id="modal-extras-list" class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-          <!-- Extras checkboxes injected by JS -->
-        </div>
+        <div id="modal-extras-list" class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs"></div>
       </div>
 
-      <!-- Quantity & Add to Cart CTA -->
       <div class="border-t border-white/10 mt-6 pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div class="flex items-center gap-3">
           <span class="font-condensed text-gray-400 uppercase font-bold text-sm">CANTIDAD:</span>
@@ -416,12 +401,8 @@
 
   <!-- SLIDE-OVER CARRO DE COMPRAS POR WHATSAPP -->
   <div id="cart-drawer" class="fixed inset-0 z-50 pointer-events-none opacity-0 transition-opacity duration-300">
-    <!-- Backdrop -->
     <div id="cart-backdrop" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
-
-    <!-- Drawer Panel -->
     <div class="absolute top-0 right-0 bottom-0 w-full max-w-md bg-black border-l border-red/40 p-6 flex flex-col justify-between shadow-2xl transform translate-x-full transition-transform duration-300 pointer-events-auto">
-      
       <div>
         <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
           <h3 class="text-3xl font-heading text-white uppercase flex items-center gap-2">
@@ -430,13 +411,9 @@
           <button id="cart-close-btn" class="text-gray-400 hover:text-white text-3xl font-bold cursor-pointer">&times;</button>
         </div>
 
-        <!-- Cart Items List -->
-        <div id="cart-items-container" class="space-y-4 max-h-[60vh] overflow-y-auto pr-2">
-          <!-- Dynamically populated -->
-        </div>
+        <div id="cart-items-container" class="space-y-4 max-h-[60vh] overflow-y-auto pr-2"></div>
       </div>
 
-      <!-- Cart Summary & WhatsApp CTA -->
       <div class="border-t border-white/10 pt-6 space-y-4">
         <div class="flex justify-between text-xl font-condensed">
           <span class="text-gray-400">TOTAL:</span>
@@ -451,7 +428,6 @@
           Se enviará tu pedido detallado a nuestro WhatsApp oficial para confirmación inmediata.
         </p>
       </div>
-
     </div>
   </div>
 

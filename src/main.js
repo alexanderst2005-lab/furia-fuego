@@ -471,19 +471,48 @@ document.addEventListener("DOMContentLoaded", () => {
   setupMobileNav();
 });
 
-// INTRO SPLASH HANDLER
+// INTRO SPLASH HANDLER - VIEWPORT LOCKED
 function initIntroSplash() {
   const splash = document.getElementById("intro-splash");
   const btnEnter = document.getElementById("btn-enter");
+  const header = document.getElementById("main-header");
+  const content = document.getElementById("main-content");
+  const footer = document.getElementById("main-footer");
+
   if (!btnEnter || !splash) return;
 
+  // Prevent scroll & touch drag events on splash screen
+  function blockScroll(e) {
+    e.preventDefault();
+  }
+
+  window.addEventListener("touchmove", blockScroll, { passive: false });
+  window.addEventListener("wheel", blockScroll, { passive: false });
+
   btnEnter.addEventListener("click", () => {
-    splash.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+    // Transition animation
+    splash.style.transition = "opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)";
     splash.style.opacity = "0";
-    splash.style.transform = "scale(1.05)";
+    splash.style.transform = "scale(1.1)";
+
+    // Unlock body & reveal main site content
     setTimeout(() => {
       splash.style.display = "none";
-    }, 500);
+      document.documentElement.classList.remove("splash-active");
+      document.body.classList.remove("splash-active");
+
+      window.removeEventListener("touchmove", blockScroll);
+      window.removeEventListener("wheel", blockScroll);
+
+      if (header) header.classList.remove("hidden");
+      if (content) content.classList.remove("hidden");
+      if (footer) footer.classList.remove("hidden");
+
+      // Smooth entrance to hero
+      if (content) {
+        content.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 600);
   });
 }
 
