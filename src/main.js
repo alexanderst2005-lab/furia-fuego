@@ -773,7 +773,9 @@ function renderExtrasGrid() {
     const card = document.createElement("div");
     card.className = "bg-dark-secondary border border-white/10 p-3.5 rounded-xl flex items-center justify-between gap-3 hover:border-yellow transition-all shadow-md cursor-pointer";
     card.innerHTML = `
-      <img src="${extra.img}" alt="${extra.name}" class="w-14 h-14 object-cover rounded-lg border border-white/10 shrink-0">
+      <div class="w-14 h-14 rounded-xl ${extra.bg || 'bg-yellow/20 border-yellow/40'} border flex items-center justify-center text-3xl shrink-0 shadow-lg select-none">
+        ${extra.icon}
+      </div>
       <div class="flex-1 min-w-0 pr-1">
         <div class="font-condensed text-white text-base sm:text-lg font-bold uppercase leading-tight text-yellow truncate">${extra.name}</div>
         <div class="text-red font-heading text-lg sm:text-xl font-bold mt-0.5">${formatMoney(extra.price)}</div>
