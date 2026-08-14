@@ -467,6 +467,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupProductModal();
   setupCartDrawer();
   setupMobileNav();
+  setupStarSection();
 });
 
 // INTRO SPLASH & NAVIGATION ENGINE (GUARANTEED LOCKED INITIAL VIEWPORT)
@@ -811,6 +812,47 @@ function updateModalTotals() {
   document.getElementById("modal-price").innerText = formatMoney(totalPrice);
 }
 
+// STAR PRODUCT SECTION HANDLERS
+function setupStarSection() {
+  const starBtn = document.querySelector(".add-to-cart-btn");
+  const customizeBtn = document.getElementById("star-customize-btn");
+  const starCardMobile = document.getElementById("star-product-card-mobile");
+  const starCardDesktop = document.getElementById("star-product-card-desktop");
+
+  const starProduct = {
+    id: "star-suprema",
+    name: "LA FURIA SUPREMA",
+    desc: "Triple carne a la parrilla de 150g cada una + triple capa de queso cheddar fundido + tocineta crocante ahumada + bañada en nuestra legendaria Salsa Furia picante.",
+    price: 34900,
+    tag: "👑 PRODUCTO ESTRELLA",
+    img: "/assets/furia-suprema.png",
+    category: "burgers",
+    ingredients: ["3x Carne de Res 150g", "3x Queso Cheddar Fundido", "Tocineta Crocante Ahumada", "Salsa Furia Picante"]
+  };
+
+  if (starBtn) {
+    starBtn.addEventListener("click", () => {
+      addToCart("LA FURIA SUPREMA", 34900, "/assets/furia-suprema.png", []);
+      // Open cart drawer immediately so user sees action result
+      openCartDrawerGlobal();
+    });
+  }
+
+  if (customizeBtn) {
+    customizeBtn.addEventListener("click", () => {
+      openProductModal(starProduct);
+    });
+  }
+
+  if (starCardMobile) {
+    starCardMobile.addEventListener("click", () => openProductModal(starProduct));
+  }
+
+  if (starCardDesktop) {
+    starCardDesktop.addEventListener("click", () => openProductModal(starProduct));
+  }
+}
+
 // CART & WHATSAPP
 function setupCartDrawer() {
   const cartBtn = document.getElementById("cart-btn");
@@ -836,6 +878,8 @@ function setupCartDrawer() {
       }
     }, 10);
   }
+
+  window.openCartDrawerGlobal = openCart;
 
   function closeCart() {
     if (!cartDrawer) return;

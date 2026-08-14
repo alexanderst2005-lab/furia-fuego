@@ -263,15 +263,10 @@
 
     <!-- SECCIÓN: PRODUCTO ESTRELLA (LA FURIA SUPREMA) -->
     <section id="estrella" class="py-24 px-4 bg-black relative overflow-hidden border-b border-red/30">
-      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+      <div class="max-w-7xl mx-auto flex flex-col lg:grid lg:grid-cols-2 gap-10 items-center relative z-10">
         
-        <div class="order-2 lg:order-1 relative">
-          <div class="relative z-10 group cursor-pointer" id="star-product-card">
-            <img src="/assets/furia-suprema.png" alt="La Furia Suprema" class="w-full h-auto object-contain rounded-2xl border-2 border-red shadow-flame group-hover:scale-105 transition-transform duration-500">
-          </div>
-        </div>
-
-        <div class="order-1 lg:order-2 space-y-6 text-center lg:text-left">
+        <!-- Star Product Info & Image Mobile Container -->
+        <div class="space-y-6 text-center lg:text-left w-full">
           <span class="inline-block bg-red/20 border border-red text-red px-4 py-1 font-condensed uppercase font-bold text-sm tracking-widest rounded-full">
             👑 PRODUCTO ESTRELLA
           </span>
@@ -283,16 +278,33 @@
 
           <h3 class="text-4xl font-heading text-yellow uppercase">LA FURIA SUPREMA</h3>
 
-          <p class="text-gray-300 text-xl font-light">
+          <!-- Mobile Image Placement (Visible on Mobile inside text flow) -->
+          <div class="lg:hidden relative flex justify-center items-center py-4">
+            <div class="relative z-10 group cursor-pointer max-w-md w-full" id="star-product-card-mobile">
+              <img src="/assets/furia-suprema.png" alt="La Furia Suprema" class="w-full h-auto object-contain rounded-2xl border-2 border-red shadow-flame group-hover:scale-105 transition-transform duration-500">
+            </div>
+          </div>
+
+          <p class="text-gray-300 text-xl font-light max-w-xl mx-auto lg:mx-0">
             Triple carne a la parrilla de 150g cada una + triple capa de queso cheddar fundido + tocineta crocante ahumada + bañada en nuestra legendaria Salsa Furia picante.
           </p>
 
           <div class="text-5xl font-heading text-red tracking-wider">$34.900</div>
 
-          <div>
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
             <button type="button" class="add-to-cart-btn btn-furia text-2xl py-4 px-10 rounded-none font-heading tracking-wider flex items-center justify-center gap-3 w-full sm:w-auto cursor-pointer" data-id="star-suprema" data-name="LA FURIA SUPREMA" data-price="34900" data-img="/assets/furia-suprema.png">
               <span>DESATAR LA FURIA</span> 🔥
             </button>
+            <button type="button" id="star-customize-btn" class="btn-outline-furia text-2xl py-4 px-8 rounded-none font-heading tracking-wider flex items-center justify-center gap-2 w-full sm:w-auto cursor-pointer">
+              <span>PERSONALIZAR</span> ⚙️
+            </button>
+          </div>
+        </div>
+
+        <!-- Desktop Image Placement (Hidden on mobile to avoid duplication) -->
+        <div class="hidden lg:flex relative justify-center items-center w-full">
+          <div class="relative z-10 group cursor-pointer max-w-lg w-full" id="star-product-card-desktop">
+            <img src="/assets/furia-suprema.png" alt="La Furia Suprema" class="w-full h-auto object-contain rounded-2xl border-2 border-red shadow-flame group-hover:scale-105 transition-transform duration-500">
           </div>
         </div>
 
