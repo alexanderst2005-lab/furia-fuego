@@ -903,9 +903,19 @@ function updateCartUI() {
     const row = document.createElement("div");
     row.className = "flex flex-col bg-black/90 border border-white/15 p-3 rounded-lg space-y-2 relative group hover:border-red/40 transition-colors";
 
-    const extrasText = item.extras.length > 0
-      ? `<div class="text-xs text-yellow font-body font-semibold">+ ${item.extras.map(e => e.name).join(", ")}</div>`
-      : "";
+    let extrasHTML = "";
+    if (item.extras && item.extras.length > 0) {
+      extrasHTML = `<div class="flex flex-wrap gap-1.5 mt-1">`;
+      item.extras.forEach((extra, extraIdx) => {
+        extrasHTML += `
+          <span class="inline-flex items-center gap-1 bg-yellow/10 border border-yellow/40 text-yellow text-xs font-body px-2 py-0.5 rounded-full font-semibold">
+            + ${extra.name}
+            <button type="button" class="hover:bg-red/30 text-red font-bold rounded-full w-4 h-4 flex items-center justify-center btn-remove-extra cursor-pointer transition-colors" data-cart-index="${index}" data-extra-index="${extraIdx}" title="Quitar ${extra.name}">✕</button>
+          </span>
+        `;
+      });
+      extrasHTML += `</div>`;
+    }
 
     row.innerHTML = `
       <div class="flex items-center justify-between gap-2">
@@ -913,8 +923,8 @@ function updateCartUI() {
           <img src="${item.img}" alt="${item.name}" loading="lazy" class="w-14 h-14 object-cover rounded border border-red/30">
           <div>
             <h4 class="font-heading text-white text-xl uppercase leading-none">${item.name}</h4>
-            ${extrasText}
-            <span class="text-red font-condensed font-bold text-sm">${formatMoney(item.unitPrice)} c/u</span>
+            ${extrasHTML}
+            <span class="text-red font-condensed font-bold text-sm mt-0.5 inline-block">${formatMoney(item.unitPrice)} c/u</span>
           </div>
         </div>
 
@@ -964,6 +974,35 @@ function updateCartUI() {
       cart.splice(idx, 1);
       updateCartUI();
       showToast(`🗑️ ¡${removedName} ELIMINADO!`);
+    });
+  });
+
+  container.querySelectorAll(".btn-remove-extra").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const cartIdx = parseInt(btn.dataset.cartIndex);
+      const extraIdx = parseInt(btn.dataset.extraIndex);
+
+      const targetItem = cart[cartIdx];
+      if (!targetItem || !targetItem.extras[extraIdx]) return;
+
+      const removedExtra = targetItem.extras[extraIdx];
+      targetItem.extras.splice(extraIdx, 1);
+
+      const extrasCost = targetItem.extras.reduce((sum, ex) => sum + ex.price, 0);
+      targetItem.unitPrice = targetItem.basePrice + extrasCost;
+
+      const extrasKey = targetItem.extras.map(ex => ex.name).sort().join(", ");
+      targetItem.key = `${targetItem.name} | ${extrasKey}`;
+
+      const duplicateIdx = cart.findIndex((it, i) => i !== cartIdx && it.key === targetItem.key);
+      if (duplicateIdx !== -1) {
+        cart[duplicateIdx].quantity += targetItem.quantity;
+        cart.splice(cartIdx, 1);
+      }
+
+      updateCartUI();
+      showToast(`🧀 ¡${removedExtra.name} removido!`);
     });
   });
 }
