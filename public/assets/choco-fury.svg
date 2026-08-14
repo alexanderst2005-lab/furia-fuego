@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450">
+  <!-- Dark Studio Background -->
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4A1525"/>
+      <stop offset="100%" stop-color="#0A0A0A"/>
+    </radialGradient>
+    <linearGradient id="chocolate" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3D1A10"/>
+      <stop offset="100%" stop-color="#1A0A05"/>
+    </linearGradient>
+    <radialGradient id="vanilla" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#FFFDF5"/>
+      <stop offset="100%" stop-color="#F3E5AB"/>
+    </radialGradient>
+  </defs>
+  
+  <rect width="600" height="450" fill="url(#bgGlow)"/>
+
+  <!-- Slate Plate -->
+  <ellipse cx="300" cy="380" rx="220" ry="45" fill="#121212" stroke="#ff0033" stroke-width="2" stroke-opacity="0.3"/>
+  <ellipse cx="300" cy="380" rx="200" ry="38" fill="#1A1A1A"/>
+
+  <!-- Warm Chocolate Brownie Base -->
+  <path d="M 180 300 L 420 300 L 400 360 L 200 360 Z" fill="url(#chocolate)"/>
+  <rect x="180" y="300" width="240" height="25" rx="4" fill="#4E2215"/>
+
+  <!-- Vanilla Ice Cream Scoop -->
+  <circle cx="300" cy="240" r="70" fill="url(#vanilla)"/>
+  <!-- Ice cream texture ripples -->
+  <path d="M 240 250 Q 270 230 300 250 T 360 250" fill="none" stroke="#E6D394" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Hot Chocolate Fudge Drizzle -->
+  <path d="M 280 170 Q 290 200 270 230 T 290 310" fill="none" stroke="#2B1008" stroke-width="12" stroke-linecap="round"/>
+  <path d="M 320 175 Q 310 210 330 240 T 310 320" fill="none" stroke="#2B1008" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- Crispy Cookie Biscuit -->
+  <rect x="340" y="160" width="70" height="50" rx="6" fill="#C68A4C" transform="rotate(25 340 160)"/>
+  <circle cx="370" cy="180" r="4" fill="#3D1A10" transform="rotate(25 340 160)"/>
+  <circle cx="390" cy="190" r="3" fill="#3D1A10" transform="rotate(25 340 160)"/>
+
+  <!-- Title Badge Overlay -->
+  <rect x="20" y="20" width="180" height="40" rx="20" fill="#FF0033"/>
+  <text x="110" y="46" font-family="'Bebas Neue', sans-serif" font-size="24" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">🍫 CHOCO FURY</text>
+</svg>

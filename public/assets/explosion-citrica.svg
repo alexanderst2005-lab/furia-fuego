@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450">
+  <defs>
+    <radialGradient id="bgCitrus" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3D3000"/>
+      <stop offset="100%" stop-color="#0A0A0A"/>
+    </radialGradient>
+    <linearGradient id="citrusLiquid" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFCC00"/>
+      <stop offset="100%" stop-color="#FF5500"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="450" fill="url(#bgCitrus)"/>
+
+  <!-- Frosted Glass -->
+  <path d="M 230 110 L 250 400 L 350 400 L 370 110 Z" fill="#FFFFFF" fill-opacity="0.1" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.5"/>
+
+  <!-- Citrus Yellow-Orange Liquid -->
+  <path d="M 236 150 L 250 400 L 350 400 L 364 150 Z" fill="url(#citrusLiquid)"/>
+  <ellipse cx="300" cy="150" rx="64" ry="12" fill="#FFE033"/>
+
+  <!-- Floating Lemon Slice -->
+  <circle cx="280" cy="180" r="28" fill="#FFEE55" stroke="#FFFFFF" stroke-width="2"/>
+  <circle cx="280" cy="180" r="22" fill="#FFCC00"/>
+
+  <!-- Ice Cubes -->
+  <rect x="270" y="240" width="45" height="45" rx="6" fill="#FFFFFF" fill-opacity="0.4" stroke="#FFFFFF" stroke-width="1.5" transform="rotate(10 270 240)"/>
+  <rect x="290" y="300" width="50" height="50" rx="6" fill="#FFFFFF" fill-opacity="0.3" stroke="#FFFFFF" stroke-width="1.5" transform="rotate(-15 290 300)"/>
+
+  <!-- Effervescent Bubbles -->
+  <circle cx="260" cy="200" r="4" fill="#FFFFFF"/>
+  <circle cx="330" cy="230" r="6" fill="#FFFFFF"/>
+  <circle cx="310" cy="170" r="3" fill="#FFFFFF"/>
+
+  <!-- Title Badge Overlay -->
+  <rect x="20" y="20" width="220" height="40" rx="20" fill="#FFCC00"/>
+  <text x="130" y="46" font-family="'Bebas Neue', sans-serif" font-size="24" fill="#000000" text-anchor="middle" letter-spacing="1">🍋 EXPLOSIÓN CÍTRICA</text>
+</svg>

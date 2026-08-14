@@ -251,7 +251,7 @@ const products = [
     desc: "Salchicha premium, queso cheddar, carne desmechada, tocineta, papas y salsa Furia.",
     price: 23900,
     tag: "👑 PREMIUM",
-    img: "/assets/hot-dog-furioso.png",
+    img: "/assets/hot-dog-demencial.svg",
     category: "dogs",
     ingredients: ["Salchicha Jumbo", "Queso Cheddar", "Carne Desmechada", "Tocineta", "Papas Crunch", "Salsa Furia"]
   },
@@ -261,7 +261,7 @@ const products = [
     desc: "Salchicha, queso, jalapeños, tocineta y salsa picante.",
     price: 20900,
     tag: "🌶️ PICANTE",
-    img: "/assets/hot-dog-furioso.png",
+    img: "/assets/hot-dog-inferno.svg",
     category: "dogs",
     ingredients: ["Salchicha Premium", "Queso Melted", "Jalapeños Sliced", "Tocineta", "Salsa Picante Inferno"]
   },
@@ -325,7 +325,7 @@ const products = [
     desc: "Bebida oscura de la casa con hielo.",
     price: 8900,
     tag: "EXCLUSIVA",
-    img: "/assets/drink-fuego.png",
+    img: "/assets/black-fury.svg",
     category: "bebidas",
     ingredients: ["Fórmula Secreta Furia", "Cítricos Oscuros", "Hielo Extra"]
   },
@@ -335,7 +335,7 @@ const products = [
     desc: "Bebida cítrica fría con hielo.",
     price: 8900,
     tag: "HELADO",
-    img: "/assets/drink-fuego.png",
+    img: "/assets/explosion-citrica.svg",
     category: "bebidas",
     ingredients: ["Limón & Naranja", "Burbujas Refrescantes", "Hielo"]
   },
@@ -345,7 +345,7 @@ const products = [
     desc: "Diferentes opciones de gaseosa (Coca-Cola, Sprite, Premio).",
     price: 5900,
     tag: "FRÍO",
-    img: "/assets/drink-fuego.png",
+    img: "/assets/gaseosa-fria.svg",
     category: "bebidas",
     ingredients: ["Gaseosa 400ml Helada"]
   },
@@ -355,7 +355,7 @@ const products = [
     desc: "Agua purificada fría.",
     price: 4500,
     tag: "NATURAL",
-    img: "/assets/drink-fuego.png",
+    img: "/assets/agua-embotellada.svg",
     category: "bebidas",
     ingredients: ["Agua Purificada 500ml"]
   },
@@ -367,7 +367,7 @@ const products = [
     desc: "Brownie caliente, helado de vainilla, chocolate derretido y galleta.",
     price: 12900,
     tag: "DELICIOSO",
-    img: "/assets/furia-suprema.png",
+    img: "/assets/choco-fury.svg",
     category: "postres",
     ingredients: ["Brownie de Chocolate Caliente", "Bola Helado de Vainilla", "Fudge de Chocolate", "Galleta Crujiente"]
   },
@@ -377,7 +377,7 @@ const products = [
     desc: "Helado de vainilla, Oreo triturada, chocolate y crema.",
     price: 13900,
     tag: "💥 FAVORITO",
-    img: "/assets/furia-suprema.png",
+    img: "/assets/oreo-caos.svg",
     category: "postres",
     ingredients: ["Helado Vainilla Creamy", "Trozos de Galleta Oreo", "Jarabe de Chocolate", "Crema Batida"]
   },
@@ -387,7 +387,7 @@ const products = [
     desc: "Brownie caliente con helado y salsa de chocolate.",
     price: 12900,
     tag: "CALIENTE",
-    img: "/assets/furia-suprema.png",
+    img: "/assets/fuego-brownie.svg",
     category: "postres",
     ingredients: ["Brownie Artesanal", "Helado de Vainilla", "Salsa de Chocolate Caliente"]
   },
@@ -409,7 +409,7 @@ const products = [
     desc: "La Bestia + Fries Demenciales + Bebida Cítrica.",
     price: 42900,
     tag: "👑 PREMIUM",
-    img: "/assets/la-bestia.png",
+    img: "/assets/combo-bestia.svg",
     category: "combos",
     ingredients: ["1x Hamburguesa La Bestia Triple", "1x Fries Demenciales", "1x Bebida Explosión Cítrica"]
   },
