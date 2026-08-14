@@ -469,7 +469,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupMobileNav();
 });
 
-// INTRO SPLASH & NAVIGATION ENGINE (LOCKED PORTAL WITH TOP SCROLL RESET)
+// INTRO SPLASH & NAVIGATION ENGINE (FAIL-SAFE UNLOCK)
 function initIntroSplash() {
   const splash = document.getElementById("intro-splash");
   const btnEnter = document.getElementById("btn-enter");
@@ -482,11 +482,6 @@ function initIntroSplash() {
 
   if (splash && !splash.classList.contains("hidden")) {
     document.body.style.overflow = "hidden";
-
-    // Block touch scrolling on the splash backdrop only
-    splash.addEventListener("touchmove", (e) => {
-      e.preventDefault();
-    }, { passive: false });
   }
 
   function unlock() {
