@@ -470,44 +470,23 @@ document.addEventListener("DOMContentLoaded", () => {
   setupMobileNav();
 });
 
-// INTRO SPLASH & NAVIGATION HANDLER (FAIL-SAFE ZERO-LATENCY)
+// INTRO SPLASH HANDLER (PURE NATIVE ZERO-LAG)
 function initIntroSplash() {
   const splash = document.getElementById("intro-splash");
   const btnEnter = document.getElementById("btn-enter");
 
   if (!splash) return;
 
-  function unlockSite() {
-    splash.style.transition = "opacity 0.2s ease";
-    splash.style.opacity = "0";
-    splash.style.pointerEvents = "none";
-    document.body.classList.remove("splash-active");
-
-    setTimeout(() => {
-      splash.style.display = "none";
-    }, 200);
-  }
-
   if (btnEnter) {
-    btnEnter.addEventListener("click", (e) => {
-      e.stopPropagation();
-      unlockSite();
+    btnEnter.addEventListener("click", () => {
+      splash.style.transition = "opacity 0.2s ease";
+      splash.style.opacity = "0";
+      splash.style.pointerEvents = "none";
+      setTimeout(() => {
+        splash.style.display = "none";
+      }, 200);
     });
   }
-
-  // Smooth scroll handler for standard nav links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function (e) {
-      const targetId = this.getAttribute("href");
-      if (!targetId || targetId === "#") return;
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        e.preventDefault();
-        unlockSite();
-        targetElement.scrollIntoView({ behavior: "smooth" });
-      }
-    });
-  });
 }
 
 // LIGHTWEIGHT FIRE CANVAS PARTICLES (THROTTLED & AUTO-PAUSED ON LOW POWER / HIDDEN)
