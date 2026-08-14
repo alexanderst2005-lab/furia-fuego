@@ -680,15 +680,16 @@ function showDedicatedMenuView(category = "all") {
   if (hero) hero.classList.add("hidden");
   if (backBar) backBar.classList.remove("hidden");
 
-  if (category && category !== "all") {
-    currentCategory = category;
-    const filterBtns = document.querySelectorAll(".menu-filter-btn");
-    filterBtns.forEach(b => {
-      if (b.dataset.category === category) b.classList.add("active");
-      else b.classList.remove("active");
-    });
-    renderProducts(category);
-  }
+  const targetCategory = category || "all";
+  currentCategory = targetCategory;
+
+  const filterBtns = document.querySelectorAll(".menu-filter-btn");
+  filterBtns.forEach(b => {
+    if (b.dataset.category === targetCategory) b.classList.add("active");
+    else b.classList.remove("active");
+  });
+
+  renderProducts(targetCategory);
 
   window.scrollTo(0, 0);
 }
@@ -699,6 +700,14 @@ function showHomeView() {
 
   if (hero) hero.classList.remove("hidden");
   if (backBar) backBar.classList.add("hidden");
+
+  currentCategory = "all";
+  const filterBtns = document.querySelectorAll(".menu-filter-btn");
+  filterBtns.forEach(b => {
+    if (b.dataset.category === "all") b.classList.add("active");
+    else b.classList.remove("active");
+  });
+  renderProducts("all");
 
   window.scrollTo(0, 0);
 }
