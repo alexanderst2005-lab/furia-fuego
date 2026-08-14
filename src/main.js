@@ -470,7 +470,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupMobileNav();
 });
 
-// INTRO SPLASH & NAVIGATION HANDLER (ZERO-LATENCY UNLOCK)
+// INTRO SPLASH & NAVIGATION HANDLER (FAIL-SAFE ZERO-LATENCY)
 function initIntroSplash() {
   const splash = document.getElementById("intro-splash");
   const btnEnter = document.getElementById("btn-enter");
@@ -478,25 +478,28 @@ function initIntroSplash() {
   if (!splash) return;
 
   function unlockSite() {
-    splash.style.transition = "opacity 0.25s linear";
+    splash.style.transition = "opacity 0.2s ease";
     splash.style.opacity = "0";
     splash.style.pointerEvents = "none";
     document.body.classList.remove("splash-active");
 
     setTimeout(() => {
       splash.style.display = "none";
-    }, 250);
+    }, 200);
   }
 
   if (btnEnter) {
-    btnEnter.addEventListener("click", unlockSite);
+    btnEnter.addEventListener("click", (e) => {
+      e.stopPropagation();
+      unlockSite();
+    });
   }
 
-  // Fail-safe hash link navigation
+  // Smooth scroll handler for standard nav links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", function (e) {
       const targetId = this.getAttribute("href");
-      if (targetId === "#") return;
+      if (!targetId || targetId === "#") return;
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
         e.preventDefault();

@@ -49,7 +49,7 @@
   <!-- Custom CSS Design System -->
   <link rel="stylesheet" href="/src/style.css">
 </head>
-<body class="bg-dark text-white overflow-x-hidden splash-active">
+<body class="bg-dark text-white overflow-x-hidden">
 
   <!-- Particle Canvas Overlay -->
   <canvas id="fire-canvas" class="pointer-events-none fixed inset-0 z-0 opacity-40"></canvas>
@@ -72,7 +72,7 @@
       </p>
 
       <!-- Main Action Button -->
-      <button id="btn-enter" class="btn-furia text-2xl sm:text-3xl py-5 px-12 rounded-none tracking-widest uppercase font-heading flex items-center justify-center gap-3 w-full sm:w-auto shadow-2xl cursor-pointer">
+      <button id="btn-enter" type="button" class="btn-furia text-2xl sm:text-3xl py-5 px-12 rounded-none tracking-widest uppercase font-heading flex items-center justify-center gap-3 w-full sm:w-auto shadow-2xl cursor-pointer">
         <span>ENTRAR AL CAOS</span> 🔥
       </button>
     </div>
@@ -89,10 +89,10 @@
 
       <!-- Navigation Links -->
       <nav class="hidden md:flex items-center gap-8 font-condensed text-lg uppercase tracking-wider">
-        <a href="#menu" class="hover:text-red transition-colors flex items-center gap-1 nav-link">🍔 Menú Completo</a>
-        <a href="#combos" class="hover:text-yellow transition-colors flex items-center gap-1 nav-link">💥 Combos</a>
-        <a href="#estrella" class="hover:text-red transition-colors flex items-center gap-1 nav-link">⭐ Furia Suprema</a>
-        <a href="#extras-section" class="hover:text-yellow transition-colors flex items-center gap-1 nav-link">🧀 Adicionales</a>
+        <a href="#menu" class="hover:text-red transition-colors flex items-center gap-1">🍔 Menú Completo</a>
+        <a href="#combos" class="hover:text-yellow transition-colors flex items-center gap-1">💥 Combos</a>
+        <a href="#estrella" class="hover:text-red transition-colors flex items-center gap-1">⭐ Furia Suprema</a>
+        <a href="#extras-section" class="hover:text-yellow transition-colors flex items-center gap-1">🧀 Adicionales</a>
       </nav>
 
       <!-- Cart Trigger Button -->
@@ -123,7 +123,7 @@
   <main id="main-content" class="relative z-10 pt-20">
 
     <!-- HERO SECTION -->
-    <section class="relative min-h-[85vh] flex items-center justify-center py-16 px-4 overflow-hidden border-b border-red/20">
+    <section id="hero" class="relative min-h-[85vh] flex items-center justify-center py-16 px-4 overflow-hidden border-b border-red/20">
       
       <!-- Background Ambient Glow -->
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-red-glow rounded-full blur-[100px] pointer-events-none opacity-30"></div>
@@ -147,10 +147,10 @@
           </p>
 
           <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-            <a href="#menu" class="btn-furia w-full sm:w-auto text-xl py-4 px-8 rounded-none font-heading tracking-wider flex items-center justify-center gap-3 group nav-link">
+            <a href="#menu" class="btn-furia w-full sm:w-auto text-xl py-4 px-8 rounded-none font-heading tracking-wider flex items-center justify-center gap-3 group">
               <span>🔥 EXPLORAR MENÚ</span>
             </a>
-            <a href="#combos" class="btn-outline-furia w-full sm:w-auto text-xl py-4 px-8 rounded-none font-heading tracking-wider flex items-center justify-center gap-3 nav-link">
+            <a href="#combos" class="btn-outline-furia w-full sm:w-auto text-xl py-4 px-8 rounded-none font-heading tracking-wider flex items-center justify-center gap-3">
               <span>COMBOS DESTRUCCIÓN</span> 💥
             </a>
           </div>
