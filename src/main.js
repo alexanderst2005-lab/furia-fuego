@@ -655,9 +655,16 @@ function setupProductModal() {
   const qtyPlus = document.getElementById("modal-qty-plus");
   const addBtn = document.getElementById("modal-add-btn");
 
+  const modalPanel = modal ? modal.querySelector(".transform") : null;
+
   function closeModal() {
+    if (!modal) return;
     modal.classList.add("opacity-0");
     modal.classList.remove("opacity-100");
+    if (modalPanel) {
+      modalPanel.classList.remove("scale-100");
+      modalPanel.classList.add("scale-95");
+    }
     setTimeout(() => {
       modal.classList.add("hidden");
     }, 200);
@@ -699,6 +706,7 @@ function openProductModal(product) {
   const tag = document.getElementById("modal-tag");
   const ingredientsList = document.getElementById("modal-ingredients");
   const extrasContainer = document.getElementById("modal-extras-list");
+  const modalPanel = modal ? modal.querySelector(".transform") : null;
 
   title.innerText = product.name;
   desc.innerText = product.desc;
@@ -741,6 +749,10 @@ function openProductModal(product) {
   setTimeout(() => {
     modal.classList.remove("opacity-0");
     modal.classList.add("opacity-100");
+    if (modalPanel) {
+      modalPanel.classList.remove("scale-95");
+      modalPanel.classList.add("scale-100");
+    }
   }, 10);
 }
 
@@ -767,17 +779,30 @@ function setupCartDrawer() {
   const cartBackdrop = document.getElementById("cart-backdrop");
   const whatsappSubmitBtn = document.getElementById("whatsapp-submit-btn");
 
+  const cartPanel = cartDrawer ? cartDrawer.querySelector(".transform") : null;
+
   function openCart() {
+    if (!cartDrawer) return;
+    updateCartUI();
     cartDrawer.classList.remove("hidden");
     setTimeout(() => {
       cartDrawer.classList.remove("opacity-0");
       cartDrawer.classList.add("opacity-100");
+      if (cartPanel) {
+        cartPanel.classList.remove("translate-x-full");
+        cartPanel.classList.add("translate-x-0");
+      }
     }, 10);
   }
 
   function closeCart() {
+    if (!cartDrawer) return;
     cartDrawer.classList.add("opacity-0");
     cartDrawer.classList.remove("opacity-100");
+    if (cartPanel) {
+      cartPanel.classList.remove("translate-x-0");
+      cartPanel.classList.add("translate-x-full");
+    }
     setTimeout(() => {
       cartDrawer.classList.add("hidden");
     }, 200);
