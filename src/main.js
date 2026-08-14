@@ -469,34 +469,49 @@ document.addEventListener("DOMContentLoaded", () => {
   setupMobileNav();
 });
 
-// INTRO SPLASH HANDLER (PURE NATIVE ZERO-LAG)
+// INTRO SPLASH & ROCK-SOLID NAV SCROLLING ENGINE (OPTIMIZED FOR iOS SAFARI)
 function initIntroSplash() {
   const splash = document.getElementById("intro-splash");
   const btnEnter = document.getElementById("btn-enter");
 
-  if (!splash) return;
-
-  if (btnEnter) {
-    btnEnter.addEventListener("click", () => {
-      splash.style.display = "none";
-    });
+  function removeSplash() {
+    if (!splash) return;
+    splash.style.opacity = "0";
+    splash.style.pointerEvents = "none";
+    setTimeout(() => {
+      if (splash && splash.parentNode) {
+        splash.parentNode.removeChild(splash);
+      }
+    }, 150);
   }
 
-  // Exact Pixel Offset Scroll for Nav Buttons
+  if (btnEnter) {
+    // Both touchend and click for 0ms iPhone responsiveness
+    const handleEnter = (e) => {
+      e.preventDefault();
+      removeSplash();
+    };
+    btnEnter.addEventListener("touchend", handleEnter, { passive: false });
+    btnEnter.addEventListener("click", handleEnter);
+  }
+
+  // Exact Pixel Offset Scrolling for Navigation Links (.nav-scroll-btn)
   document.querySelectorAll(".nav-scroll-btn").forEach(btn => {
-    btn.addEventListener("click", function (e) {
-      const href = this.getAttribute("href");
+    const handleScrollClick = (e) => {
+      const href = btn.getAttribute("href");
       if (!href || !href.startsWith("#") || href === "#") return;
 
       const targetEl = document.querySelector(href);
       if (targetEl) {
         e.preventDefault();
-        splash.style.display = "none";
+        removeSplash();
 
-        const targetY = targetEl.getBoundingClientRect().top + window.pageYOffset - 80;
-        window.scrollTo({
-          top: targetY,
-          behavior: "smooth"
+        requestAnimationFrame(() => {
+          const targetY = targetEl.getBoundingClientRect().top + window.pageYOffset - 80;
+          window.scrollTo({
+            top: targetY,
+            behavior: "smooth"
+          });
         });
       }
     });
