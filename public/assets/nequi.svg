@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 50" width="160" height="50">
+  <rect width="160" height="50" rx="8" fill="#1F0037"/>
+  <rect x="2" y="2" width="156" height="46" rx="6" fill="none" stroke="#FF007A" stroke-width="1.5"/>
+  <!-- Nequi N Symbol -->
+  <path d="M22 15h7v8.5l9-8.5h8v20h-7v-8.5l-9 8.5h-8V15z" fill="#FF007A"/>
+  <!-- Text -->
+  <text x="52" y="32" font-family="'Outfit', sans-serif" font-weight="900" font-size="22" fill="#FFFFFF" letter-spacing="1">nequi</text>
+</svg>

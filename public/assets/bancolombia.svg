@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 50" width="160" height="50">
+  <rect width="160" height="50" rx="8" fill="#121212"/>
+  <rect x="2" y="2" width="156" height="46" rx="6" fill="none" stroke="#FDDA24" stroke-width="1.5"/>
+  <!-- Bancolombia Geometric Flag Symbol -->
+  <rect x="14" y="16" width="22" height="5" fill="#FDDA24"/>
+  <rect x="14" y="23" width="22" height="5" fill="#002C6C"/>
+  <rect x="14" y="30" width="22" height="5" fill="#E00000"/>
+  <!-- Text -->
+  <text x="42" y="32" font-family="'Barlow Condensed', sans-serif" font-weight="900" font-size="17" fill="#FFFFFF" letter-spacing="0.5">Bancolombia</text>
+</svg>

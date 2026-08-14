@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 50" width="160" height="50">
+  <rect width="160" height="50" rx="8" fill="#E60000"/>
+  <rect x="2" y="2" width="156" height="46" rx="6" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-opacity="0.3"/>
+  <!-- Daviplata Icon -->
+  <path d="M18 33V17l10-4 10 4v16L28 37z" fill="#FFFFFF"/>
+  <path d="M28 20l5 3-5 3-5-3z" fill="#E60000"/>
+  <!-- Text -->
+  <text x="44" y="32" font-family="'Barlow Condensed', sans-serif" font-weight="900" font-size="21" fill="#FFFFFF" letter-spacing="0.5">DaviPlata</text>
+</svg>

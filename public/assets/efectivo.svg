@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 50" width="160" height="50">
+  <rect width="160" height="50" rx="8" fill="#0A2210"/>
+  <rect x="2" y="2" width="156" height="46" rx="6" fill="none" stroke="#39FF14" stroke-width="1.5"/>
+  <!-- Cash Bill Icon -->
+  <rect x="14" y="16" width="24" height="18" rx="2" fill="none" stroke="#39FF14" stroke-width="2"/>
+  <circle cx="26" cy="25" r="4" fill="#39FF14"/>
+  <!-- Text -->
+  <text x="44" y="32" font-family="'Barlow Condensed', sans-serif" font-weight="900" font-size="18" fill="#39FF14" letter-spacing="0.5">EFECTIVO</text>
+</svg>
