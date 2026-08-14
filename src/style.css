@@ -28,6 +28,7 @@ body {
   color: #ffffff;
   font-family: var(--font-body);
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .font-heading {
@@ -58,19 +59,14 @@ body {
   touch-action: none;
   overflow: hidden;
   user-select: none;
+  will-change: transform, opacity;
 }
 
 .splash-logo-img {
-  max-width: 90vw;
-  width: 480px;
+  max-width: 85vw;
+  width: 420px;
   height: auto;
-  filter: drop-shadow(0 0 25px rgba(255, 0, 51, 0.7)) drop-shadow(0 0 45px rgba(255, 204, 0, 0.4));
-  animation: logo-float 4s ease-in-out infinite alternate;
-}
-
-@keyframes logo-float {
-  0% { transform: translateY(0) scale(1); filter: drop-shadow(0 0 20px rgba(255, 0, 51, 0.6)); }
-  100% { transform: translateY(-8px) scale(1.02); filter: drop-shadow(0 0 40px rgba(255, 204, 0, 0.8)); }
+  will-change: transform;
 }
 
 /* Custom Colors Utilities */
@@ -91,17 +87,8 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-/* Glow Effects */
-.drop-shadow-flame {
-  filter: drop-shadow(0 0 15px rgba(255, 0, 51, 0.8)) drop-shadow(0 0 30px rgba(255, 204, 0, 0.4));
-}
-
-.shadow-flame {
-  box-shadow: 0 0 25px rgba(255, 0, 51, 0.4), 0 0 50px rgba(255, 85, 0, 0.2);
-}
-
 .bg-red-glow {
-  background: radial-gradient(circle, rgba(255,0,51,0.5) 0%, rgba(255,85,0,0.2) 50%, transparent 70%);
+  background: radial-gradient(circle, rgba(255,0,51,0.3) 0%, rgba(255,85,0,0.1) 50%, transparent 70%);
 }
 
 /* Buttons */
@@ -111,19 +98,20 @@ body {
   color: #ffffff;
   font-family: var(--font-heading);
   border: 1px solid var(--color-yellow);
-  box-shadow: 0 0 20px rgba(255, 0, 51, 0.6);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 0, 51, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
+  will-change: transform;
 }
 
 .btn-furia:hover {
   background: linear-gradient(135deg, #ff1a47 0%, var(--color-red) 100%);
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 0 30px rgba(255, 0, 51, 0.9), 0 0 15px rgba(255, 204, 0, 0.7);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 0, 51, 0.7);
 }
 
 .btn-furia:active {
-  transform: translateY(1px) scale(0.98);
+  transform: translateY(1px);
 }
 
 .btn-outline-furia {
@@ -131,24 +119,23 @@ body {
   color: #ffffff;
   font-family: var(--font-heading);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease;
   cursor: pointer;
 }
 
 .btn-outline-furia:hover {
   border-color: var(--color-yellow);
   color: var(--color-yellow);
-  box-shadow: 0 0 15px rgba(255, 204, 0, 0.3);
   transform: translateY(-2px);
 }
 
 /* Menu Filter Buttons */
 .menu-filter-btn {
-  padding: 0.5rem 1.25rem;
+  padding: 0.4rem 1.1rem;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #cccccc;
-  transition: all 0.3s ease;
+  transition: background 0.2s ease, color 0.2s ease;
   cursor: pointer;
 }
 
@@ -161,20 +148,19 @@ body {
   background: var(--color-red);
   border-color: var(--color-yellow);
   color: #ffffff;
-  box-shadow: 0 0 15px rgba(255, 0, 51, 0.5);
 }
 
 /* Product Card */
 .product-card {
   background: rgba(15, 15, 15, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  will-change: transform;
 }
 
 .product-card:hover {
   border-color: var(--color-red);
-  box-shadow: 0 10px 25px rgba(255, 0, 51, 0.25);
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
 /* Smoke Overlay Animation */
@@ -185,15 +171,12 @@ body {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   background: #000000;
 }
 ::-webkit-scrollbar-thumb {
   background: var(--color-red);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-orange);
+  border-radius: 3px;
 }

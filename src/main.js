@@ -1,6 +1,5 @@
-// FURIA & FUEGO — Core JavaScript Engine with Full Interactive Menu, Modal & Cart
+// FURIA & FUEGO — High-Performance JavaScript Engine (Optimized for Mobile & Low GPU)
 
-// Business WhatsApp Number
 const WHATSAPP_NUMBER = "573000000000";
 
 // Extras Master Database
@@ -453,7 +452,7 @@ let activeModalProduct = null;
 let modalQuantity = 1;
 let selectedModalExtras = new Set();
 
-// Utility Currency Formatter
+// Formatter
 function formatMoney(num) {
   return "$" + num.toLocaleString("es-CO");
 }
@@ -471,7 +470,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupMobileNav();
 });
 
-// INTRO SPLASH HANDLER - VIEWPORT LOCKED
+// INTRO SPLASH HANDLER - VIEWPORT LOCKED & ULTRA LIGHTWEIGHT
 function initIntroSplash() {
   const splash = document.getElementById("intro-splash");
   const btnEnter = document.getElementById("btn-enter");
@@ -481,7 +480,6 @@ function initIntroSplash() {
 
   if (!btnEnter || !splash) return;
 
-  // Prevent scroll & touch drag events on splash screen
   function blockScroll(e) {
     e.preventDefault();
   }
@@ -490,12 +488,10 @@ function initIntroSplash() {
   window.addEventListener("wheel", blockScroll, { passive: false });
 
   btnEnter.addEventListener("click", () => {
-    // Transition animation
-    splash.style.transition = "opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)";
+    splash.style.transition = "opacity 0.4s ease, transform 0.4s ease";
     splash.style.opacity = "0";
-    splash.style.transform = "scale(1.1)";
+    splash.style.transform = "scale(1.05)";
 
-    // Unlock body & reveal main site content
     setTimeout(() => {
       splash.style.display = "none";
       document.documentElement.classList.remove("splash-active");
@@ -507,41 +503,43 @@ function initIntroSplash() {
       if (header) header.classList.remove("hidden");
       if (content) content.classList.remove("hidden");
       if (footer) footer.classList.remove("hidden");
-
-      // Smooth entrance to hero
-      if (content) {
-        content.scrollIntoView({ behavior: "smooth" });
-      }
-    }, 600);
+    }, 400);
   });
 }
 
-// FIRE CANVAS PARTICLES (60 FPS)
+// LIGHTWEIGHT FIRE CANVAS PARTICLES (THROTTLED & AUTO-PAUSED ON LOW POWER / HIDDEN)
 function initFireCanvas() {
   const canvas = document.getElementById("fire-canvas");
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
 
+  const isMobile = window.innerWidth < 768;
+  const particleCount = isMobile ? 12 : 25;
+
   let width = (canvas.width = window.innerWidth);
   let height = (canvas.height = window.innerHeight);
+
+  let isTabActive = true;
+  document.addEventListener("visibilitychange", () => {
+    isTabActive = !document.hidden;
+  });
 
   window.addEventListener("resize", () => {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
-  });
+  }, { passive: true });
 
   const particles = [];
-  const particleCount = 45;
 
   class Particle {
     constructor() { this.reset(); }
     reset() {
       this.x = Math.random() * width;
-      this.y = height + Math.random() * 40;
-      this.radius = Math.random() * 2.5 + 1;
-      this.speedY = Math.random() * 1.6 + 0.6;
-      this.speedX = (Math.random() - 0.5) * 0.7;
-      this.alpha = Math.random() * 0.6 + 0.3;
+      this.y = height + Math.random() * 30;
+      this.radius = Math.random() * 2 + 1;
+      this.speedY = Math.random() * 1.2 + 0.5;
+      this.speedX = (Math.random() - 0.5) * 0.5;
+      this.alpha = Math.random() * 0.5 + 0.2;
       this.color = Math.random() > 0.4 ? "#ff0033" : "#ffcc00";
     }
     update() {
@@ -551,27 +549,27 @@ function initFireCanvas() {
       if (this.y < 0 || this.alpha <= 0) this.reset();
     }
     draw() {
-      ctx.save();
       ctx.globalAlpha = this.alpha;
       ctx.fillStyle = this.color;
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
       ctx.fill();
-      ctx.restore();
     }
   }
 
   for (let i = 0; i < particleCount; i++) particles.push(new Particle());
 
   function animate() {
-    ctx.clearRect(0, 0, width, height);
-    particles.forEach(p => { p.update(); p.draw(); });
+    if (isTabActive) {
+      ctx.clearRect(0, 0, width, height);
+      particles.forEach(p => { p.update(); p.draw(); });
+    }
     requestAnimationFrame(animate);
   }
   animate();
 }
 
-// RENDER PRODUCTS GRID
+// RENDER PRODUCTS GRID WITH LAZY LOADING & HARDWARE ACCELERATION
 function renderProducts(category = "all") {
   const grid = document.getElementById("products-grid");
   if (!grid) return;
@@ -592,25 +590,27 @@ function renderProducts(category = "all") {
     return;
   }
 
+  const fragment = document.createDocumentFragment();
+
   filtered.forEach(product => {
     const card = document.createElement("div");
-    card.className = "product-card rounded-xl overflow-hidden flex flex-col justify-between group cursor-pointer";
+    card.className = "product-card rounded-xl overflow-hidden flex flex-col justify-between group cursor-pointer transform-gpu";
 
     card.innerHTML = `
-      <div class="relative overflow-hidden bg-black/80 product-card-img-wrap">
+      <div class="relative overflow-hidden bg-black/80">
         <span class="absolute top-3 left-3 bg-red text-white text-xs font-condensed font-bold px-3 py-1 rounded shadow z-10">
           ${product.tag}
         </span>
-        <img src="${product.img}" alt="${product.name}" class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500">
+        <img src="${product.img}" alt="${product.name}" loading="lazy" decoding="async" class="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-300">
       </div>
-      <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+      <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
         <div>
-          <h3 class="text-3xl font-heading text-white uppercase tracking-wider">${product.name}</h3>
-          <p class="text-gray-400 text-sm font-body mt-1 line-clamp-2">${product.desc}</p>
+          <h3 class="text-2xl font-heading text-white uppercase tracking-wider">${product.name}</h3>
+          <p class="text-gray-400 text-xs font-body mt-1 line-clamp-2">${product.desc}</p>
         </div>
-        <div class="flex items-center justify-between pt-4 border-t border-white/10">
-          <span class="text-3xl font-heading text-red">${formatMoney(product.price)}</span>
-          <button class="btn-furia text-lg px-4 py-2 font-heading tracking-wider flex items-center gap-1 add-quick-btn"
+        <div class="flex items-center justify-between pt-3 border-t border-white/10">
+          <span class="text-2xl font-heading text-red">${formatMoney(product.price)}</span>
+          <button class="btn-furia text-base px-4 py-1.5 font-heading tracking-wider flex items-center gap-1 add-quick-btn"
                   data-id="${product.id}">
             AGREGAR 🔥
           </button>
@@ -618,34 +618,30 @@ function renderProducts(category = "all") {
       </div>
     `;
 
-    // Click card opens full product details modal
     card.addEventListener("click", (e) => {
-      if (e.target.closest(".add-quick-btn")) {
-        e.stopPropagation();
-        openProductModal(product);
-      } else {
-        openProductModal(product);
-      }
+      openProductModal(product);
     });
 
-    grid.appendChild(card);
+    fragment.appendChild(card);
   });
+
+  grid.appendChild(fragment);
 }
 
-// RENDER EXTRAS GRID IN PAGE
+// RENDER EXTRAS GRID
 function renderExtrasGrid() {
   const container = document.getElementById("extras-grid");
   if (!container) return;
 
-  container.innerHTML = "";
+  const fragment = document.createDocumentFragment();
 
   extrasList.forEach(extra => {
     const card = document.createElement("div");
     card.className = "bg-black/60 border border-white/10 p-4 rounded-lg flex items-center justify-between hover:border-yellow transition-all cursor-pointer";
     card.innerHTML = `
       <div>
-        <div class="font-condensed text-white text-lg font-bold uppercase">${extra.name}</div>
-        <div class="text-red font-heading text-xl">${formatMoney(extra.price)}</div>
+        <div class="font-condensed text-white text-base font-bold uppercase">${extra.name}</div>
+        <div class="text-red font-heading text-lg">${formatMoney(extra.price)}</div>
       </div>
       <button class="btn-furia text-xs px-3 py-1 font-heading uppercase font-bold add-extra-direct-btn">
         + AGREGAR
@@ -657,45 +653,48 @@ function renderExtrasGrid() {
       addToCart(extra.name, extra.price, "/assets/furia-suprema.png", []);
     });
 
-    container.appendChild(card);
+    fragment.appendChild(card);
   });
+
+  container.appendChild(fragment);
 }
 
-// RENDER COMBOS FEATURED SECTION
+// RENDER COMBOS SECTION
 function renderCombosSection() {
   const container = document.getElementById("combos-grid");
   if (!container) return;
 
   const combos = products.filter(p => p.category === "combos");
-  container.innerHTML = "";
+  const fragment = document.createDocumentFragment();
 
   combos.forEach(combo => {
     const card = document.createElement("div");
-    card.className = "combo-card border-2 border-red/40 bg-black/90 p-6 flex flex-col justify-between relative group hover:border-red transition-all rounded-xl cursor-pointer";
+    card.className = "combo-card border border-red/40 bg-black/90 p-5 flex flex-col justify-between relative group hover:border-red transition-all rounded-xl cursor-pointer transform-gpu";
 
     card.innerHTML = `
-      <div class="absolute -top-4 right-4 bg-red text-white font-heading px-3 py-1 text-sm tracking-widest rounded shadow">
+      <div class="absolute -top-3 right-4 bg-red text-white font-heading px-3 py-0.5 text-xs tracking-widest rounded shadow">
         ${combo.tag}
       </div>
       <div>
-        <div class="overflow-hidden mb-6 rounded-lg">
-          <img src="${combo.img}" alt="${combo.name}" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+        <div class="overflow-hidden mb-4 rounded-lg">
+          <img src="${combo.img}" alt="${combo.name}" loading="lazy" decoding="async" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
         </div>
-        <h3 class="text-4xl font-heading text-white uppercase mb-2">${combo.name}</h3>
-        <p class="text-gray-400 text-sm mb-4">${combo.desc}</p>
+        <h3 class="text-3xl font-heading text-white uppercase mb-1">${combo.name}</h3>
+        <p class="text-gray-400 text-xs mb-3">${combo.desc}</p>
       </div>
-      <div class="flex items-center justify-between pt-4 border-t border-white/10">
-        <span class="text-4xl font-heading text-red">${formatMoney(combo.price)}</span>
-        <button class="btn-furia px-6 py-2 text-lg font-heading add-combo-btn" data-id="${combo.id}">
+      <div class="flex items-center justify-between pt-3 border-t border-white/10">
+        <span class="text-3xl font-heading text-red">${formatMoney(combo.price)}</span>
+        <button class="btn-furia px-5 py-1.5 text-base font-heading add-combo-btn" data-id="${combo.id}">
           QUIERO EL COMBO 🔥
         </button>
       </div>
     `;
 
     card.addEventListener("click", () => openProductModal(combo));
-
-    container.appendChild(card);
+    fragment.appendChild(card);
   });
+
+  container.appendChild(fragment);
 }
 
 // CATEGORY FILTERS
@@ -712,7 +711,7 @@ function setupCategoryFilters() {
   });
 }
 
-// PRODUCT MODAL HANDLER
+// PRODUCT MODAL
 function setupProductModal() {
   const modal = document.getElementById("product-modal");
   const backdrop = document.getElementById("modal-backdrop");
@@ -726,7 +725,7 @@ function setupProductModal() {
     setTimeout(() => {
       modal.classList.add("pointer-events-none", "opacity-0");
       modal.classList.remove("opacity-100");
-    }, 250);
+    }, 200);
   }
 
   closeBtn.addEventListener("click", closeModal);
@@ -746,17 +745,8 @@ function setupProductModal() {
 
   addBtn.addEventListener("click", () => {
     if (!activeModalProduct) return;
-
     const chosenExtras = Array.from(selectedModalExtras).map(id => extrasList.find(e => e.id === id));
-    
-    addToCart(
-      activeModalProduct.name,
-      activeModalProduct.price,
-      activeModalProduct.img,
-      chosenExtras,
-      modalQuantity
-    );
-
+    addToCart(activeModalProduct.name, activeModalProduct.price, activeModalProduct.img, chosenExtras, modalQuantity);
     closeModal();
   });
 }
@@ -780,7 +770,6 @@ function openProductModal(product) {
   img.src = product.img;
   tag.innerText = product.tag;
 
-  // Ingredients checklist
   ingredientsList.innerHTML = "";
   if (product.ingredients && product.ingredients.length > 0) {
     product.ingredients.forEach(ing => {
@@ -791,12 +780,10 @@ function openProductModal(product) {
     });
   }
 
-  // Render Extras Options in Modal
   extrasContainer.innerHTML = "";
   extrasList.forEach(extra => {
     const label = document.createElement("label");
     label.className = "flex items-center gap-2 p-2 border border-white/10 rounded bg-black/40 hover:border-yellow cursor-pointer select-none";
-    
     label.innerHTML = `
       <input type="checkbox" value="${extra.id}" class="accent-red w-4 h-4 rounded cursor-pointer">
       <span class="text-gray-200">${extra.name}</span>
@@ -805,11 +792,8 @@ function openProductModal(product) {
 
     const checkbox = label.querySelector("input");
     checkbox.addEventListener("change", () => {
-      if (checkbox.checked) {
-        selectedModalExtras.add(extra.id);
-      } else {
-        selectedModalExtras.delete(extra.id);
-      }
+      if (checkbox.checked) selectedModalExtras.add(extra.id);
+      else selectedModalExtras.delete(extra.id);
       updateModalTotals();
     });
 
@@ -818,7 +802,6 @@ function openProductModal(product) {
 
   updateModalTotals();
 
-  // Show Modal
   modal.classList.remove("pointer-events-none", "opacity-0");
   modal.classList.add("opacity-100");
   modal.querySelector(".transform").classList.remove("scale-95");
@@ -839,7 +822,7 @@ function updateModalTotals() {
   document.getElementById("modal-price").innerText = formatMoney(totalPrice);
 }
 
-// CART SYSTEM & WHATSAPP
+// CART & WHATSAPP
 function setupCartDrawer() {
   const cartBtn = document.getElementById("cart-btn");
   const cartCloseBtn = document.getElementById("cart-close-btn");
@@ -858,21 +841,18 @@ function setupCartDrawer() {
     setTimeout(() => {
       cartDrawer.classList.add("pointer-events-none", "opacity-0");
       cartDrawer.classList.remove("opacity-100");
-    }, 300);
+    }, 200);
   }
 
   cartBtn.addEventListener("click", openCart);
   cartCloseBtn.addEventListener("click", closeCart);
   cartBackdrop.addEventListener("click", closeCart);
-
   whatsappSubmitBtn.addEventListener("click", sendWhatsAppOrder);
 }
 
 function addToCart(name, unitPrice, img, extras = [], qty = 1) {
   const extrasCost = extras.reduce((sum, e) => sum + e.price, 0);
   const itemTotalUnitPrice = unitPrice + extrasCost;
-
-  // Create unique key for item + combination of extras
   const extrasKey = extras.map(e => e.name).sort().join(", ");
   const cartItemKey = `${name} | ${extrasKey}`;
 
@@ -892,7 +872,7 @@ function addToCart(name, unitPrice, img, extras = [], qty = 1) {
   }
 
   updateCartUI();
-  showToast(`🔥 ¡${name} AGREGADO AL PEDIDO!`);
+  showToast(`🔥 ¡${name} AGREGADO!`);
 }
 
 function updateCartUI() {
@@ -929,7 +909,7 @@ function updateCartUI() {
     row.innerHTML = `
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-3">
-          <img src="${item.img}" alt="${item.name}" class="w-14 h-14 object-cover rounded">
+          <img src="${item.img}" alt="${item.name}" loading="lazy" class="w-14 h-14 object-cover rounded">
           <div>
             <h4 class="font-heading text-white text-xl uppercase leading-none">${item.name}</h4>
             ${extrasText}
@@ -948,15 +928,11 @@ function updateCartUI() {
     container.appendChild(row);
   });
 
-  // Quantity Modifiers
   container.querySelectorAll(".btn-minus").forEach(btn => {
     btn.addEventListener("click", () => {
       const idx = parseInt(btn.dataset.index);
-      if (cart[idx].quantity > 1) {
-        cart[idx].quantity--;
-      } else {
-        cart.splice(idx, 1);
-      }
+      if (cart[idx].quantity > 1) cart[idx].quantity--;
+      else cart.splice(idx, 1);
       updateCartUI();
     });
   });
@@ -970,7 +946,6 @@ function updateCartUI() {
   });
 }
 
-// FORMAT WHATSAPP MESSAGE
 function sendWhatsAppOrder() {
   if (cart.length === 0) {
     alert("Tu carrito está vacío. Agrega algún producto para pedir por WhatsApp.");
@@ -997,24 +972,20 @@ function sendWhatsAppOrder() {
 
   const encoded = encodeURIComponent(text);
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
-
   window.open(whatsappUrl, "_blank");
 }
 
-// MOBILE NAV TOGGLE
 function setupMobileNav() {
   const menuBtn = document.getElementById("mobile-menu-btn");
   const nav = document.getElementById("mobile-nav");
   if (!menuBtn || !nav) return;
 
   menuBtn.addEventListener("click", () => nav.classList.toggle("hidden"));
-
   nav.querySelectorAll(".mobile-link").forEach(link => {
     link.addEventListener("click", () => nav.classList.add("hidden"));
   });
 }
 
-// TOAST NOTIFICATION
 function showToast(msg) {
   const toast = document.getElementById("toast");
   if (!toast) return;
@@ -1026,5 +997,5 @@ function showToast(msg) {
   setTimeout(() => {
     toast.classList.add("translate-y-24", "opacity-0");
     toast.classList.remove("translate-y-0", "opacity-100");
-  }, 2500);
+  }, 2000);
 }
