@@ -683,6 +683,7 @@ function setupProductModal() {
 
   function closeModal() {
     if (!modal) return;
+    document.body.style.overflow = "";
     modal.classList.add("opacity-0");
     modal.classList.remove("opacity-100");
     if (modalPanel) {
@@ -769,6 +770,7 @@ function openProductModal(product) {
 
   updateModalTotals();
 
+  document.body.style.overflow = "hidden";
   modal.classList.remove("hidden");
   setTimeout(() => {
     modal.classList.remove("opacity-0");
@@ -808,6 +810,7 @@ function setupCartDrawer() {
   function openCart() {
     if (!cartDrawer) return;
     updateCartUI();
+    document.body.style.overflow = "hidden";
     cartDrawer.classList.remove("hidden");
     setTimeout(() => {
       cartDrawer.classList.remove("opacity-0");
@@ -821,6 +824,7 @@ function setupCartDrawer() {
 
   function closeCart() {
     if (!cartDrawer) return;
+    document.body.style.overflow = "";
     cartDrawer.classList.add("opacity-0");
     cartDrawer.classList.remove("opacity-100");
     if (cartPanel) {
