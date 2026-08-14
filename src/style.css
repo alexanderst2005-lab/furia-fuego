@@ -15,20 +15,12 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
-  -webkit-text-size-adjust: 100%;
 }
 
 body {
   background-color: var(--bg-black);
   color: #ffffff;
   font-family: var(--font-body);
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-}
-
-/* iOS Touch Optimization */
-a, button, input, label, select, textarea {
-  touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -60,7 +52,6 @@ a, button, input, label, select, textarea {
   justify-content: center;
   overflow: hidden;
   user-select: none;
-  touch-action: manipulation;
 }
 
 .splash-logo-img {
@@ -101,7 +92,6 @@ a, button, input, label, select, textarea {
   box-shadow: 0 4px 15px rgba(255, 0, 51, 0.4);
   transition: transform 0.15s ease;
   cursor: pointer;
-  touch-action: manipulation;
 }
 
 .btn-furia:active {
@@ -115,7 +105,6 @@ a, button, input, label, select, textarea {
   border: 1px solid rgba(255, 255, 255, 0.3);
   transition: border-color 0.15s ease;
   cursor: pointer;
-  touch-action: manipulation;
 }
 
 /* Menu Filter Buttons */
@@ -126,7 +115,6 @@ a, button, input, label, select, textarea {
   color: #cccccc;
   transition: background 0.15s ease, color 0.15s ease;
   cursor: pointer;
-  touch-action: manipulation;
 }
 
 .menu-filter-btn:hover {
@@ -145,7 +133,6 @@ a, button, input, label, select, textarea {
   background: rgba(15, 15, 15, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: border-color 0.15s ease;
-  touch-action: manipulation;
 }
 
 .product-card:hover {

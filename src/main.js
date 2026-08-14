@@ -469,54 +469,38 @@ document.addEventListener("DOMContentLoaded", () => {
   setupMobileNav();
 });
 
-// INTRO SPLASH & ROCK-SOLID NAV SCROLLING ENGINE (OPTIMIZED FOR iOS SAFARI)
+// INTRO SPLASH & NAVIGATION ENGINE (CLEAN NATIVE TOUCH FOR IPHONE)
 function initIntroSplash() {
   const splash = document.getElementById("intro-splash");
   const btnEnter = document.getElementById("btn-enter");
 
-  function removeSplash() {
+  function unlock() {
     if (!splash) return;
-    splash.style.opacity = "0";
-    splash.style.pointerEvents = "none";
-    setTimeout(() => {
-      if (splash && splash.parentNode) {
-        splash.parentNode.removeChild(splash);
-      }
-    }, 150);
+    splash.style.display = "none";
   }
 
   if (btnEnter) {
-    // Both touchend and click for 0ms iPhone responsiveness
-    const handleEnter = (e) => {
-      e.preventDefault();
-      removeSplash();
-    };
-    btnEnter.addEventListener("touchend", handleEnter, { passive: false });
-    btnEnter.addEventListener("click", handleEnter);
+    btnEnter.addEventListener("click", unlock);
   }
 
-  // Exact Pixel Offset Scrolling for Navigation Links (.nav-scroll-btn)
+  // Smooth Navigation for .nav-scroll-btn
   document.querySelectorAll(".nav-scroll-btn").forEach(btn => {
-    function handleScrollClick(e) {
-      const href = btn.getAttribute("href");
+    btn.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
       if (!href || !href.startsWith("#") || href === "#") return;
 
       const targetEl = document.querySelector(href);
       if (targetEl) {
         e.preventDefault();
-        removeSplash();
+        unlock();
 
-        requestAnimationFrame(() => {
-          const targetY = targetEl.getBoundingClientRect().top + window.pageYOffset - 80;
-          window.scrollTo({
-            top: targetY,
-            behavior: "smooth"
-          });
+        const targetY = targetEl.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({
+          top: targetY,
+          behavior: "smooth"
         });
       }
-    }
-
-    btn.addEventListener("click", handleScrollClick);
+    });
   });
 }
 
