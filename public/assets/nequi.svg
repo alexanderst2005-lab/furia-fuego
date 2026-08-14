@@ -1,8 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 50" width="160" height="50">
-  <rect width="160" height="50" rx="8" fill="#1F0037"/>
-  <rect x="2" y="2" width="156" height="46" rx="6" fill="none" stroke="#FF007A" stroke-width="1.5"/>
-  <!-- Nequi N Symbol -->
-  <path d="M22 15h7v8.5l9-8.5h8v20h-7v-8.5l-9 8.5h-8V15z" fill="#FF007A"/>
-  <!-- Text -->
-  <text x="52" y="32" font-family="'Outfit', sans-serif" font-weight="900" font-size="22" fill="#FFFFFF" letter-spacing="1">nequi</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 55" width="160" height="55">
+  <rect width="160" height="55" rx="10" fill="#FFFFFF"/>
+  <rect x="1.5" y="1.5" width="157" height="52" rx="8.5" fill="none" stroke="#E2E8F0" stroke-width="1.5"/>
+  <g transform="translate(58, 12)">
+    <!-- Pink / Magenta Accent Square on Top Left of N -->
+    <rect x="0" y="2" width="9" height="9" rx="1.5" fill="#E6007E"/>
+    <!-- Bold Dark N Glyph -->
+    <path d="M 17 3 L 26 3 L 36 21 L 36 3 L 45 3 L 45 31 L 36 31 L 26 13 L 26 31 L 17 31 Z" fill="#1E0A2A"/>
+  </g>
 </svg>

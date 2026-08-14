@@ -1,10 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 50" width="160" height="50">
-  <rect width="160" height="50" rx="8" fill="#121212"/>
-  <rect x="2" y="2" width="156" height="46" rx="6" fill="none" stroke="#FDDA24" stroke-width="1.5"/>
-  <!-- Bancolombia Geometric Flag Symbol -->
-  <rect x="14" y="16" width="22" height="5" fill="#FDDA24"/>
-  <rect x="14" y="23" width="22" height="5" fill="#002C6C"/>
-  <rect x="14" y="30" width="22" height="5" fill="#E00000"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 55" width="160" height="55">
+  <rect width="160" height="55" rx="10" fill="#FFFFFF"/>
+  <rect x="1.5" y="1.5" width="157" height="52" rx="8.5" fill="none" stroke="#E2E8F0" stroke-width="1.5"/>
   <!-- Text -->
-  <text x="42" y="32" font-family="'Barlow Condensed', sans-serif" font-weight="900" font-size="17" fill="#FFFFFF" letter-spacing="0.5">Bancolombia</text>
+  <text x="12" y="35" font-family="'Outfit', 'Inter', sans-serif" font-weight="800" font-size="20" fill="#002B66" letter-spacing="-0.5">Bancolombia</text>
+  <!-- Flag Emblem on the Right -->
+  <g transform="translate(122, 12)">
+    <path d="M 0 4 L 18 0 L 22 6 L 4 10 Z" fill="#FDDA24"/>
+    <path d="M 3 10 L 21 6 L 25 12 L 7 16 Z" fill="#002C6C"/>
+    <path d="M 6 16 L 24 12 L 28 18 L 10 22 Z" fill="#E00000"/>
+  </g>
 </svg>
