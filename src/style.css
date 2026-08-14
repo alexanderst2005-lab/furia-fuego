@@ -12,15 +12,14 @@
   --font-body: 'Outfit', sans-serif;
 }
 
-/* Locked body when intro splash is active */
-html.splash-active,
+html {
+  scroll-behavior: smooth;
+}
+
+/* Locked body when splash is active */
 body.splash-active {
   overflow: hidden !important;
-  height: 100dvh !important;
-  width: 100vw !important;
-  position: fixed !important;
   touch-action: none !important;
-  overscroll-behavior: none !important;
 }
 
 body {
@@ -44,10 +43,13 @@ body {
   font-family: var(--font-body);
 }
 
-/* Splash Locked Screen Styles */
+/* Splash Locked Screen Overlay */
 #intro-splash {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100vw;
   height: 100dvh;
   z-index: 9999;

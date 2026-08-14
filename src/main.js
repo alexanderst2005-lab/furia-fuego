@@ -470,40 +470,48 @@ document.addEventListener("DOMContentLoaded", () => {
   setupMobileNav();
 });
 
-// INTRO SPLASH HANDLER - VIEWPORT LOCKED & ULTRA LIGHTWEIGHT
+// INTRO SPLASH & NAVIGATION HANDLER
 function initIntroSplash() {
   const splash = document.getElementById("intro-splash");
   const btnEnter = document.getElementById("btn-enter");
-  const header = document.getElementById("main-header");
-  const content = document.getElementById("main-content");
-  const footer = document.getElementById("main-footer");
 
   if (!btnEnter || !splash) return;
 
-  function blockScroll(e) {
+  function blockTouch(e) {
     e.preventDefault();
   }
 
-  window.addEventListener("touchmove", blockScroll, { passive: false });
-  window.addEventListener("wheel", blockScroll, { passive: false });
+  // Lock touch scrolling on splash screen
+  splash.addEventListener("touchmove", blockTouch, { passive: false });
 
   btnEnter.addEventListener("click", () => {
-    splash.style.transition = "opacity 0.4s ease, transform 0.4s ease";
+    splash.style.transition = "opacity 0.35s ease, transform 0.35s ease";
     splash.style.opacity = "0";
     splash.style.transform = "scale(1.05)";
 
     setTimeout(() => {
       splash.style.display = "none";
-      document.documentElement.classList.remove("splash-active");
       document.body.classList.remove("splash-active");
+      splash.removeEventListener("touchmove", blockTouch);
+    }, 350);
+  });
 
-      window.removeEventListener("touchmove", blockScroll);
-      window.removeEventListener("wheel", blockScroll);
-
-      if (header) header.classList.remove("hidden");
-      if (content) content.classList.remove("hidden");
-      if (footer) footer.classList.remove("hidden");
-    }, 400);
+  // Setup fail-safe smooth scrolling for all internal hash links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+      const targetId = this.getAttribute("href");
+      if (targetId === "#") return;
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        // If splash is active, unlock it immediately
+        if (document.body.classList.contains("splash-active")) {
+          splash.style.display = "none";
+          document.body.classList.remove("splash-active");
+        }
+        targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
   });
 }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="splash-active">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -57,9 +57,9 @@
   <!-- Smoke Noise Texture Overlay -->
   <div class="smoke-overlay pointer-events-none fixed inset-0 z-0"></div>
 
-  <!-- PANTALLA DE ENTRADA COMPLETAMENTE CERRADA (100% VIEWPORT LOCKED) -->
-  <div id="intro-splash">
-    <div class="relative z-10 flex flex-col items-center justify-center text-center p-6 max-w-xl w-full">
+  <!-- PANTALLA DE ENTRADA COMPLETAMENTE CERRADA -->
+  <div id="intro-splash" class="fixed inset-0 z-50 bg-black flex flex-col items-center justify-center p-6 text-center">
+    <div class="relative z-10 flex flex-col items-center justify-center max-w-xl w-full">
       
       <!-- Brand AI Logo SVG -->
       <div class="splash-logo-wrap mb-6 flex justify-center w-full">
@@ -79,7 +79,7 @@
   </div>
 
   <!-- HEADER / NAVBAR -->
-  <header id="main-header" class="hidden fixed top-0 left-0 right-0 z-40 bg-black/90 backdrop-blur-md border-b border-red/30 transition-all duration-300">
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-40 bg-black/90 backdrop-blur-md border-b border-red/30 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- Brand Logo in Header -->
@@ -89,10 +89,10 @@
 
       <!-- Navigation Links -->
       <nav class="hidden md:flex items-center gap-8 font-condensed text-lg uppercase tracking-wider">
-        <a href="#menu" class="hover:text-red transition-colors flex items-center gap-1">🍔 Menú Completo</a>
-        <a href="#combos" class="hover:text-yellow transition-colors flex items-center gap-1">💥 Combos</a>
-        <a href="#estrella" class="hover:text-red transition-colors flex items-center gap-1">⭐ Furia Suprema</a>
-        <a href="#extras-section" class="hover:text-yellow transition-colors flex items-center gap-1">🧀 Adicionales</a>
+        <a href="#menu" class="hover:text-red transition-colors flex items-center gap-1 nav-link">🍔 Menú Completo</a>
+        <a href="#combos" class="hover:text-yellow transition-colors flex items-center gap-1 nav-link">💥 Combos</a>
+        <a href="#estrella" class="hover:text-red transition-colors flex items-center gap-1 nav-link">⭐ Furia Suprema</a>
+        <a href="#extras-section" class="hover:text-yellow transition-colors flex items-center gap-1 nav-link">🧀 Adicionales</a>
       </nav>
 
       <!-- Cart Trigger Button -->
@@ -120,26 +120,26 @@
   </header>
 
   <!-- MAIN APP CONTENT -->
-  <main id="main-content" class="hidden relative z-10 pt-20">
+  <main id="main-content" class="relative z-10 pt-20">
 
     <!-- HERO SECTION -->
     <section class="relative min-h-[85vh] flex items-center justify-center py-16 px-4 overflow-hidden border-b border-red/20">
       
       <!-- Background Ambient Glow -->
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-glow rounded-full blur-[140px] pointer-events-none opacity-40"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-red-glow rounded-full blur-[100px] pointer-events-none opacity-30"></div>
 
       <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
         
         <!-- Left Text Column -->
         <div class="space-y-6 text-center lg:text-left">
           
-          <div class="inline-flex items-center gap-2 bg-red/10 border border-red/40 px-4 py-1.5 rounded-full text-red text-sm font-condensed font-bold tracking-widest uppercase mb-2 animate-bounce-slow">
+          <div class="inline-flex items-center gap-2 bg-red/10 border border-red/40 px-4 py-1.5 rounded-full text-red text-sm font-condensed font-bold tracking-widest uppercase mb-2">
             <span>🔥 MENÚ OFICIAL FURIA & FUEGO</span>
           </div>
 
           <h1 class="text-6xl sm:text-7xl lg:text-8xl font-heading leading-none uppercase tracking-wider text-white">
             EL HAMBRE NO SE COMBATE. <br>
-            <span class="text-gradient drop-shadow-flame">SE DESATA.</span>
+            <span class="text-gradient">SE DESATA.</span>
           </h1>
 
           <p class="text-xl md:text-2xl font-body text-gray-300 max-w-xl font-light">
@@ -147,10 +147,10 @@
           </p>
 
           <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-            <a href="#menu" class="btn-furia w-full sm:w-auto text-xl py-4 px-8 rounded-none font-heading tracking-wider flex items-center justify-center gap-3 group">
+            <a href="#menu" class="btn-furia w-full sm:w-auto text-xl py-4 px-8 rounded-none font-heading tracking-wider flex items-center justify-center gap-3 group nav-link">
               <span>🔥 EXPLORAR MENÚ</span>
             </a>
-            <a href="#combos" class="btn-outline-furia w-full sm:w-auto text-xl py-4 px-8 rounded-none font-heading tracking-wider flex items-center justify-center gap-3">
+            <a href="#combos" class="btn-outline-furia w-full sm:w-auto text-xl py-4 px-8 rounded-none font-heading tracking-wider flex items-center justify-center gap-3 nav-link">
               <span>COMBOS DESTRUCCIÓN</span> 💥
             </a>
           </div>
@@ -178,7 +178,7 @@
             <div class="absolute -top-4 -left-4 bg-yellow text-black font-heading px-4 py-1 text-lg tracking-widest shadow-lg rotate-[-6deg] z-20">
               🔥 TOP BEST SELLER
             </div>
-            <img src="/assets/la-furiosa.png" alt="La Furiosa Burger" class="w-full h-auto object-contain rounded-2xl border border-red/30 shadow-2xl transition-transform duration-500 group-hover:scale-105 group-hover:rotate-1">
+            <img src="/assets/la-furiosa.png" alt="La Furiosa Burger" class="w-full h-auto object-contain rounded-2xl border border-red/30 shadow-2xl transition-transform duration-300 group-hover:scale-105">
           </div>
         </div>
       </div>
@@ -257,9 +257,6 @@
 
     <!-- SECCIÓN: PRODUCTO ESTRELLA (LA FURIA SUPREMA) -->
     <section id="estrella" class="py-24 px-4 bg-black relative overflow-hidden border-b border-red/30">
-      
-      <div class="absolute inset-0 bg-red-glow blur-[180px] opacity-30 pointer-events-none"></div>
-
       <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
         
         <div class="order-2 lg:order-1 relative">
@@ -300,43 +297,31 @@
 
 
   <!-- FOOTER -->
-  <footer id="main-footer" class="hidden bg-black border-t border-white/10 py-12 px-4 text-gray-400 text-sm">
+  <footer id="main-footer" class="bg-black border-t border-white/10 py-12 px-4 text-gray-400 text-sm">
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-      
-      <!-- Brand column -->
       <div class="space-y-4">
         <div class="text-3xl font-heading text-white flex items-center gap-2">
           <img src="/assets/logo.svg" alt="FURIA & FUEGO" class="h-10 w-auto">
         </div>
-        <p class="text-xs text-gray-400">
-          “EL HAMBRE NO SE COMBATE. SE DESATA.”
-        </p>
-        <div class="flex gap-4 text-xl text-white">
-          <a href="#" class="hover:text-red">📱 TikTok</a>
-          <a href="#" class="hover:text-yellow">📷 Instagram</a>
-        </div>
+        <p class="text-xs text-gray-400">“EL HAMBRE NO SE COMBATE. SE DESATA.”</p>
       </div>
 
-      <!-- Horarios -->
       <div>
         <h4 class="font-condensed text-white text-lg font-bold uppercase mb-3 text-yellow">HORARIOS FURIA</h4>
         <p>Lunes a Jueves: 4:00 PM - 11:30 PM</p>
         <p>Viernes a Domingo: 4:00 PM - 2:00 AM</p>
       </div>
 
-      <!-- Ubicación / Delivery -->
       <div>
         <h4 class="font-condensed text-white text-lg font-bold uppercase mb-3 text-red">UBICACIÓN & DELIVERY</h4>
         <p>Calle 45 # 18-24, Zona Urbana</p>
         <p>Delivery Express: 30 Minutos</p>
       </div>
 
-      <!-- Métodos de pago -->
       <div>
         <h4 class="font-condensed text-white text-lg font-bold uppercase mb-3 text-white">MÉTODOS DE PAGO</h4>
         <p>💳 Nequi / Daviplata</p>
         <p>💵 Efectivo a Domicilio</p>
-        <p>💳 Tarjeta Débito / Crédito</p>
       </div>
     </div>
 
@@ -347,9 +332,9 @@
 
 
   <!-- MODAL DE PRODUCTO DETALLADO -->
-  <div id="product-modal" class="fixed inset-0 z-50 pointer-events-none opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+  <div id="product-modal" class="fixed inset-0 z-50 pointer-events-none opacity-0 transition-opacity duration-200 flex items-center justify-center p-4">
     <div id="modal-backdrop" class="absolute inset-0 bg-black/85 backdrop-blur-md"></div>
-    <div class="relative bg-dark-secondary border border-red/40 rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 shadow-2xl z-10 pointer-events-auto transform scale-95 transition-transform duration-300">
+    <div class="relative bg-dark-secondary border border-red/40 rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 shadow-2xl z-10 pointer-events-auto transform scale-95 transition-transform duration-200">
       
       <button id="modal-close-btn" class="absolute top-4 right-4 text-gray-400 hover:text-white text-3xl font-bold z-20 cursor-pointer">&times;</button>
 
@@ -400,9 +385,9 @@
 
 
   <!-- SLIDE-OVER CARRO DE COMPRAS POR WHATSAPP -->
-  <div id="cart-drawer" class="fixed inset-0 z-50 pointer-events-none opacity-0 transition-opacity duration-300">
+  <div id="cart-drawer" class="fixed inset-0 z-50 pointer-events-none opacity-0 transition-opacity duration-200">
     <div id="cart-backdrop" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
-    <div class="absolute top-0 right-0 bottom-0 w-full max-w-md bg-black border-l border-red/40 p-6 flex flex-col justify-between shadow-2xl transform translate-x-full transition-transform duration-300 pointer-events-auto">
+    <div class="absolute top-0 right-0 bottom-0 w-full max-w-md bg-black border-l border-red/40 p-6 flex flex-col justify-between shadow-2xl transform translate-x-full transition-transform duration-200 pointer-events-auto">
       <div>
         <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
           <h3 class="text-3xl font-heading text-white uppercase flex items-center gap-2">
@@ -423,16 +408,12 @@
         <button id="whatsapp-submit-btn" class="btn-furia w-full text-xl py-4 font-heading tracking-wider flex items-center justify-center gap-3 cursor-pointer">
           <span>PEDIR POR WHATSAPP</span> 💬
         </button>
-
-        <p class="text-xs text-center text-gray-500">
-          Se enviará tu pedido detallado a nuestro WhatsApp oficial para confirmación inmediata.
-        </p>
       </div>
     </div>
   </div>
 
   <!-- Toast Notification -->
-  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-red text-white font-condensed font-bold px-6 py-3 shadow-2xl border border-yellow transform translate-y-24 opacity-0 transition-all duration-300">
+  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-red text-white font-condensed font-bold px-6 py-3 shadow-2xl border border-yellow transform translate-y-24 opacity-0 transition-all duration-200 pointer-events-none">
     🔥 ¡AGREGADO A TU CARRO!
   </div>
 
