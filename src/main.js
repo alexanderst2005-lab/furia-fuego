@@ -251,7 +251,7 @@ const products = [
     desc: "Salchicha premium, queso cheddar, carne desmechada, tocineta, papas y salsa Furia.",
     price: 23900,
     tag: "👑 PREMIUM",
-    img: "/assets/hot-dog-demencial.svg",
+    img: "/assets/hot-dog-demencial.png",
     category: "dogs",
     ingredients: ["Salchicha Jumbo", "Queso Cheddar", "Carne Desmechada", "Tocineta", "Papas Crunch", "Salsa Furia"]
   },
